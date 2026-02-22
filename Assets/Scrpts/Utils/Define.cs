@@ -19,7 +19,8 @@ public class Define
 
     public enum layer
     {
-
+        Ground,
+        Monster,
     }
 
     public enum Scene
@@ -46,6 +47,6 @@ public class Define
 
     public enum CameraMode
     {
-
+        QuarterView,
     }
 }

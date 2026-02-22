@@ -2,12 +2,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-
+// 오브젝트 풀링 시스템
 public class PoolManager 
 {
     #region Pool
     class Pool
     {
+        // 개별 보관함 (_poolStack => 보관함)
         public GameObject Original { get; private set; }
         public Transform Root { get; set; }
 
@@ -26,6 +27,7 @@ public class PoolManager
             }
         }
 
+        // 오브젝트 생성
         Poolable Create()
         {
             GameObject go = Object.Instantiate<GameObject>(Original);
@@ -33,6 +35,7 @@ public class PoolManager
             return go.GetOrAddComponent<Poolable>();
         }
 
+        // 보관함에 사용한 오브젝트 저장
         public void Push(Poolable poolable)
         {
             if (poolable == null)
@@ -45,6 +48,7 @@ public class PoolManager
             _poolStack.Push(poolable);
         }
 
+        // 보관함에서 오브젝트 꺼내 씀
         public Poolable Pop(Transform parent)
         {
             Poolable poolable;
@@ -66,6 +70,7 @@ public class PoolManager
     }
     #endregion
 
+    // 거대 창고 (몬스터, 장비 등)
     Dictionary<string, Pool> _pool = new Dictionary<string, Pool>();
     Transform _root;
 
@@ -78,6 +83,7 @@ public class PoolManager
         }
     }
 
+    // 하나의 pool 생성
     public void CreatePool(GameObject original, int count = 5)
     {
         Pool pool = new Pool();
@@ -87,6 +93,7 @@ public class PoolManager
         _pool.Add(original.name, pool);
     }
 
+    // 거대 창고에서 pool 하나 넣음
     public void Push(Poolable poolable)
     {
         string name = poolable.gameObject.name;
@@ -99,6 +106,7 @@ public class PoolManager
         _pool[name].Push(poolable);
     }
 
+    // pool 하나를 뺌
     public Poolable Pop(GameObject original, Transform parent = null)
     {
         if (_pool.ContainsKey(original.name) == false)
