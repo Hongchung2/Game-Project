@@ -1,14 +1,34 @@
+using System;
+using System.Collections.Generic;
+using UnityEditor.AdaptivePerformance.Editor.Metadata;
 using UnityEngine;
 
-public class DataContents : MonoBehaviour
+namespace Data
 {
-    void Start()
-    {
-        
-    }
+    #region Stat
+        [Serializable]
+        public class Stat
+        {
+            public int level;
+            public int maxHp;
+            public int attack;
+            public int totalExp;
+        }
 
-    void Update()
-    {
-        
-    }
+        [Serializable]
+        public class StatData : ILoader<int, Stat>
+        {
+            public List<Stat> stats = new List<Stat>();
+
+            public Dictionary<int, Stat> MakeDict()
+            {
+                Dictionary<int, Stat> dict = new Dictionary<int, Stat>();
+                foreach (Stat stat in stats)
+                    dict.Add(stat.level, stat);
+                return dict;
+            }
+        }
+
+    
+    #endregion
 }
