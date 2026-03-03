@@ -4,12 +4,17 @@ public class PlayerController : BaseController
 {
     PlayerStat _stat;
     Vector3 _moveDir;
+    public Joystick joystick;
+    public float speed = 5f;
+    Animator _anim;
+
 
     public override void Init()
     {
         WorldObjectType = Define.WorldObject.Player;
         _stat = gameObject.GetComponent<PlayerStat>();
         State = Define.State.Idle;
+        // _anim = GetComponent<Animator>();
     }
 
     protected override void UpdateIdle()
@@ -31,8 +36,7 @@ public class PlayerController : BaseController
             return;
         }
 
-        float moveSpeed = 7.5f;
-        transform.position += _moveDir * moveSpeed * Time.deltaTime;
+        transform.position += _moveDir * speed * Time.deltaTime;
 
         SpriteRenderer sp = GetComponent<SpriteRenderer>();
         if (sp != null)
@@ -44,8 +48,22 @@ public class PlayerController : BaseController
 
     void GetMoveInput()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        
+        float h = 0;
+        float v = 0;
+
+        if (joystick != null && (joystick.Horizontal != 0 || joystick.Vertical != 0))
+        {
+            h = joystick.Horizontal;
+            v = joystick.Vertical;
+        }
+
+        else
+        {
+            h = Input.GetAxisRaw("Horizontal");
+            v = Input.GetAxisRaw("Vertical");
+        }
+
         _moveDir = new Vector3(h, v, 0).normalized;
     }
 
