@@ -1,7 +1,11 @@
 using UnityEngine;
 
 public class Util
+<<<<<<< Updated upstream
 {
+=======
+{ 
+>>>>>>> Stashed changes
     public static T GetOrAddComponent<T>(GameObject go) where T : UnityEngine.Component
     {
         T component = go.GetComponent<T>();
@@ -9,6 +13,10 @@ public class Util
             component = go.AddComponent<T>();
         return component;
     }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     public static GameObject FindChild(GameObject go, string name = null, bool recursive = false)
     {
         Transform transform = FindChild<Transform>(go, name, recursive);
@@ -16,6 +24,7 @@ public class Util
         {
             return transform.gameObject;
         }
+<<<<<<< Updated upstream
 
         return null;
 
@@ -35,13 +44,35 @@ public class Util
                 if (string.IsNullOrEmpty(name) || transform.name == name) // 현재 이름이 비어있거나, 내가 찾는 그 이름이랑 똑같다면
                 {
                     T component = transform.GetComponent<T>(); // 그 자식한테서 내가 원하는 컴포넌트를 가져옴
+=======
+        return null;
+    }
+    public static T FindChild<T>(GameObject go, string name = null, bool recursive = false) where T :UnityEngine.Object
+    {
+        if (go == null)
+            return null;
+
+        if (recursive == false)
+        {
+            for (int i = 0; i < go.transform.childCount; i++)
+            {
+                Transform transform = go.transform.GetChild(i);
+
+                if (string.IsNullOrEmpty(name) || transform.name == name)
+                {
+                    T component = transform.GetComponent<T>();
+>>>>>>> Stashed changes
                     if (component != null)
                         return component;
                 }
             }
         }
 
+<<<<<<< Updated upstream
         else // 만약 깊숙히 숨어 있다면 자식의 자식까지 찾아봄
+=======
+        else
+>>>>>>> Stashed changes
         {
             foreach (T component in go.GetComponentsInChildren<T>())
             {
@@ -49,7 +80,10 @@ public class Util
                     return component;
             }
         }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         return null;
     }
 }
