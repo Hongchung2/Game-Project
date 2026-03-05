@@ -98,8 +98,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -110,8 +114,7 @@
               "RelativeToolTip": "Assets\\Scrpts\\Controllers\\CameraController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:06:14.393Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T06:06:14.393Z"
             },
             {
               "$type": "Document",
@@ -121,7 +124,7 @@
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\PlayerController.cs",
               "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scrpts\\Controllers\\PlayerController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-27T06:06:27.088Z",
               "EditorCaption": ""
@@ -148,8 +151,7 @@
               "RelativeToolTip": "Assets\\Scrpts\\Controllers\\BaseController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:05:56.751Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T06:05:56.751Z"
             },
             {
               "$type": "Document",
@@ -197,12 +199,7 @@
               "RelativeToolTip": "Assets\\Scrpts\\Managers\\Managers.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAywA8AAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:08:15.863Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "WhenOpened": "2026-02-27T06:08:15.863Z"
             },
             {
               "$type": "Document",

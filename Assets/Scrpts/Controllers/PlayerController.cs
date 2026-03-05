@@ -8,12 +8,22 @@ public class PlayerController : BaseController
     public float speed = 5f;
     Animator _anim;
 
+    //ÄáÄá ¶Ù´Â ¸ð¼Ç
+    float _bounceTime = 0;
+    public float bounceSpeed = 20f;
+    public float bounceHeight = 0.2f;
+
+    [SerializeField]
+    SpriteRenderer _spriteRenderer;
+
 
     public override void Init()
     {
         WorldObjectType = Define.WorldObject.Player;
         _stat = gameObject.GetComponent<PlayerStat>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         State = Define.State.Idle;
+       
         // _anim = GetComponent<Animator>();
     }
 
@@ -22,9 +32,11 @@ public class PlayerController : BaseController
         GetMoveInput();
         if (_moveDir.magnitude > 0)
         {
+
             State = Define.State.Moving;
         }
     }
+    
 
     protected override void UpdateMoving()
     {
@@ -33,17 +45,32 @@ public class PlayerController : BaseController
         if (_moveDir.magnitude == 0)
         {
             State = Define.State.Idle;
+            if (_spriteRenderer != null)
+                _spriteRenderer.transform.localPosition = Vector3.zero;
             return;
         }
 
-        transform.position += _moveDir * speed * Time.deltaTime;
+        
 
-        SpriteRenderer sp = GetComponent<SpriteRenderer>();
-        if (sp != null)
+        transform.position += _moveDir * speed * Time.deltaTime;
+        State = Define.State.Moving;
+
+        _bounceTime += Time.deltaTime * bounceSpeed;
+        float yOffest = Mathf.Abs(Mathf.Sin(_bounceTime)) * bounceHeight;
+
+        if (_spriteRenderer != null)
         {
-            if (_moveDir.x > 0) sp.flipX = false;
-            else if (_moveDir.x < 0) sp.flipX = true;
+            float currentX = _spriteRenderer.transform.localPosition.x;
+            _spriteRenderer.transform.localPosition = new Vector3(currentX, yOffest, 0);
+            
+            if (_moveDir.x != 0)
+            {
+                float xTargetScale = (_moveDir.x < 0) ? -1f : 1f;
+                _spriteRenderer.transform.parent.localScale = new Vector3(xTargetScale, 1f, 1f);
+            }
         }
+
+
     }
 
     void GetMoveInput()
