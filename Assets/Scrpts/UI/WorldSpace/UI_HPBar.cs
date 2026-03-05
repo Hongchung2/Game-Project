@@ -1,9 +1,9 @@
-/*using System.ComponentModel;
+using System.ComponentModel;
 using UnityEngine.UI;
 using UnityEngine;
 using Unity.VisualScripting;
 
-public class UI_HPBar : UI_Base
+public class UI_HPBar : UI_Scene
 {
     enum GameObjects
     {
@@ -15,7 +15,7 @@ public class UI_HPBar : UI_Base
 
     public override void Init()
     {
-        Bind<GameObject>(typeof(GameObject));
+        Bind<GameObject>(typeof(GameObjects));
 
         if (_stat == null)
         {
@@ -40,4 +40,3 @@ public class UI_HPBar : UI_Base
             slider.value = ratio;
     }
 }
-*/
