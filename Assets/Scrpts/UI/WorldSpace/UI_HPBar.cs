@@ -1,44 +1,35 @@
 using System.ComponentModel;
 using UnityEngine.UI;
 using UnityEngine;
-<<<<<<< Updated upstream
 using Unity.VisualScripting;
 
+
+
 public class UI_HPBar : UI_Scene
-=======
-using UnityEngine.UI;
-
-
-public class UI_HPBar : UI_Base
->>>>>>> Stashed changes
 {
     enum GameObjects
     {
         HPBar
-<<<<<<< Updated upstream
-=======
-    }
-
-    Stat _stat;
-    public override void Init()
-    {
-        Bind<GameObject>(typeof(GameObjects));
-        _stat = transform.parent.GetComponent<Stat>();
->>>>>>> Stashed changes
     }
 
     [SerializeField]
     Stat _stat;
-
     public override void Init()
     {
         Bind<GameObject>(typeof(GameObjects));
+        
+        if (transform.parent != null)
+        {
+            _stat = transform.parent.GetComponent<Stat>();
+        }
 
         if (_stat == null)
         {
             GameObject player = GameObject.FindWithTag("Player");
             if (player != null)
+            {
                 _stat = player.GetComponent<Stat>();
+            }
         }
     }
     void Update()
