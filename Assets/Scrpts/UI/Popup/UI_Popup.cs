@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class UI_Popup : MonoBehaviour
+public class UI_Popup : UI_Base
 {
-    void Start()
+    public override void Init()
     {
-        
+        Managers.UI.SetCanvas(gameObject, true);
     }
 
-    void Update()
+    public virtual void ClosePopup()
     {
-        
+        Managers.UI.ClosePopupUI(this);
     }
 }

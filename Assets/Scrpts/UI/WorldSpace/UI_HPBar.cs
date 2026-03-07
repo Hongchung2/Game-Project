@@ -1,13 +1,30 @@
-/*using System.ComponentModel;
+using System.ComponentModel;
 using UnityEngine.UI;
 using UnityEngine;
+<<<<<<< Updated upstream
 using Unity.VisualScripting;
 
+public class UI_HPBar : UI_Scene
+=======
+using UnityEngine.UI;
+
+
 public class UI_HPBar : UI_Base
+>>>>>>> Stashed changes
 {
     enum GameObjects
     {
         HPBar
+<<<<<<< Updated upstream
+=======
+    }
+
+    Stat _stat;
+    public override void Init()
+    {
+        Bind<GameObject>(typeof(GameObjects));
+        _stat = transform.parent.GetComponent<Stat>();
+>>>>>>> Stashed changes
     }
 
     [SerializeField]
@@ -15,7 +32,7 @@ public class UI_HPBar : UI_Base
 
     public override void Init()
     {
-        Bind<GameObject>(typeof(GameObject));
+        Bind<GameObject>(typeof(GameObjects));
 
         if (_stat == null)
         {
@@ -40,4 +57,3 @@ public class UI_HPBar : UI_Base
             slider.value = ratio;
     }
 }
-*/
