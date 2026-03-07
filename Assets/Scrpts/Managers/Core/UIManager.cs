@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEngine.UI;
 
 
 public class UIManager
@@ -19,6 +20,10 @@ public class UIManager
             if (root == null)
             {
                 root = new GameObject(name: "@UI_Root");
+                Canvas cv = root.AddComponent<Canvas>();
+                cv.renderMode = RenderMode.ScreenSpaceOverlay;
+                root.AddComponent<CanvasScaler>();
+                root.AddComponent<GraphicRaycaster>();
             }
             return root;
         }
@@ -100,6 +105,11 @@ public class UIManager
 
         go.transform.SetParent(Root.transform);
         return popup;
+    }
+
+    public T GetSceneUI<T>() where T : UI_Scene
+    {
+        return _sceneUI as T;
     }
 
     // 특정 팝업을 지정해서 닫음

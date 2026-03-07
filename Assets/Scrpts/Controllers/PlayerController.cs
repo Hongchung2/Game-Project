@@ -4,7 +4,7 @@ public class PlayerController : BaseController
 {
     PlayerStat _stat;
     Vector3 _moveDir;
-    public Joystick joystick;
+    
     public float speed = 5f;
     Animator _anim;
 
@@ -15,6 +15,8 @@ public class PlayerController : BaseController
 
     [SerializeField]
     SpriteRenderer _spriteRenderer;
+    [SerializeField]
+    Joystick _joystick;
 
 
     public override void Init()
@@ -45,12 +47,11 @@ public class PlayerController : BaseController
         if (_moveDir.magnitude == 0)
         {
             State = Define.State.Idle;
+
             if (_spriteRenderer != null)
                 _spriteRenderer.transform.localPosition = Vector3.zero;
             return;
         }
-
-        
 
         transform.position += _moveDir * speed * Time.deltaTime;
         State = Define.State.Moving;
@@ -75,17 +76,18 @@ public class PlayerController : BaseController
 
     void GetMoveInput()
     {
-        
         float h = 0;
         float v = 0;
 
-        if (joystick != null && (joystick.Horizontal != 0 || joystick.Vertical != 0))
+        // [수정] 수동으로 연결한 에셋 조이스틱 값 가져오기
+        if (_joystick != null)
         {
-            h = joystick.Horizontal;
-            v = joystick.Vertical;
+            h = _joystick.Horizontal;
+            v = _joystick.Vertical;
         }
 
-        else
+        // 조이스틱 입력이 없으면 키보드 체크
+        if (h == 0 && v == 0)
         {
             h = Input.GetAxisRaw("Horizontal");
             v = Input.GetAxisRaw("Vertical");
@@ -94,5 +96,5 @@ public class PlayerController : BaseController
         _moveDir = new Vector3(h, v, 0).normalized;
     }
 
-  
+
 }
