@@ -19,7 +19,7 @@ public class Stat : MonoBehaviour
 
     public int Level { get { return _level; } set { _level = value; } }
     public int Hp { get { return _hp; } set { _hp = value; } }
-    public int MaxHp { get { return MaxHp; } set { MaxHp = value; } }
+    public int MaxHp { get { return _maxhp; } set { _maxhp = value; } }
     public int Attack { get { return _attack; } set { _attack = value; } }
     public float AttackSpeed { get { return _attackSpeed; } set { _attackSpeed = value; } }
     public int Defense { get { return _defense; } set { _defense = value; } }

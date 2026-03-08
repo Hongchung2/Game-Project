@@ -7,7 +7,14 @@ public class GameManager
 
     HashSet<GameObject> _monsters = new HashSet<GameObject>();
 
-    public GameObject GetPlayer() { return _player; }
+    public GameObject GetPlayer() 
+    {
+        if (_player == null)
+        {
+            _player = GameObject.FindWithTag("Player");
+        }
+        return _player; 
+    }
 
     public GameObject Spawn(Define.WorldObject type, string path, Transform parent = null)
     {
