@@ -1,4 +1,4 @@
-using JetBrains.Annotations;
+/*using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -50,3 +50,4 @@ public class UI_Joystick : UI_Scene, IPointerDownHandler, IDragHandler, IPointer
         GetObject((int)GameObjects.JoystickCursor).transform.localPosition = Vector2.zero;
     }
 }
+*/

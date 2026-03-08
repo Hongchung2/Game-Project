@@ -15,12 +15,14 @@ public class PlayerController : BaseController
 
     [SerializeField]
     SpriteRenderer _spriteRenderer;
+
     [SerializeField]
     Joystick _joystick;
 
 
     public override void Init()
     {
+
         WorldObjectType = Define.WorldObject.Player;
         _stat = gameObject.GetComponent<PlayerStat>();
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
