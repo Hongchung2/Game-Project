@@ -14,6 +14,7 @@ public class Define
         Die,
         Moving,
         Idle,
+        Return,
         Skill
     }
 

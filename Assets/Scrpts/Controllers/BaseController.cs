@@ -32,6 +32,8 @@ public abstract class BaseController : MonoBehaviour
                     break;
                 case Define.State.Skill:
                     break;
+                case Define.State.Return:
+                    break;
             }
         }
     }
@@ -56,6 +58,9 @@ public abstract class BaseController : MonoBehaviour
             case Define.State.Skill:
                 UpdateSkill();
                 break;
+            case Define.State.Return:
+                UpdateReturn();
+                break;
         }
     }
 
@@ -64,4 +69,5 @@ public abstract class BaseController : MonoBehaviour
     protected virtual void UpdateMoving() { }
     protected virtual void UpdateIdle() { }
     protected virtual void UpdateSkill() { }
+    protected virtual void UpdateReturn() { }
 }

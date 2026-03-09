@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\assets\\scrpts\\controllers\\monstercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|c:\\users\\\uD64D\uC2B9\uD658\\documents\\github\\game-project\\assets\\scrpts\\controllers\\monstercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\controllers\\monstercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\assets\\scrpts\\contents\\stat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\contents\\stat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\assets\\scrpts\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\assets\\scrpts\\contents\\playerstat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\contents\\playerstat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\assets\\scrpts\\utils\\define.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\utils\\define.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\assets\\scrpts\\data\\data.contents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\data\\data.contents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\assets\\scrpts\\managers\\contents\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,28 +43,12 @@
       "RelativeMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\managers\\core\\scenemanagerex.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\assets\\scrpts\\contents\\stat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\contents\\stat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\assets\\scrpts\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\assets\\scrpts\\managers\\core\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\managers\\core\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\assets\\scrpts\\contents\\playerstat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\contents\\playerstat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\assets\\scrpts\\controllers\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\controllers\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\assets\\scrpts\\controllers\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\controllers\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\assets\\scrpts\\scenes\\gamescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -139,14 +143,6 @@
       "RelativeMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\ui\\subitem\\ui_inven_item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\assets\\scrpts\\data\\data.contents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\data\\data.contents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\assets\\scrpts\\utils\\define.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{21589D50-75A4-7BD5-9047-D39364578CED}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\utils\\define.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Resources\\Data\\StatData.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Resources\\Data\\StatData.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
@@ -158,8 +154,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Stat.cs",
+              "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Contents\\Stat.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrpts\\Contents\\Stat.cs",
+              "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Contents\\Stat.cs",
+              "RelativeToolTip": "Assets\\Scrpts\\Contents\\Stat.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAhwDgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T06:05:46.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BaseController.cs",
+              "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\BaseController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\BaseController.cs",
+              "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\BaseController.cs",
+              "RelativeToolTip": "Assets\\Scrpts\\Controllers\\BaseController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAYwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T06:05:56.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "InputManager.cs",
+              "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Core\\InputManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrpts\\Managers\\Core\\InputManager.cs",
+              "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Core\\InputManager.cs",
+              "RelativeToolTip": "Assets\\Scrpts\\Managers\\Core\\InputManager.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T06:07:12.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Data.Contents.cs",
+              "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Data\\Data.Contents.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrpts\\Data\\Data.Contents.cs",
+              "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Data\\Data.Contents.cs",
+              "RelativeToolTip": "Assets\\Scrpts\\Data\\Data.Contents.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T06:06:35.206Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -168,53 +215,14 @@
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\MonsterController.cs",
               "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\MonsterController.cs",
               "RelativeToolTip": "Assets\\Scrpts\\Controllers\\MonsterController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAYwBcAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-08T09:43:18.613Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DataManager.cs",
-              "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Core\\DataManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrpts\\Managers\\Core\\DataManager.cs",
-              "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Core\\DataManager.cs",
-              "RelativeToolTip": "Assets\\Scrpts\\Managers\\Core\\DataManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:07:04.773Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Managers.cs",
-              "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Managers.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrpts\\Managers\\Managers.cs",
-              "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Managers.cs",
-              "RelativeToolTip": "Assets\\Scrpts\\Managers\\Managers.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:08:15.863Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Contents\\GameManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrpts\\Managers\\Contents\\GameManager.cs",
-              "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Contents\\GameManager.cs",
-              "RelativeToolTip": "Assets\\Scrpts\\Managers\\Contents\\GameManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:06:55.321Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "SceneManagerEx.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Core\\SceneManagerEx.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Managers\\Core\\SceneManagerEx.cs",
@@ -222,51 +230,27 @@
               "RelativeToolTip": "Assets\\Scrpts\\Managers\\Core\\SceneManagerEx.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:08:09.33Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Stat.cs",
-              "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Contents\\Stat.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrpts\\Contents\\Stat.cs",
-              "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Contents\\Stat.cs",
-              "RelativeToolTip": "Assets\\Scrpts\\Contents\\Stat.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAAAA0AAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:05:46.833Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BaseController.cs",
-              "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\BaseController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\BaseController.cs",
-              "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\BaseController.cs",
-              "RelativeToolTip": "Assets\\Scrpts\\Controllers\\BaseController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAYwBcAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:05:56.751Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "InputManager.cs",
-              "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Core\\InputManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrpts\\Managers\\Core\\InputManager.cs",
-              "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Core\\InputManager.cs",
-              "RelativeToolTip": "Assets\\Scrpts\\Managers\\Core\\InputManager.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:07:12.568Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T06:08:09.33Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "DataManager.cs",
+              "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Core\\DataManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrpts\\Managers\\Core\\DataManager.cs",
+              "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Core\\DataManager.cs",
+              "RelativeToolTip": "Assets\\Scrpts\\Managers\\Core\\DataManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T06:07:04.773Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "PlayerStat.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Contents\\PlayerStat.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Contents\\PlayerStat.cs",
@@ -279,7 +263,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "CameraController.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\CameraController.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\CameraController.cs",
@@ -287,25 +271,48 @@
               "RelativeToolTip": "Assets\\Scrpts\\Controllers\\CameraController.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAYwBMAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:06:14.393Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T06:06:14.393Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "PlayerController.cs",
-              "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\PlayerController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\PlayerController.cs",
-              "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\PlayerController.cs",
-              "RelativeToolTip": "Assets\\Scrpts\\Controllers\\PlayerController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAqwBUAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "Managers.cs",
+              "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Managers.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrpts\\Managers\\Managers.cs",
+              "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Managers.cs",
+              "RelativeToolTip": "Assets\\Scrpts\\Managers\\Managers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:06:27.088Z",
+              "WhenOpened": "2026-02-27T06:08:15.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Define.cs",
+              "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Utils\\Define.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrpts\\Utils\\Define.cs",
+              "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Utils\\Define.cs",
+              "RelativeToolTip": "Assets\\Scrpts\\Utils\\Define.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T06:22:59.443Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 6,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Contents\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrpts\\Managers\\Contents\\GameManager.cs",
+              "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Contents\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scrpts\\Managers\\Contents\\GameManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T06:06:55.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "GameScene.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Scenes\\GameScene.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Scenes\\GameScene.cs",
@@ -313,12 +320,11 @@
               "RelativeToolTip": "Assets\\Scrpts\\Scenes\\GameScene.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:22:24.694Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T06:22:24.694Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "UI_Scene.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\UI\\Scene\\UI_Scene.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\UI\\Scene\\UI_Scene.cs",
@@ -326,12 +332,11 @@
               "RelativeToolTip": "Assets\\Scrpts\\UI\\Scene\\UI_Scene.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T07:44:44.62Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-05T07:44:44.62Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "UI_Joystick.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\UI\\WorldSpace\\UI_Joystick.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\UI\\WorldSpace\\UI_Joystick.cs",
@@ -339,12 +344,11 @@
               "RelativeToolTip": "Assets\\Scrpts\\UI\\WorldSpace\\UI_Joystick.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAAAiwDQAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-07T13:15:40.75Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-07T13:15:40.75Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "UIManager.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Core\\UIManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Managers\\Core\\UIManager.cs",
@@ -352,12 +356,11 @@
               "RelativeToolTip": "Assets\\Scrpts\\Managers\\Core\\UIManager.cs",
               "ViewState": "AgIAADkAAAAAAAAAAAAIwJwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:21:53.566Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T06:21:53.566Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "NavMeshBuilder2d.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Library\\PackageCache\\com.h8man.2d.navmeshplus@725349b17aad\\NavMeshComponents\\Scripts\\NavMeshBuilder2d.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.h8man.2d.navmeshplus@725349b17aad\\NavMeshComponents\\Scripts\\NavMeshBuilder2d.cs",
@@ -365,12 +368,11 @@
               "RelativeToolTip": "Library\\PackageCache\\com.h8man.2d.navmeshplus@725349b17aad\\NavMeshComponents\\Scripts\\NavMeshBuilder2d.cs",
               "ViewState": "AgIAAJAAAAAAAAAAAAAwwJwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-08T12:26:22.464Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-08T12:26:22.464Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "NavMeshExtension.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Library\\PackageCache\\com.h8man.2d.navmeshplus@725349b17aad\\NavMeshComponents\\Scripts\\NavMeshExtension.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.h8man.2d.navmeshplus@725349b17aad\\NavMeshComponents\\Scripts\\NavMeshExtension.cs",
@@ -378,12 +380,11 @@
               "RelativeToolTip": "Library\\PackageCache\\com.h8man.2d.navmeshplus@725349b17aad\\NavMeshComponents\\Scripts\\NavMeshExtension.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-08T12:16:04.889Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-08T12:16:04.889Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "Poolable.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Core\\Poolable.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Managers\\Core\\Poolable.cs",
@@ -395,7 +396,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "PoolManager.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Core\\PoolManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Managers\\Core\\PoolManager.cs",
@@ -407,7 +408,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "BaseScene.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Scenes\\BaseScene.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Scenes\\BaseScene.cs",
@@ -419,7 +420,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "UI_Popup.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\UI\\Popup\\UI_Popup.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\UI\\Popup\\UI_Popup.cs",
@@ -431,7 +432,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "SoundManager.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Core\\SoundManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Managers\\Core\\SoundManager.cs",
@@ -443,7 +444,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "ResourceManager.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Managers\\Core\\ResourceManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Managers\\Core\\ResourceManager.cs",
@@ -455,7 +456,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "UI_HPBar.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\UI\\WorldSpace\\UI_HPBar.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\UI\\WorldSpace\\UI_HPBar.cs",
@@ -467,7 +468,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "FixedJoystick.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Joystick Pack\\Scripts\\Joysticks\\FixedJoystick.cs",
               "RelativeDocumentMoniker": "Assets\\Joystick Pack\\Scripts\\Joysticks\\FixedJoystick.cs",
@@ -479,7 +480,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "LoginScene.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Scenes\\LoginScene.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Scenes\\LoginScene.cs",
@@ -491,7 +492,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "NewMonoBehaviourScript.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\UI\\WorldSpace\\NewMonoBehaviourScript.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\UI\\WorldSpace\\NewMonoBehaviourScript.cs",
@@ -503,7 +504,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 35,
               "Title": "StatData.json",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Resources\\Data\\StatData.json",
               "RelativeDocumentMoniker": "Assets\\Resources\\Data\\StatData.json",
@@ -514,12 +515,8 @@
               "WhenOpened": "2026-02-27T07:09:41.03Z"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "UI_Base.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\UI\\UI_Base.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\UI\\UI_Base.cs",
@@ -531,7 +528,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "Joystick.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Joystick Pack\\Scripts\\Base\\Joystick.cs",
               "RelativeDocumentMoniker": "Assets\\Joystick Pack\\Scripts\\Base\\Joystick.cs",
@@ -543,7 +540,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "VariableJoystick.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Joystick Pack\\Scripts\\Joysticks\\VariableJoystick.cs",
               "RelativeDocumentMoniker": "Assets\\Joystick Pack\\Scripts\\Joysticks\\VariableJoystick.cs",
@@ -555,7 +552,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "FloatingJoystick.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Joystick Pack\\Scripts\\Joysticks\\FloatingJoystick.cs",
               "RelativeDocumentMoniker": "Assets\\Joystick Pack\\Scripts\\Joysticks\\FloatingJoystick.cs",
@@ -567,7 +564,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "UI_EventHandler.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\UI\\UI_EventHandler.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\UI\\UI_EventHandler.cs",
@@ -579,7 +576,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "Util.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Utils\\Util.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Utils\\Util.cs",
@@ -591,7 +588,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "UI_Inven_Item.cs",
               "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\UI\\SubItem\\UI_Inven_Item.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\UI\\SubItem\\UI_Inven_Item.cs",
@@ -600,30 +597,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-07T12:23:30.155Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "Data.Contents.cs",
-              "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Data\\Data.Contents.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrpts\\Data\\Data.Contents.cs",
-              "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Data\\Data.Contents.cs",
-              "RelativeToolTip": "Assets\\Scrpts\\Data\\Data.Contents.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAYwCIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:06:35.206Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "Define.cs",
-              "DocumentMoniker": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Utils\\Define.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrpts\\Utils\\Define.cs",
-              "ToolTip": "C:\\Users\\\uD64D\uC2B9\uD658\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Utils\\Define.cs",
-              "RelativeToolTip": "Assets\\Scrpts\\Utils\\Define.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:22:59.443Z"
             }
           ]
         }
