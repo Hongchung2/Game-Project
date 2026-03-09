@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,7 +10,7 @@ public class MonsterController : BaseController
     Vector3 _spawnPos;
 
     [SerializeField]
-    float _scanRange = 10;
+    float _scanRange = 5;
 
     [SerializeField]
     float _attackRange = 2;
@@ -34,7 +35,6 @@ public class MonsterController : BaseController
 
     protected override void UpdateIdle()
     {
-        Debug.Log(Managers.Game.GetPlayer());
         if (_destPos == _spawnPos)
         {
             float distToHomeSqr = (transform.position - _spawnPos).sqrMagnitude;
@@ -83,6 +83,7 @@ public class MonsterController : BaseController
         // 실제 이동
         _rb.linearVelocity = dir * _stat.MoveSpeed;
 
+
         // 좌우 반전
         if (dir.x != 0)
         {
@@ -95,7 +96,7 @@ public class MonsterController : BaseController
         if (distFromHomeSqr > _moveRange * _moveRange)
         {
             _lockTarget = null;
-            State = Define.State.Idle;
+            State = Define.State.Return;
         }
     }
 
@@ -123,5 +124,46 @@ public class MonsterController : BaseController
             transform.localScale = new Vector3(xTargetScale, 1f, 1f);
         }
     }
+
+    protected override void UpdateReturn()
+    {
+        if (State == Define.State.Return)
+        {
+            Vector3 dir = (_spawnPos - transform.position).normalized;
+            transform.position += dir * _stat.MoveSpeed * Time.deltaTime;
+
+            if (Vector3.Distance(transform.position, _spawnPos) < 0.1f)
+            {
+                State = Define.State.Idle;
+            }
+        }
+    }
     
+    void OnHitEvent()
+    {
+        if (_lockTarget == null)
+        {
+            State = Define.State.Idle;
+            return;
+        }
+
+        Stat targetStat = _lockTarget.GetComponent<Stat>();
+        if (targetStat == null) return;
+
+        targetStat.OnAttacked(_stat);
+
+        if (targetStat.Hp > 0)
+        {
+            float distance = (_lockTarget.transform.position - transform.position).sqrMagnitude;
+            if (distance <= _attackRange * _attackRange)
+                State = Define.State.Skill;
+            else
+                State = Define.State.Moving;
+        }
+        else
+        {
+            _lockTarget = null;
+            State = Define.State.Return;
+        }
+    }
 }
