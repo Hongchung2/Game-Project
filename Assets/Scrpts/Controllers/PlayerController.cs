@@ -4,7 +4,9 @@ public class PlayerController : BaseController
 {
     PlayerStat _stat;
     Vector3 _moveDir;
-    
+
+    Rigidbody2D _rb;
+
     public float speed = 5f;
     Animator _anim;
 
@@ -74,6 +76,14 @@ public class PlayerController : BaseController
         }
 
 
+    }
+
+    protected override void UpdateDie()
+    {
+        if (_stat.Hp <= 0)
+        {
+            State = Define.State.Die;
+        }
     }
 
     void GetMoveInput()

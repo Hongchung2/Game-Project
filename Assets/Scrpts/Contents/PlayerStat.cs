@@ -57,8 +57,8 @@ public class PlayerStat : Stat
         _attack = stat.attack;
     }
 
-    protected override void OnDead(Stat attacker)
+    /*protected override void OnDead(Stat attacker)
     {
-        Debug.Log("player dead");
-    }
+        //Debug.Log("player dead");
+    }*/
 }
