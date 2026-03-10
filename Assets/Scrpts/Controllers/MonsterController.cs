@@ -10,21 +10,26 @@ public class MonsterController : BaseController
     Vector3 _spawnPos;
 
     [SerializeField]
-    float _scanRange = 5;
+    float _scanRange = 5f;
 
     [SerializeField]
-    float _attackRange = 2;
+    float _attackRange = 0.8f;
 
     [SerializeField]
     float _moveRange = 20f;
 
+    Vector3 _initialScale;
+
+
     public override void Init()
     {
-        WorldObjectType = Define.WorldObject.Monster;
-        _stat = gameObject.GetComponent<Stat>();
-        _rb = gameObject.GetOrAddComponent<Rigidbody2D>();
- 
+        _initialScale = transform.localScale;
 
+        WorldObjectType = Define.WorldObject.Monster;
+
+        _stat = gameObject.GetComponent<Stat>();
+
+        _rb = gameObject.GetOrAddComponent<Rigidbody2D>();
         _rb.gravityScale = 0;
         _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
@@ -53,7 +58,6 @@ public class MonsterController : BaseController
         if (distanceSqr < _scanRange * _scanRange)
         {
             _lockTarget = player;
-            Debug.Log("적 포착!");
             State = Define.State.Moving;
             return;
 
@@ -88,7 +92,7 @@ public class MonsterController : BaseController
         if (dir.x != 0)
         {
             float xTargetScale = (dir.x < 0) ? -1f : 1f;
-            transform.localScale = new Vector3(xTargetScale, 1f, 1f);
+            transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);
         }
 
         // 집 너무 멀리 가면 복귀
@@ -108,6 +112,21 @@ public class MonsterController : BaseController
             return;
         }
 
+        Stat targetStat = _lockTarget.GetComponent<Stat>();
+        if (targetStat != null && targetStat.Hp <= 0)
+        {
+            _lockTarget = null;
+            State = Define.State.Return;
+            return;
+        }
+
+        // 애니메이션 공격
+        Animator anim = GetComponent<Animator>();
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Hit") == false)
+        {
+            anim.CrossFade("Hit", 0.1f);
+        }
+
         // 때리다가 멀어지면 다시 쫓아가기
         float distanceSqr = (_lockTarget.transform.position - transform.position).sqrMagnitude;
         if (distanceSqr > _attackRange * _attackRange)
@@ -121,25 +140,40 @@ public class MonsterController : BaseController
         if (dir.x != 0)
         {
             float xTargetScale = (dir.x < 0) ? -1f : 1f;
-            transform.localScale = new Vector3(xTargetScale, 1f, 1f);
+            transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);
         }
+
     }
 
     protected override void UpdateReturn()
     {
-        if (State == Define.State.Return)
-        {
-            Vector3 dir = (_spawnPos - transform.position).normalized;
-            transform.position += dir * _stat.MoveSpeed * Time.deltaTime;
+        // 방향과 거리 계산
+        Vector3 dir = (_spawnPos - transform.position).normalized;
+        float distToThomeSqr = (_spawnPos - transform.position).sqrMagnitude;
 
-            if (Vector3.Distance(transform.position, _spawnPos) < 0.1f)
-            {
-                State = Define.State.Idle;
-            }
+        // 도착 판정
+        if (distToThomeSqr < 0.01f)
+        {
+            _rb.linearVelocity = Vector2.zero;
+            transform.position = _spawnPos;
+            State = Define.State.Idle;
+            _lockTarget = null;
+            return;
+        }
+
+        // Rigidbody로 이동 (이동 방식 통일)
+        _rb.linearVelocity = dir * _stat.MoveSpeed;
+
+        // 돌아갈 때도 방향 전환
+        if (dir.x != 0)
+        {
+            float xTargetScale = (dir.x < 0) ? -1f : 1f;
+            transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);
         }
     }
+
     
-    void OnHitEvent()
+    public void OnHitEvent()
     {
         if (_lockTarget == null)
         {
@@ -150,6 +184,7 @@ public class MonsterController : BaseController
         Stat targetStat = _lockTarget.GetComponent<Stat>();
         if (targetStat == null) return;
 
+        Debug.Log("여기까지?");
         targetStat.OnAttacked(_stat);
 
         if (targetStat.Hp > 0)
