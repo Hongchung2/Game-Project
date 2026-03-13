@@ -15,7 +15,7 @@ public class Define
         Moving,
         Idle,
         Return,
-        Skill
+        Skill,
     }
 
     public enum layer

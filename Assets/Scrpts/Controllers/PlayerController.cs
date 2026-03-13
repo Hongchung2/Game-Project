@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : BaseController
@@ -9,6 +11,7 @@ public class PlayerController : BaseController
 
     public float speed = 5f;
     Animator _anim;
+    private SPUM_Prefabs _spum;
 
     //ÄáÄá ¶Ù´Â ¸ð¼Ç
     float _bounceTime = 0;
@@ -28,29 +31,51 @@ public class PlayerController : BaseController
         WorldObjectType = Define.WorldObject.Player;
         _stat = gameObject.GetComponent<PlayerStat>();
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        State = Define.State.Idle;
-       
+
+        _spum = GetComponent<SPUM_Prefabs>();
+        if (_spum != null)
+        {
+            _spum.PopulateAnimationLists();
+
+            _spum.OverrideControllerInit();
+
+            State = Define.State.Idle;
+            _spum.PlayAnimation(PlayerState.IDLE, 0);
+        }
+
         // _anim = GetComponent<Animator>();
     }
-
     protected override void UpdateIdle()
     {
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OnAttack();
+        } 
+
         GetMoveInput();
         if (_moveDir.magnitude > 0)
         {
-
             State = Define.State.Moving;
+            _spum.PlayAnimation(PlayerState.MOVE, 0);
         }
     }
-    
+
 
     protected override void UpdateMoving()
     {
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OnAttack();
+        }
+
         GetMoveInput();
 
         if (_moveDir.magnitude == 0)
         {
             State = Define.State.Idle;
+            _spum.PlayAnimation(PlayerState.IDLE, 0);
 
             if (_spriteRenderer != null)
                 _spriteRenderer.transform.localPosition = Vector3.zero;
@@ -58,7 +83,6 @@ public class PlayerController : BaseController
         }
 
         transform.position += _moveDir * speed * Time.deltaTime;
-        State = Define.State.Moving;
 
         _bounceTime += Time.deltaTime * bounceSpeed;
         float yOffest = Mathf.Abs(Mathf.Sin(_bounceTime)) * bounceHeight;
@@ -67,22 +91,23 @@ public class PlayerController : BaseController
         {
             float currentX = _spriteRenderer.transform.localPosition.x;
             _spriteRenderer.transform.localPosition = new Vector3(currentX, yOffest, 0);
-            
+
             if (_moveDir.x != 0)
             {
-                float xTargetScale = (_moveDir.x < 0) ? -1f : 1f;
+                float xTargetScale = (_moveDir.x < 0) ? 1f : -1f;
                 _spriteRenderer.transform.parent.localScale = new Vector3(xTargetScale, 1f, 1f);
             }
         }
-
-
     }
+
+
 
     protected override void UpdateDie()
     {
         if (_stat.Hp <= 0)
         {
             State = Define.State.Die;
+            _spum.PlayAnimation(PlayerState.DEATH, 0);
         }
     }
 
@@ -106,6 +131,26 @@ public class PlayerController : BaseController
         }
 
         _moveDir = new Vector3(h, v, 0).normalized;
+    }
+
+    void OnAttack()
+    {
+        if (State != Define.State.Skill)
+        {
+            State = Define.State.Skill;
+            _spum.PlayAnimation(PlayerState.ATTACK, 0);
+            StartCoroutine(CoReturnToIdle());
+        }
+    }
+
+    IEnumerator CoReturnToIdle()
+    {
+        yield return new WaitForSeconds(0.5f);
+        if (State == Define.State.Skill)
+        {
+            State = Define.State.Idle;
+            _spum.PlayAnimation(PlayerState.IDLE, 0);
+        }
     }
 
 
