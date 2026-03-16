@@ -76,3 +76,29 @@ public abstract class BaseController : MonoBehaviour
     protected virtual void UpdateSkill() { }
     protected virtual void UpdateReturn() { }
 }
+/*
+ protected override void UpdateReturn()
+    {
+        // 방향과 거리 계산
+        Vector3 dir = (_spawnPos - transform.position).normalized;
+        float distToThomeSqr = (_spawnPos - transform.position).sqrMagnitude;
+
+        // 도착 판정
+        if (distToThomeSqr < 0.01f)
+        {
+            _rb.linearVelocity = Vector2.zero;
+            transform.position = _spawnPos;
+            State = Define.State.Idle;
+            _lockTarget = null;
+            return;
+        }
+// Rigidbody로 이동 (이동 방식 통일)
+        _rb.linearVelocity = dir * _stat.MoveSpeed;
+
+        // 돌아갈 때도 방향 전환
+        if (dir.x != 0)
+        {
+            float xTargetScale = (dir.x < 0) ? -1f : 1f;
+            transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);
+        }
+ */

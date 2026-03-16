@@ -23,17 +23,6 @@ public class MonsterController : BaseController
 
     public override void Init()
     {
-        _initialScale = transform.localScale;
-
-        WorldObjectType = Define.WorldObject.Monster;
-
-        _stat = gameObject.GetComponent<Stat>();
-
-        _rb = gameObject.GetOrAddComponent<Rigidbody2D>();
-        _rb.gravityScale = 0;
-        _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-
-        _spawnPos = transform.position;
 
         State = Define.State.Idle;
     }
@@ -201,4 +190,6 @@ public class MonsterController : BaseController
             State = Define.State.Return;
         }
     }
+
+    
 }
