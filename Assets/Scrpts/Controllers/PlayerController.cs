@@ -133,7 +133,7 @@ public class PlayerController : BaseController
         _moveDir = new Vector3(h, v, 0).normalized;
     }
 
-    void OnAttack()
+    public void OnAttack()
     {
         if (State != Define.State.Skill)
         {
@@ -152,6 +152,5 @@ public class PlayerController : BaseController
             _spum.PlayAnimation(PlayerState.IDLE, 0);
         }
     }
-
 
 }
