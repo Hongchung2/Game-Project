@@ -83,7 +83,7 @@ public class ScarecrowController : BaseController
 
     protected override void UpdateMoving()
     {
-        if (_lockTarget == null)
+        if (_lockTarget == null || _isAttacking)
         {
             State = Define.State.Idle;
             _spum.PlayAnimation(PlayerState.IDLE, 0);
@@ -99,11 +99,14 @@ public class ScarecrowController : BaseController
         if (distSqr <= _attackRange * _attackRange)
         {
             _rb.linearVelocity = Vector2.zero;
+            Debug.Log($"사거리 진입 {distSqr}");
 
             if (!_isAttacking)
             {
+                Debug.Log("공격");
                 StartCoroutine(AttackRoutine());
             }
+            return;
         }
 
         // 실제 이동
@@ -226,14 +229,16 @@ public class ScarecrowController : BaseController
     IEnumerator AttackRoutine()
     {
         _isAttacking = true;
-        State = Define.State.Skill;
+        State = Define.State.Idle;
         _spum.PlayAnimation(PlayerState.IDLE, 0);
 
         yield return new WaitForSeconds(StopTime);
 
         if (_lockTarget != null)
         {
+            State = Define.State.Skill;
             _spum.PlayAnimation(PlayerState.ATTACK, 0);
+            Debug.Log("공격 (코루틴)");
         }
 
         yield return new WaitForSeconds(0.5f);
