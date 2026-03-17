@@ -17,7 +17,7 @@ public class ScarecrowController : BaseController
     float _scanRange = 5f;
 
     [SerializeField]
-    float _attackRange = 0.8f;
+    float _attackRange = 7f;
 
     [SerializeField]
     float _moveRange = 20f;
@@ -83,24 +83,25 @@ public class ScarecrowController : BaseController
 
     protected override void UpdateMoving()
     {
-        if (_lockTarget == null || _isAttacking)
+        if (_lockTarget == null)
         {
             State = Define.State.Idle;
             _spum.PlayAnimation(PlayerState.IDLE, 0);
             return;
         }
+        if (_isAttacking) return;
 
         // 방향 계산
         _destPos = _lockTarget.transform.position;
-        Vector3 dir = (_destPos - transform.position).normalized;
+        
 
         // 공격 사거리 체크
         float distSqr = (_destPos - transform.position).sqrMagnitude;
+        Debug.Log($"현재 거리 제곱: {distSqr} / a목표 사거리 : {_attackRange * _attackRange}");
         if (distSqr <= _attackRange * _attackRange)
         {
             _rb.linearVelocity = Vector2.zero;
             Debug.Log($"사거리 진입 {distSqr}");
-
             if (!_isAttacking)
             {
                 Debug.Log("공격");
@@ -110,6 +111,7 @@ public class ScarecrowController : BaseController
         }
 
         // 실제 이동
+        Vector3 dir = (_destPos - transform.position).normalized;
         _rb.linearVelocity = dir * _stat.MoveSpeed;
         Debug.Log("이동");
         // 좌우 반전 (이동시)
@@ -240,12 +242,7 @@ public class ScarecrowController : BaseController
             _spum.PlayAnimation(PlayerState.ATTACK, 0);
             Debug.Log("공격 (코루틴)");
         }
-
-        yield return new WaitForSeconds(0.5f);
-
         _isAttacking = false;
-        State = Define.State.Moving;
-        _spum.PlayAnimation(PlayerState.MOVE, 0);
     }
 
 
