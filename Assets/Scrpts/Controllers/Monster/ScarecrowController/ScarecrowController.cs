@@ -12,12 +12,13 @@ public class ScarecrowController : BaseController
     private SPUM_Prefabs _spum;
     public float StopTime = 1f;
     private bool _isAttacking = false; // 공격 루틴 중인지 체크
+    
 
     [SerializeField]
     float _scanRange = 5f;
 
     [SerializeField]
-    float _attackRange = 7f;
+    float _attackRange = 0.8f;
 
     [SerializeField]
     float _moveRange = 20f;
@@ -57,6 +58,9 @@ public class ScarecrowController : BaseController
     }
     protected override void UpdateIdle()
     {
+
+        if (_isAttacking) return;
+
         if (_destPos == _spawnPos)
         {
             float disToHomeSqr = (transform.position - _spawnPos).sqrMagnitude;
@@ -74,7 +78,7 @@ public class ScarecrowController : BaseController
         if (distanceSqr < _scanRange * _scanRange)
         {
             _lockTarget = player;
-            Debug.Log("적 감지");
+
             State = Define.State.Moving;
             _spum.PlayAnimation(PlayerState.MOVE, 0);
             return;
@@ -93,18 +97,15 @@ public class ScarecrowController : BaseController
 
         // 방향 계산
         _destPos = _lockTarget.transform.position;
-        
+
 
         // 공격 사거리 체크
-        float distSqr = (_destPos - transform.position).sqrMagnitude;
-        Debug.Log($"현재 거리 제곱: {distSqr} / a목표 사거리 : {_attackRange * _attackRange}");
-        if (distSqr <= _attackRange * _attackRange)
+        float distance = Vector2.Distance(transform.position, _destPos);
+        if (distance <= _attackRange)
         {
             _rb.linearVelocity = Vector2.zero;
-            Debug.Log($"사거리 진입 {distSqr}");
             if (!_isAttacking)
             {
-                Debug.Log("공격");
                 StartCoroutine(AttackRoutine());
             }
             return;
@@ -172,36 +173,14 @@ public class ScarecrowController : BaseController
 
     public void OnHitEvent()
     {
-        if (_lockTarget == null)
-        {
-            State = Define.State.Idle;
-            _spum.PlayAnimation(PlayerState.IDLE, 0);
-            return;
-        }
+        Debug.Log("onhitevent 정상적으로 실행");
+        if (_lockTarget == null) return;
 
         Stat targetStat = _lockTarget.GetComponent<Stat>();
-        if (targetStat == null) return;
-
-        targetStat.OnAttacked(_stat);
-
-        if (targetStat.Hp > 0)
+        if (targetStat != null)
         {
-            float distance = (_lockTarget.transform.position - transform.position).sqrMagnitude;
-            if (distance <= _attackRange * _attackRange)
-            {
-                State = Define.State.Skill;
-                _spum.PlayAnimation(PlayerState.ATTACK, 0);
-            }
-            else
-            {
-                State = Define.State.Moving;
-                _spum.PlayAnimation(PlayerState.MOVE, 0);
-            }
-        }
-        else
-        {
-            _lockTarget = null;
-            State = Define.State.Return;
+            targetStat.OnAttacked(_stat);
+            Debug.Log($"현재 Hp : {targetStat.Hp}");
         }
     }
 
@@ -231,6 +210,7 @@ public class ScarecrowController : BaseController
     IEnumerator AttackRoutine()
     {
         _isAttacking = true;
+
         State = Define.State.Idle;
         _spum.PlayAnimation(PlayerState.IDLE, 0);
 
@@ -242,6 +222,10 @@ public class ScarecrowController : BaseController
             _spum.PlayAnimation(PlayerState.ATTACK, 0);
             Debug.Log("공격 (코루틴)");
         }
+
+        yield return new WaitForSeconds(StopTime);
+        State = Define.State.Moving;
+        
         _isAttacking = false;
     }
 

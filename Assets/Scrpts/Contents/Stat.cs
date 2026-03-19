@@ -39,30 +39,37 @@ public class Stat : MonoBehaviour
 
     public virtual void OnAttacked(Stat attacker)
     {
+        if (attacker == null) return;
+
         int damage = Mathf.Max(0, attacker.Attack - Defense);
         Hp -= damage;
 
-        Animator anim = GetComponentInChildren<Animator>();
-        if (anim != null)
-        {
-            if (Hp <= 0)
-            {
-                Hp = 0;
-                BaseController controller = GetComponent<BaseController>();
-                if (controller != null)
-                {
-                    controller.State = Define.State.Die; 
-                }
-                anim.SetTrigger("Dead");
+        Debug.Log($"<color=red>[Hit]</color>{gameObject.name} | 데미지 {damage}");
 
-                foreach (Transform child in anim.transform)
-                {
-                    child.gameObject.SetActive(false);
-                }
-                //OnDead(attacker);
+        SPUM_Prefabs spum = GetComponent< SPUM_Prefabs>();
+
+        if (Hp <= 0)
+        {
+            Hp = 0;
+            BaseController bc = GetComponent<BaseController>();
+            if (bc != null)
+            {
+                bc.State = Define.State.Die;
             }
-            Debug.Log($"{gameObject.name}맞음! 현재 hp {Hp}");
+            if (spum != null)
+            {
+                spum.PlayAnimation(PlayerState.DEATH, 0);
+            }
+            
         }
+        else
+        {
+            if (spum != null)
+            {
+                spum.PlayAnimation(PlayerState.DAMAGED, 0);
+            }
+        }
+        
     }
 
 
