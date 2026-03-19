@@ -2931,7 +2931,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5636758013200641154}
-  m_LocalRotation: {x: -0, y: 0.008726557, z: -0, w: 0.9999619}
+  m_LocalRotation: {x: 0, y: 0.008726558, z: 0, w: 0.999962}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6052,8 +6052,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0020657347, y: 0.30898976}
-  m_Size: {x: 0.7272278, y: 0.93226933}
+  m_Offset: {x: -0.014164579, y: 0.30898976}
+  m_Size: {x: 0.8375931, y: 0.93226933}
   m_Direction: 0
 --- !u!1 &5984387003540605815
 GameObject:
