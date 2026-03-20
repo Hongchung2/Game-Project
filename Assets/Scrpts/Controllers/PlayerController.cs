@@ -24,6 +24,9 @@ public class PlayerController : BaseController
     [SerializeField]
     Joystick _joystick;
 
+    [SerializeField]
+    float _attackRange = 0.8f;
+
 
     public override void Init()
     {
@@ -137,10 +140,35 @@ public class PlayerController : BaseController
     {
         if (State != Define.State.Skill)
         {
+            LockTarget();
+
             State = Define.State.Skill;
             _spum.PlayAnimation(PlayerState.ATTACK, 0);
             StartCoroutine(CoReturnToIdle());
         }
+    }
+
+    void LockTarget()
+    {
+        Collider2D[] phtocells = Physics2D.OverlapCircleAll(transform.position, 2.0f);
+
+        float closestDistance = Mathf.Infinity;
+        GameObject closestMonster = null;
+
+        foreach (var collider in  phtocells)
+        {
+            if (collider.CompareTag("Monster"))
+            {
+                float distance = (transform.position - collider.transform.position).sqrMagnitude;
+
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestMonster = collider.gameObject;
+                }
+            }
+        }
+        _lockTarget = closestMonster;
     }
 
     IEnumerator CoReturnToIdle()
@@ -150,6 +178,25 @@ public class PlayerController : BaseController
         {
             State = Define.State.Idle;
             _spum.PlayAnimation(PlayerState.IDLE, 0);
+        }
+    }
+    public override void OnHitEvent()
+    {
+        Debug.Log("player onhitevent 정상적으로 실행");
+        if (_lockTarget == null) return;
+
+        float dist = (transform.position - _lockTarget.transform.position).magnitude;
+        if (dist > _attackRange)
+        {
+            Debug.Log("사거리 밖");
+            return;
+        }
+
+        Stat targetStat = _lockTarget.GetComponent<Stat>();
+        if (targetStat != null)
+        {
+            targetStat.OnAttacked(_stat);
+            Debug.Log($"현재 Hp : {targetStat.Hp}");
         }
     }
 
