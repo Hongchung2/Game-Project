@@ -618,6 +618,19 @@ MonoBehaviour:
   _attackSpeed: 0
   _defense: 0
   _moveSpeed: 0
+  data: {fileID: 0}
+  base_Hp: 10
+  add_Hp: 0
+  base_MaxHp: 10
+  add_MaxHp: 0
+  base_Attack: 1
+  add_Attack: 0
+  base_AttackSpeed: 1
+  add_AttackSpeed: 0
+  base_Defense: 0
+  add_Defense: 0
+  base_MoveSpeed: 4
+  add_MoveSpeed: 0
 --- !u!50 &237595310
 Rigidbody2D:
   serializedVersion: 5
@@ -778,6 +791,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &495217372 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5288283562743593933, guid: 2b633a15dfc1c0b44a7feeb76fe6f5e9, type: 3}
+  m_PrefabInstance: {fileID: 888011032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &495217374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495217372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7051a95ac8e76774c98c5554553c7e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimEventProxy
+  mainController: {fileID: 1988331658}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,6 +1527,7 @@ MonoBehaviour:
   bounceHeight: 0.2
   _spriteRenderer: {fileID: 0}
   _joystick: {fileID: 0}
+  _attackRange: 0.8
 --- !u!4 &745802360
 Transform:
   m_ObjectHideFlags: 0
@@ -1532,6 +1564,7 @@ MonoBehaviour:
   bounceHeight: 0.2
   _spriteRenderer: {fileID: 0}
   _joystick: {fileID: 0}
+  _attackRange: 0.8
 --- !u!1 &756543678
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,6 +1661,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 520710406877103690, guid: 2b633a15dfc1c0b44a7feeb76fe6f5e9, type: 3}
+      propertyPath: mainController
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5036004869305855094, guid: 2b633a15dfc1c0b44a7feeb76fe6f5e9, type: 3}
       propertyPath: _joystick
       value: 
@@ -1716,10 +1753,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Player '
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 520710406877103690, guid: 2b633a15dfc1c0b44a7feeb76fe6f5e9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5288283562743593933, guid: 2b633a15dfc1c0b44a7feeb76fe6f5e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 495217374}
   m_SourcePrefab: {fileID: 100100000, guid: 2b633a15dfc1c0b44a7feeb76fe6f5e9, type: 3}
 --- !u!1 &973885971
 GameObject:
@@ -2326,6 +2367,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333477366}
   m_CullTransparentMesh: 1
+--- !u!114 &1442983269 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8304428459288025914, guid: 6681107af56f0c1469000029d9675c93, type: 3}
+  m_PrefabInstance: {fileID: 8812477735965578761}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edcc0d4ccd532514097ae46fb3c2865a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScarecrowController
 --- !u!1 &1639822351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,6 +2566,24 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!1 &1673200053 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 22996128196583904, guid: 6681107af56f0c1469000029d9675c93, type: 3}
+  m_PrefabInstance: {fileID: 8812477735965578761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1673200055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673200053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7051a95ac8e76774c98c5554553c7e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimEventProxy
+  mainController: {fileID: 1442983269}
 --- !u!1 &1725753861
 GameObject:
   m_ObjectHideFlags: 0
@@ -2749,9 +2819,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4492004716928739440, guid: 6681107af56f0c1469000029d9675c93, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: d3a01162770cc6545a92c810fc0c6031, type: 2}
     - target: {fileID: 8329123207077671958, guid: 6681107af56f0c1469000029d9675c93, type: 3}
       propertyPath: m_Name
       value: Scarecrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 8329123207077671958, guid: 6681107af56f0c1469000029d9675c93, type: 3}
+      propertyPath: m_TagString
+      value: Monster
       objectReference: {fileID: 0}
     - target: {fileID: 8874931985920811756, guid: 6681107af56f0c1469000029d9675c93, type: 3}
       propertyPath: m_Pivot.x
@@ -2833,10 +2911,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4335854329468525182, guid: 6681107af56f0c1469000029d9675c93, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 22996128196583904, guid: 6681107af56f0c1469000029d9675c93, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1673200055}
   m_SourcePrefab: {fileID: 100100000, guid: 6681107af56f0c1469000029d9675c93, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

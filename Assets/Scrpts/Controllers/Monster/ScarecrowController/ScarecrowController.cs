@@ -171,16 +171,25 @@ public class ScarecrowController : BaseController
         Return();
     }
 
-    public void OnHitEvent()
+    public override void OnHitEvent()
     {
         Debug.Log("onhitevent 정상적으로 실행");
         if (_lockTarget == null) return;
 
-        Stat targetStat = _lockTarget.GetComponent<Stat>();
-        if (targetStat != null)
+        float distance = Vector3.Distance(transform.position, _lockTarget.transform.position);
+
+        if (distance <= _attackRange)
         {
-            targetStat.OnAttacked(_stat);
-            Debug.Log($"현재 Hp : {targetStat.Hp}");
+            Stat targetStat = _lockTarget.GetComponent<Stat>();
+            if (targetStat != null)
+            {
+                targetStat.OnAttacked(_stat);
+                Debug.Log($"현재 Hp : {targetStat.Hp}");
+            }
+        }
+        else
+        {
+            Debug.Log("회피 성공");
         }
     }
 

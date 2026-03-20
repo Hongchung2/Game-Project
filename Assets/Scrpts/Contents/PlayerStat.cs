@@ -10,7 +10,7 @@ public class PlayerStat : Stat
     [SerializeField]
     protected int _gold;
 
-    public int Exp
+   /* public int Exp
     {
         get { return _exp; }
         set
@@ -33,6 +33,7 @@ public class PlayerStat : Stat
             }
         }
     }
+   */
 
     public int Gold { get { return _gold; } set { _gold = value; } }
 
