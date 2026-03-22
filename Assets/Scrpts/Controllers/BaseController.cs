@@ -44,11 +44,6 @@ public abstract class BaseController : MonoBehaviour
 
     void Update()
     {
-
-        if (State == Define.State.Die)
-        {
-            return;
-        }
         switch (State)
         {
             case Define.State.Die:

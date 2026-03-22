@@ -95,23 +95,18 @@ public class Stat : MonoBehaviour
     public virtual void OnAttacked(Stat attacker)
     {
         if (_IsDeath || attacker == null) return;
+        if (_hp <= 0) return;
 
         int damage = Mathf.Max(0, attacker.Attack - Defense);
         Hp -= damage;
 
         Debug.Log($"<color=red>[Hit]</color>{gameObject.name} | 데미지 {damage}");
 
-        
-
         if (Hp <= 0)
         {
             Hp = 0;
-
-            if (!_IsDeath)
-            {
-                StartCoroutine(DeadAction());
-            }
-            
+            Debug.Log("상태 변화 -> 죽음");
+            bc.State = Define.State.Die;
         }
         else
         {
@@ -128,17 +123,16 @@ public class Stat : MonoBehaviour
     {
         _IsDeath = true;
 
+        if (bc != null) bc.State = Define.State.Die;
 
-        if (bc != null)
-        {
-            bc.State = Define.State.Die;
-            bc._lockTarget = null;
-        }
+        var col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = false;
+        
         if (spum != null) spum.PlayAnimation(PlayerState.DEATH, 0);
 
-        yield return new WaitForSeconds(10.0f);
+        yield return new WaitForSeconds(3.0f);
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
 
         _IsDeath=false;
     }
