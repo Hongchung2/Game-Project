@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 959230813472714239}
   - component: {fileID: 7875707729018711918}
   - component: {fileID: 3833589677810511692}
-  - component: {fileID: 4335854329468525182}
+  - component: {fileID: 7574672404788693804}
   m_Layer: 8
   m_Name: UnitRoot
   m_TagString: Untagged
@@ -131,7 +131,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
---- !u!114 &4335854329468525182
+--- !u!114 &7574672404788693804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,9 +140,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 22996128196583904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d03de82c67faf04ab75f18e0ec6a497, type: 3}
+  m_Script: {fileID: 11500000, guid: 7051a95ac8e76774c98c5554553c7e05, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnimEventBridge
+  m_EditorClassIdentifier: Assembly-CSharp::AnimEventProxy
   mainController: {fileID: 8304428459288025914}
 --- !u!1 &45022806062831573
 GameObject:
@@ -4364,7 +4364,7 @@ GameObject:
   - component: {fileID: 4492004716928739440}
   m_Layer: 8
   m_Name: Scarecrow
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7468,6 +7468,19 @@ MonoBehaviour:
   _attackSpeed: 0
   _defense: 0
   _moveSpeed: 0
+  data: {fileID: 11400000, guid: d3a01162770cc6545a92c810fc0c6031, type: 2}
+  base_Hp: 0
+  add_Hp: 0
+  base_MaxHp: 0
+  add_MaxHp: 0
+  base_Attack: 0
+  add_Attack: 0
+  base_AttackSpeed: 0
+  add_AttackSpeed: 0
+  base_Defense: 0
+  add_Defense: 0
+  base_MoveSpeed: 0
+  add_MoveSpeed: 0
 --- !u!1 &8720061532919076091
 GameObject:
   m_ObjectHideFlags: 0
