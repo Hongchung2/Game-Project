@@ -14,6 +14,8 @@ public class GoblinSpearController : BaseController
     private bool _isAttacking = false; // 공격 루틴 중인지 체크
     private bool _isDeath = false;
     private Coroutine _attackCoroutine;
+    float AttackCount = 0f;
+    private bool _isWaiting = false;
 
 
 
@@ -228,21 +230,20 @@ public class GoblinSpearController : BaseController
     IEnumerator AttackRoutine()
     {
         _isAttacking = true;
+        _isWaiting = true;
 
-        State = Define.State.Idle;
-        _spum.PlayAnimation(PlayerState.IDLE, 0);
-
-        yield return new WaitForSeconds(StopTime);
-
-        if (_lockTarget != null)
+        while (AttackCount <= 1.0f)
         {
-            State = Define.State.Skill;
-            _spum.PlayAnimation(PlayerState.ATTACK, 0);
-            Debug.Log("공격 (코루틴)");
+            FollowPlayerSlowly();
+            AttackCount += Time.deltaTime;
+            yield return null;
         }
 
-        yield return new WaitForSeconds(StopTime);
-        State = Define.State.Moving;
+        State = Define.State.Skill;
+        _spum.PlayAnimation(PlayerState.ATTACK, 0);
+        AttackCount = 0f;
+
+        
 
         _isAttacking = false;
         _attackCoroutine = null;
@@ -272,6 +273,10 @@ public class GoblinSpearController : BaseController
         gameObject.SetActive(false);
 
         _isDeath = false;
+    }
+    void FollowPlayerSlowly()
+    {
+
     }
 
 }
