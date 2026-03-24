@@ -2694,7 +2694,7 @@ GameObject:
   - component: {fileID: 8666698584206950567}
   - component: {fileID: 8647367619329512562}
   - component: {fileID: 3333911832329798624}
-  - component: {fileID: 520710406877103690}
+  - component: {fileID: 2779531930028664898}
   m_Layer: 9
   m_Name: UnitRoot
   m_TagString: Untagged
@@ -2742,7 +2742,7 @@ Animator:
   m_GameObject: {fileID: 5288283562743593933}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e9358c226bb09e24da9c5f7064768810, type: 2}
+  m_Controller: {fileID: 9100000, guid: d62d92c4e882c314e88472e281550fa8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2813,7 +2813,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
---- !u!114 &520710406877103690
+--- !u!114 &2779531930028664898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2822,10 +2822,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5288283562743593933}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d03de82c67faf04ab75f18e0ec6a497, type: 3}
+  m_Script: {fileID: 11500000, guid: 7051a95ac8e76774c98c5554553c7e05, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnimEventBridge
-  mainController: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::AnimEventProxy
+  mainController: {fileID: 5036004869305855094}
+  crow: {fileID: 0}
 --- !u!1 &5377680113264991622
 GameObject:
   m_ObjectHideFlags: 0
@@ -5984,7 +5985,7 @@ MonoBehaviour:
   bounceHeight: 0.2
   _spriteRenderer: {fileID: 0}
   _joystick: {fileID: 0}
-  _attackRange: 0.8
+  _attackRange: 1
 --- !u!114 &1147661971471764775
 MonoBehaviour:
   m_ObjectHideFlags: 0

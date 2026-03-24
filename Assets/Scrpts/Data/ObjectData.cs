@@ -1,11 +1,11 @@
 using Unity.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewMonsterData", menuName = "ScriptableObjects/MonsterData")]
-public class MonsterData : ScriptableObject
+[CreateAssetMenu(fileName = "NewObjectData", menuName = "ScriptableObjects/ObjectData")]
+public class ObjectData : ScriptableObject
 {
-    [Header("---Monster Info---")]
-    public string monsterName;
+    [Header("---Object Info---")]
+    public string ObjectName;
 
     [Header("---Base Stats ---")]
     public int baseMaxHp = 10;

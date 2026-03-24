@@ -112,6 +112,7 @@ public class CrowController : BaseController
             return;
         }
 
+        // 실제 이동
         Vector3 dir = (_destPos - transform.position).normalized;
         _rb.linearVelocity = dir * _stat.MoveSpeed;
 

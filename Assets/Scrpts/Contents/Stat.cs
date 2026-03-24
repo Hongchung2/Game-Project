@@ -18,7 +18,7 @@ public class Stat : MonoBehaviour
     [SerializeField]
     protected float _moveSpeed;
 
-    public MonsterData data;
+    public ObjectData data;
 
     private SPUM_Prefabs spum;
     private BaseController bc;

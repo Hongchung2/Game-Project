@@ -16,6 +16,7 @@ public class GoblinSpearController : BaseController
     private Coroutine _attackCoroutine;
     float AttackCount = 0f;
     private bool _isWaiting = false;
+    
 
 
 
@@ -30,6 +31,9 @@ public class GoblinSpearController : BaseController
 
     [SerializeField]
     SpriteRenderer _spriteRenderer;
+
+    [SerializeField]
+    float PlayerDistance = 0.5f;
 
 
 
@@ -232,20 +236,30 @@ public class GoblinSpearController : BaseController
         _isAttacking = true;
         _isWaiting = true;
 
-        while (AttackCount <= 1.0f)
+        float distance = Vector3.Distance(transform.position, _lockTarget.transform.position);
+        while (AttackCount < 1.0f && distance < _attackRange) 
         {
+            distance = Vector3.Distance(transform.position, _lockTarget.transform.position);
             FollowPlayerSlowly();
             AttackCount += Time.deltaTime;
             yield return null;
+        }
+
+        if (AttackCount < 1.0f)
+        {
+            _stat.add_MoveSpeed = 0;
+            _isAttacking = false;
+            _isWaiting = false;
+            _attackCoroutine = null;
+            yield break;
         }
 
         State = Define.State.Skill;
         _spum.PlayAnimation(PlayerState.ATTACK, 0);
         AttackCount = 0f;
 
-        
-
         _isAttacking = false;
+        _isWaiting = false;
         _attackCoroutine = null;
     }
 
@@ -276,7 +290,43 @@ public class GoblinSpearController : BaseController
     }
     void FollowPlayerSlowly()
     {
+        if (_lockTarget == null) return;
 
+        _stat.add_MoveSpeed = -1.0f;
+
+        float distance = Vector2.Distance(transform.position, _destPos);
+        Vector3 dirToPlayer = (_destPos - transform.position).normalized;
+        Vector3 dirToPlayerOther = -(_destPos - transform.position).normalized;
+        if (distance < _attackRange)
+        {
+            _spum.PlayAnimation(PlayerState.MOVE, 0);
+
+            if (distance > PlayerDistance + 0.2f)
+            {
+                _rb.linearVelocity = dirToPlayer * _stat.Total_MoveSpeed;
+
+                if (dirToPlayer.x != 0)
+                {
+                    float xTargetScale = (dirToPlayer.x < 0) ? 1f : -1f;
+                    transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);
+                }
+            }
+
+           else if (distance <= PlayerDistance - 0.2f)
+            {
+                _rb.linearVelocity = dirToPlayerOther * _stat.Total_MoveSpeed;
+
+                if (dirToPlayerOther.x != 0)
+                {
+                    float xTargetScale = (dirToPlayerOther.x < 0) ? -1f : 1f;
+                    transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);
+                }
+            }
+            else
+            {
+                _rb.linearVelocity = Vector2.zero;
+            }
+        }
     }
 
 }
