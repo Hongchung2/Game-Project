@@ -106,6 +106,8 @@ public class Stat : MonoBehaviour
         {
             Hp = 0;
             Debug.Log("상태 변화 -> 죽음");
+            spum.PlayAnimation(PlayerState.DAMAGED, 0);
+
             bc.State = Define.State.Die;
         }
         else
