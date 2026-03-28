@@ -16,12 +16,11 @@ public class ScarecrowController : BaseController
     private Coroutine _attackCoroutine;
 
 
+    [SerializeField]
+    private Detection detection;
 
     [SerializeField]
     float _scanRange = 5f;
-
-    [SerializeField]
-    float _attackRange = 0.8f;
 
     [SerializeField]
     float _moveRange = 20f;
@@ -40,6 +39,8 @@ public class ScarecrowController : BaseController
         _stat = gameObject.GetComponent<Stat>();
 
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        if (detection == null) detection = GetComponent<Detection>();
 
 
 
@@ -103,8 +104,7 @@ public class ScarecrowController : BaseController
 
 
         // 공격 사거리 체크
-        float distance = Vector2.Distance(transform.position, _destPos);
-        if (distance <= _attackRange)
+        if (detection.playerDetected)
         {
             _rb.linearVelocity = Vector2.zero;
             if (!_isAttacking && _attackCoroutine == null)
@@ -136,6 +136,8 @@ public class ScarecrowController : BaseController
 
     protected override void UpdateSkill()
     {
+        if (_isAttacking) return;   
+
         if (_lockTarget == null)
         {
             State = Define.State.Idle;
@@ -152,8 +154,7 @@ public class ScarecrowController : BaseController
         }
 
         // 때리다가 멀어지면 쫓아가기
-        float distanceSqr = (_lockTarget.transform.position - transform.position).sqrMagnitude;
-        if (distanceSqr > _attackRange * _attackRange)
+        if (!detection.playerDetected)
         {
             State = Define.State.Moving;
             _spum.PlayAnimation(PlayerState.MOVE, 0);
@@ -185,9 +186,7 @@ public class ScarecrowController : BaseController
         Debug.Log("onhitevent 정상적으로 실행");
         if (_lockTarget == null) return;
 
-        float distance = Vector3.Distance(transform.position, _lockTarget.transform.position);
-
-        if (distance <= _attackRange)
+        if (detection.playerDetected)
         {
             Stat targetStat = _lockTarget.GetComponent<Stat>();
             if (targetStat != null)
@@ -243,6 +242,7 @@ public class ScarecrowController : BaseController
 
         yield return new WaitForSeconds(StopTime);
         State = Define.State.Moving;
+        _spum.PlayAnimation(PlayerState.MOVE, 0);
         
         _isAttacking = false;
         _attackCoroutine = null;

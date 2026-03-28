@@ -20,13 +20,13 @@ public class CrowController : BaseController
     float _scanRange = 5f;
 
     [SerializeField]
-    float _attackRange = 2.0f;
-
-    [SerializeField]
     float _moveRange = 20f;
 
     [SerializeField]
     float bulletSpeed = 5f;
+
+    [SerializeField]
+    private Detection detection;
 
     [SerializeField]
     SpriteRenderer _spriteRenderer;
@@ -101,8 +101,7 @@ public class CrowController : BaseController
 
         _destPos = _lockTarget.transform.position;
 
-        float distance = Vector2.Distance(transform.position, _destPos);
-        if (distance <= _attackRange)
+        if (detection.playerDetected)
         {
             _rb.linearVelocity = Vector2.zero;
             if (!_isAttacking && _attackCoroutine == null)
@@ -147,8 +146,7 @@ public class CrowController : BaseController
             return;
         }
 
-        float distanceSqr = (_lockTarget.transform.position - transform.position).sqrMagnitude;
-        if (distanceSqr > _attackRange * _attackRange)
+        if (!detection.playerDetected)
         {
             State = Define.State.Moving;
             _spum.PlayAnimation(PlayerState.MOVE, 0);
@@ -267,6 +265,14 @@ public class CrowController : BaseController
             while (moveTime > 0)
             {
                 _rb.linearVelocity = moveDir * _stat.Total_MoveSpeed;
+
+                Vector3 dir = (_lockTarget.transform.position - transform.position).normalized;
+                if (dir.x != 0)
+                {
+                    float xTargetScale = (dir.x < 0) ? 1f : -1f;
+                    transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);
+                }
+
                 moveTime -= Time.deltaTime;
                 yield return null;
             }

@@ -16,6 +16,7 @@ public class GoblinSpearController : BaseController
     private Coroutine _attackCoroutine;
     float AttackCount = 0f;
     private bool _isWaiting = false;
+    private float lastdistance;
     
 
 
@@ -24,16 +25,13 @@ public class GoblinSpearController : BaseController
     float _scanRange = 5f;
 
     [SerializeField]
-    float _attackRange = 0.8f;
-
-    [SerializeField]
     float _moveRange = 20f;
 
     [SerializeField]
     SpriteRenderer _spriteRenderer;
-
+   
     [SerializeField]
-    float PlayerDistance = 0.5f;
+    private Detection detection;
 
 
 
@@ -110,7 +108,7 @@ public class GoblinSpearController : BaseController
 
         // 공격 사거리 체크
         float distance = Vector2.Distance(transform.position, _destPos);
-        if (distance <= _attackRange)
+        if (detection.playerDetected)
         {
             _rb.linearVelocity = Vector2.zero;
             if (!_isAttacking && _attackCoroutine == null)
@@ -158,8 +156,7 @@ public class GoblinSpearController : BaseController
         }
 
         // 때리다가 멀어지면 쫓아가기
-        float distanceSqr = (_lockTarget.transform.position - transform.position).sqrMagnitude;
-        if (distanceSqr > _attackRange * _attackRange)
+        if (!detection.playerDetected)
         {
             State = Define.State.Moving;
             _spum.PlayAnimation(PlayerState.MOVE, 0);
@@ -193,7 +190,7 @@ public class GoblinSpearController : BaseController
 
         float distance = Vector3.Distance(transform.position, _lockTarget.transform.position);
 
-        if (distance <= _attackRange)
+        if (detection.playerDetected)
         {
             Stat targetStat = _lockTarget.GetComponent<Stat>();
             if (targetStat != null)
@@ -235,13 +232,14 @@ public class GoblinSpearController : BaseController
     {
         _isAttacking = true;
         _isWaiting = true;
+        AttackCount = 0f;
 
-        float distance = Vector3.Distance(transform.position, _lockTarget.transform.position);
-        while (AttackCount < 1.0f && distance < _attackRange) 
+        lastdistance = Vector2.Distance(transform.position, _lockTarget.transform.position);
+        while (AttackCount < 1.0f && detection.playerDetected) 
         {
-            distance = Vector3.Distance(transform.position, _lockTarget.transform.position);
             FollowPlayerSlowly();
             AttackCount += Time.deltaTime;
+            lastdistance = Vector2.Distance(transform.position, _lockTarget.transform.position);
             yield return null;
         }
 
@@ -258,6 +256,9 @@ public class GoblinSpearController : BaseController
         _spum.PlayAnimation(PlayerState.ATTACK, 0);
         AttackCount = 0f;
 
+        yield return new WaitForSeconds(2.0f);
+        State = Define.State.Moving;
+        _spum.PlayAnimation(PlayerState.MOVE, 0);
         _isAttacking = false;
         _isWaiting = false;
         _attackCoroutine = null;
@@ -294,33 +295,25 @@ public class GoblinSpearController : BaseController
 
         _stat.add_MoveSpeed = -1.0f;
 
-        float distance = Vector2.Distance(transform.position, _destPos);
-        Vector3 dirToPlayer = (_destPos - transform.position).normalized;
-        Vector3 dirToPlayerOther = -(_destPos - transform.position).normalized;
-        if (distance < _attackRange)
+        float currentdistance = Vector2.Distance(transform.position, _lockTarget.transform.position);
+        Vector3 dirToPlayer = (_lockTarget.transform.position - transform.position).normalized;
+        
+        if (detection.playerDetected)
         {
             _spum.PlayAnimation(PlayerState.MOVE, 0);
 
-            if (distance > PlayerDistance + 0.2f)
+            float xTargetScale = (_lockTarget.transform.position.x < transform.position.x) ? 1f : -1f;
+            transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);
+           
+            if (currentdistance > lastdistance + 0.05f)
             {
                 _rb.linearVelocity = dirToPlayer * _stat.Total_MoveSpeed;
-
-                if (dirToPlayer.x != 0)
-                {
-                    float xTargetScale = (dirToPlayer.x < 0) ? 1f : -1f;
-                    transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);
-                }
             }
 
-           else if (distance <= PlayerDistance - 0.2f)
+           else if (currentdistance <= lastdistance - 0.05f)
             {
-                _rb.linearVelocity = dirToPlayerOther * _stat.Total_MoveSpeed;
-
-                if (dirToPlayerOther.x != 0)
-                {
-                    float xTargetScale = (dirToPlayerOther.x < 0) ? -1f : 1f;
-                    transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);
-                }
+                _rb.linearVelocity = -dirToPlayer * _stat.Total_MoveSpeed;
+}
             }
             else
             {
@@ -329,4 +322,3 @@ public class GoblinSpearController : BaseController
         }
     }
 
-}
