@@ -14,6 +14,7 @@ public class ScarecrowController : BaseController
     private bool _isAttacking = false; // 공격 루틴 중인지 체크
     private bool _isDeath = false;
     private Coroutine _attackCoroutine;
+    UI_NormalMonsterHPBar HPBar;
 
 
     [SerializeField]
@@ -49,6 +50,13 @@ public class ScarecrowController : BaseController
         _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         _spawnPos = transform.position;
+
+        if (HPBar == null)
+        {
+            HPBar = Managers.UI.MakeWorldSpaceUI<UI_NormalMonsterHPBar>(transform);
+            HPBar.transform.localPosition = new Vector3(0, 1.0f, 0);
+            HPBar.SetTarget(_stat);
+        }
 
         _spum = GetComponent<SPUM_Prefabs>();
         if (_spum != null )

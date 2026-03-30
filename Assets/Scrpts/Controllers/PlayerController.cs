@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : BaseController
 {
-    PlayerStat _stat;
+    Stat _stat;
     Vector3 _moveDir;
 
     Rigidbody2D _rb;
@@ -32,7 +32,7 @@ public class PlayerController : BaseController
     {
 
         WorldObjectType = Define.WorldObject.Player;
-        _stat = gameObject.GetComponent<PlayerStat>();
+        _stat = gameObject.GetComponent<Stat>();
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         _spum = GetComponent<SPUM_Prefabs>();

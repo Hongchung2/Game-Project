@@ -15,8 +15,9 @@ public class GoblinSpearController : BaseController
     private bool _isDeath = false;
     private Coroutine _attackCoroutine;
     float AttackCount = 0f;
-    private bool _isWaiting = false;
     private float lastdistance;
+    private bool _isWaiting = false;
+    UI_NormalMonsterHPBar HPBar;
     
 
 
@@ -32,7 +33,6 @@ public class GoblinSpearController : BaseController
    
     [SerializeField]
     private Detection detection;
-
 
 
     public override void Init()
@@ -53,6 +53,12 @@ public class GoblinSpearController : BaseController
 
         _spawnPos = transform.position;
 
+        if (HPBar == null)
+        {
+            HPBar = Managers.UI.MakeWorldSpaceUI<UI_NormalMonsterHPBar>(transform);
+            HPBar.transform.localPosition = new Vector3(0, 1.7f, 0);
+            HPBar.SetTarget(_stat);
+        }
         _spum = GetComponent<SPUM_Prefabs>();
         if (_spum != null)
         {
