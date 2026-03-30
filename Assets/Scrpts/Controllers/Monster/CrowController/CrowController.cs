@@ -14,7 +14,7 @@ public class CrowController : BaseController
     private bool _isDeath = false;
     private Coroutine _attackCoroutine;
     float StopTime = 1.0f;
-
+    UI_NormalMonsterHPBar HPBar;
 
     [SerializeField]
     float _scanRange = 5f;
@@ -33,6 +33,7 @@ public class CrowController : BaseController
 
     [SerializeField]
     private GameObject bulletPrefab;
+
     public override void Init()
     {
         _initialScale = transform.localScale;
@@ -48,6 +49,13 @@ public class CrowController : BaseController
         _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         _spawnPos = transform.position;
+
+        if (HPBar == null)
+        {
+            HPBar = Managers.UI.MakeWorldSpaceUI<UI_NormalMonsterHPBar>(transform);
+            HPBar.transform.localPosition = new Vector3(0, 1.0f, 0);
+            HPBar.SetTarget(_stat);
+        }
 
         _spum = GetComponent<SPUM_Prefabs>();
         if (_spum != null)

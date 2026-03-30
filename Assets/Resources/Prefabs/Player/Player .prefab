@@ -2929,9 +2929,9 @@ GameObject:
   - component: {fileID: 5300178681624474475}
   - component: {fileID: 7793183132881460990}
   - component: {fileID: 5036004869305855094}
-  - component: {fileID: 1147661971471764775}
   - component: {fileID: 6749805547070822653}
   - component: {fileID: 8436926612168499773}
+  - component: {fileID: 9214471182013272523}
   m_Layer: 9
   m_Name: 'Player '
   m_TagString: Player
@@ -5986,40 +5986,6 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 0}
   _joystick: {fileID: 0}
   _attackRange: 1
---- !u!114 &1147661971471764775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5636758013200641154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e06ae8065032984bbc2fce9d17b3575, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerStat
-  _level: 0
-  _hp: 0
-  _maxhp: 0
-  _attack: 0
-  _attackSpeed: 0
-  _defense: 0
-  _moveSpeed: 0
-  data: {fileID: 0}
-  base_Hp: 0
-  add_Hp: 0
-  base_MaxHp: 0
-  add_MaxHp: 0
-  base_Attack: 0
-  add_Attack: 0
-  base_AttackSpeed: 0
-  add_AttackSpeed: 0
-  base_Defense: 0
-  add_Defense: 0
-  base_MoveSpeed: 0
-  add_MoveSpeed: 0
-  _exp: 0
-  _gold: 0
 --- !u!50 &6749805547070822653
 Rigidbody2D:
   serializedVersion: 5
@@ -6084,6 +6050,38 @@ CapsuleCollider2D:
   m_Offset: {x: -0.014164579, y: 0.30898976}
   m_Size: {x: 0.8375931, y: 0.93226933}
   m_Direction: 0
+--- !u!114 &9214471182013272523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5636758013200641154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80809b4d5e9d67418744fd8cd0463ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stat
+  _level: 0
+  _hp: 0
+  _maxhp: 0
+  _attack: 0
+  _attackSpeed: 0
+  _defense: 0
+  _moveSpeed: 0
+  data: {fileID: 11400000, guid: 426a6a54857ac874ab5023c4a6acf2c6, type: 2}
+  base_Hp: 0
+  add_Hp: 0
+  base_MaxHp: 0
+  add_MaxHp: 0
+  base_Attack: 0
+  add_Attack: 0
+  base_AttackSpeed: 0
+  add_AttackSpeed: 0
+  base_Defense: 0
+  add_Defense: 0
+  base_MoveSpeed: 0
+  add_MoveSpeed: 0
 --- !u!1 &5984387003540605815
 GameObject:
   m_ObjectHideFlags: 0

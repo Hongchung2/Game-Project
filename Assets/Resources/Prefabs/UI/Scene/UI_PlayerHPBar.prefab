@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 6687302216877806008}
   - component: {fileID: 3622689611232663023}
   m_Layer: 5
-  m_Name: UI_HPBar
+  m_Name: UI_PlayerHPBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -319,7 +319,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!1 &7637006324537315552
 GameObject:
   m_ObjectHideFlags: 0

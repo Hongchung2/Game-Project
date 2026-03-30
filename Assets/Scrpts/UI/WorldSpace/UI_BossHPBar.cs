@@ -1,11 +1,7 @@
-using System.ComponentModel;
-using UnityEngine.UI;
 using UnityEngine;
-using Unity.VisualScripting;
+using UnityEngine.UI;
 
-
-
-public class UI_HPBar : UI_Scene
+public class UI_BossHPBar : UI_Scene
 {
     enum GameObjects
     {
@@ -14,10 +10,11 @@ public class UI_HPBar : UI_Scene
 
     [SerializeField]
     Stat _stat;
+
     public override void Init()
     {
         Bind<GameObject>(typeof(GameObjects));
-        
+
         if (transform.parent != null)
         {
             _stat = transform.parent.GetComponent<Stat>();
@@ -25,13 +22,14 @@ public class UI_HPBar : UI_Scene
 
         if (_stat == null)
         {
-            GameObject player = GameObject.FindWithTag("Player");
-            if (player != null)
+            GameObject Monster = GameObject.FindWithTag("Monster");
+            if (Monster != null)
             {
-                _stat = player.GetComponent<Stat>();
+                _stat = Monster.GetComponent<Stat>();
             }
         }
     }
+
     void Update()
     {
         if (_stat != null)
