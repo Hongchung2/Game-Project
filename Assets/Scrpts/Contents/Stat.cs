@@ -16,7 +16,10 @@ public class Stat : MonoBehaviour
     [SerializeField]
     protected int _defense;
     [SerializeField]
+    protected int _maxdefense;
+    [SerializeField]
     protected float _moveSpeed;
+    
 
     public ObjectData data;
 
@@ -30,6 +33,7 @@ public class Stat : MonoBehaviour
     public int Attack { get { return _attack; } set { _attack = value; } }
     public float AttackSpeed { get { return _attackSpeed; } set { _attackSpeed = value; } }
     public int Defense { get { return _defense; } set { _defense = value; } }
+    public int MaxDefense { get { return _maxdefense; } set { _maxdefense = value; } } 
     public float MoveSpeed { get { return _moveSpeed; } set { _moveSpeed = value; } }
 
     // 기본 스탯
@@ -53,6 +57,10 @@ public class Stat : MonoBehaviour
     public int add_Defense = 0;
     public int Total_Defense => base_Defense + add_Defense;
 
+    public int base_MaxDefense;
+    public int add_MaxDefense = 0;
+    public int Total_MaxDefense => base_MaxDefense + add_MaxDefense;
+
     public float base_MoveSpeed;
     public float add_MoveSpeed = 0f;
     public float Total_MoveSpeed => base_MoveSpeed + add_MoveSpeed;
@@ -67,7 +75,8 @@ public class Stat : MonoBehaviour
             base_MaxHp = data.baseMaxHp;
             base_Attack = data.baseAttack;
             base_AttackSpeed = data.attackSpeed;
-            base_Defense = data.baseDefense;
+            base_Defense = data.baseMaxDefense;
+            base_MaxDefense = data.baseMaxDefense;
             base_MoveSpeed = data.moveSpeed;
         }
         InitStats();
@@ -90,6 +99,7 @@ public class Stat : MonoBehaviour
         _attack = Total_Attack;
         _attackSpeed = Total_AttackSpeed;
         _defense = Total_Defense;
+        _maxdefense = Total_MaxDefense;
         _moveSpeed = Total_MoveSpeed;
     }
     public virtual void OnAttacked(Stat attacker)
@@ -97,10 +107,25 @@ public class Stat : MonoBehaviour
         if (_IsDeath || attacker == null) return;
         if (_hp <= 0) return;
 
-        int damage = Mathf.Max(0, attacker.Attack - Defense);
-        Hp -= damage;
+        int damage = attacker.Attack;
+        
 
+        if (_defense > 0)
+        {
+            if (_defense >= damage)
+            {
+                _defense -= damage;
+                damage = 0;
+            }
+            else
+            {
+                damage = damage - _defense;
+                _defense = 0;
+            }
+        }
         Debug.Log($"<color=red>[Hit]</color>{gameObject.name} | 데미지 {damage}");
+        Debug.Log($"방어력: {_defense}");
+        Hp -= damage;
 
         if (Hp <= 0)
         {

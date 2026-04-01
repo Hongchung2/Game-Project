@@ -15,6 +15,6 @@ MonoBehaviour:
   ObjectName: Lina
   baseMaxHp: 10
   baseAttack: 1
-  baseDefense: 1
+  baseMaxDefense: 10
   attackSpeed: 1
   moveSpeed: 2
