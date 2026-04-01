@@ -2,6 +2,8 @@ using System.ComponentModel;
 using UnityEngine.UI;
 using UnityEngine;
 using Unity.VisualScripting;
+using TMPro.EditorUtilities;
+using TMPro;
 
 
 
@@ -9,11 +11,21 @@ public class UI_PlayerHPBar : UI_Scene
 {
     enum GameObjects
     {
-        HPBar
+        HPBar,
+        DefenseBar
     }
 
     [SerializeField]
     Stat _stat;
+
+    [SerializeField]
+    TMP_Text _HPText;
+
+    [SerializeField]
+    Slider _hpbar;
+
+    [SerializeField]
+    Slider _defensebar;
     public override void Init()
     {
         Bind<GameObject>(typeof(GameObjects));
@@ -34,17 +46,22 @@ public class UI_PlayerHPBar : UI_Scene
     }
     void Update()
     {
-        if (_stat != null)
-        {
-            float ratio = _stat.Hp / (float)_stat.MaxHp;
-            SetHpRatio(ratio);
-        }
+        SetRatio();
     }
 
-    public void SetHpRatio(float ratio)
+    
+    public void SetRatio()
     {
-        var slider = GetObject((int)GameObjects.HPBar).GetComponent<Slider>();
-        if (slider != null)
-            slider.value = ratio;
+        if (_stat == null || _hpbar == null || _defensebar == null) return;
+
+        float Defense_ratio = _stat.Defense / (float)_stat.MaxDefense;
+        _defensebar.value = Defense_ratio;
+        float HP_ratio = _stat.Hp / (float)_stat.MaxHp;
+        _hpbar.value = HP_ratio;
+
+        if (_HPText != null)
+        {
+            _HPText.text = $"{_stat.Hp} / {_stat.MaxHp}";
+        }
     }
 }

@@ -611,6 +611,7 @@ MonoBehaviour:
   _attack: 0
   _attackSpeed: 0
   _defense: 0
+  _maxdefense: 0
   _moveSpeed: 0
   data: {fileID: 0}
   base_Hp: 10
@@ -623,6 +624,8 @@ MonoBehaviour:
   add_AttackSpeed: 0
   base_Defense: 0
   add_Defense: 0
+  base_MaxDefense: 0
+  add_MaxDefense: 0
   base_MoveSpeed: 4
   add_MoveSpeed: 0
 --- !u!50 &237595310
