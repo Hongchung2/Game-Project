@@ -13,7 +13,6 @@ public class PlayerController : BaseController
     Animator _anim;
     private SPUM_Prefabs _spum;
 
-    //ÄáÄá ¶Ù´Â ¸ð¼Ç
     float _bounceTime = 0;
     public float bounceSpeed = 20f;
     public float bounceHeight = 0.2f;
@@ -27,10 +26,17 @@ public class PlayerController : BaseController
     [SerializeField]
     float _attackRange = 0.8f;
 
+    [SerializeField]
+    float _interactRange = 0.5f;
+
+    [SerializeField]
+    IIdentifiable _interactTarget;
+
+    
+
 
     public override void Init()
     {
-
         WorldObjectType = Define.WorldObject.Player;
         _stat = gameObject.GetComponent<Stat>();
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -119,14 +125,12 @@ public class PlayerController : BaseController
         float h = 0;
         float v = 0;
 
-        // [¼öÁ¤] ¼öµ¿À¸·Î ¿¬°áÇÑ ¿¡¼Â Á¶ÀÌ½ºÆ½ °ª °¡Á®¿À±â
         if (_joystick != null)
         {
             h = _joystick.Horizontal;
             v = _joystick.Vertical;
         }
 
-        // Á¶ÀÌ½ºÆ½ ÀÔ·ÂÀÌ ¾øÀ¸¸é Å°º¸µå Ã¼Å©
         if (h == 0 && v == 0)
         {
             h = Input.GetAxisRaw("Horizontal");
@@ -140,7 +144,7 @@ public class PlayerController : BaseController
     {
         if (State != Define.State.Skill)
         {
-            LockTarget();
+            MonsterLockTarget();
 
             State = Define.State.Skill;
             _spum.PlayAnimation(PlayerState.ATTACK, 0);
@@ -148,7 +152,7 @@ public class PlayerController : BaseController
         }
     }
 
-    void LockTarget()
+    void MonsterLockTarget()
     {
         Collider2D[] phtocells = Physics2D.OverlapCircleAll(transform.position, 2.0f);
 
@@ -171,6 +175,22 @@ public class PlayerController : BaseController
         _lockTarget = closestMonster;
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Interactable"))
+        {
+            IIdentifiable Interact = collision.GetComponent<IIdentifiable>();
+            if (Interact != null)
+            {
+                _interactTarget = Interact;
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collsion)
+    {
+    }
+
     IEnumerator CoReturnToIdle()
     {
         yield return new WaitForSeconds(0.5f);
@@ -182,13 +202,12 @@ public class PlayerController : BaseController
     }
     public override void OnHitEvent()
     {
-        Debug.Log("player onhitevent Á¤»óÀûÀ¸·Î ½ÇÇà");
         if (_lockTarget == null) return;
 
         float dist = (transform.position - _lockTarget.transform.position).magnitude;
         if (dist > _attackRange)
         {
-            Debug.Log("»ç°Å¸® ¹Û");
+            Debug.Log("ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½");
             return;
         }
 
@@ -196,7 +215,7 @@ public class PlayerController : BaseController
         if (targetStat != null)
         {
             targetStat.OnAttacked(_stat);
-            Debug.Log($"ÇöÀç Hp : {targetStat.Hp}");
+            Debug.Log($"ï¿½ï¿½ï¿½ï¿½ Hp : {targetStat.Hp}");
         }
     }
 
