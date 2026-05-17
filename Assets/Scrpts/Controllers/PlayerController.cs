@@ -52,17 +52,31 @@ public class PlayerController : BaseController
             _spum.PlayAnimation(PlayerState.IDLE, 0);
         }
 
-        // _anim = GetComponent<Animator>();
+        _rb = GetComponent<Rigidbody2D>();
     }
     protected override void UpdateIdle()
     {
+        // 사망 처리
+        if (_stat.Hp <= 0)
+        {
+            State = Define.State.Die;
+            _spum.PlayAnimation(PlayerState.DEATH, 0);
+        }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        // 상호작용 및 공격
+        if (_interactTarget != null && Input.GetKeyDown(KeyCode.Space))
+        {
+            //_interactTarget.Interact();
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
             OnAttack();
-        } 
-
+        }
+        
+        // 이동 좌표 계산
         GetMoveInput();
+
+        // 실제 이동
         if (_moveDir.magnitude > 0)
         {
             State = Define.State.Moving;
@@ -73,6 +87,14 @@ public class PlayerController : BaseController
 
     protected override void UpdateMoving()
     {
+        // 공격 중 이동 막기
+        if (State == Define.State.Skill) return;
+        // 사망 처리
+        if (_stat.Hp <= 0)
+        {
+            State = Define.State.Die;
+            _spum.PlayAnimation(PlayerState.DEATH, 0);
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -91,7 +113,7 @@ public class PlayerController : BaseController
             return;
         }
 
-        transform.position += _moveDir * speed * Time.deltaTime;
+        _rb.MovePosition(_rb.position + (Vector2)_moveDir * speed * Time.deltaTime);
 
         _bounceTime += Time.deltaTime * bounceSpeed;
         float yOffest = Mathf.Abs(Mathf.Sin(_bounceTime)) * bounceHeight;
@@ -113,13 +135,10 @@ public class PlayerController : BaseController
 
     protected override void UpdateDie()
     {
-        if (_stat.Hp <= 0)
-        {
-            State = Define.State.Die;
-            _spum.PlayAnimation(PlayerState.DEATH, 0);
-        }
+        
     }
 
+    // 이동 좌표 계산
     void GetMoveInput()
     {
         float h = 0;
@@ -175,6 +194,7 @@ public class PlayerController : BaseController
         _lockTarget = closestMonster;
     }
 
+    // 플레이어가 "Interactable" 태그 오브젝트 범위 안에 들어왔을 때
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Interactable"))
@@ -187,10 +207,16 @@ public class PlayerController : BaseController
         }
     }
 
-    void OnTriggerExit2D(Collider2D collsion)
+    // 플레이어가 범위 밖으로 나갔을 때
+    void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.CompareTag("Interactable"))
+        {
+            _interactTarget = null;
+        }
     }
 
+    // 공격 후 잠시 경직
     IEnumerator CoReturnToIdle()
     {
         yield return new WaitForSeconds(0.5f);

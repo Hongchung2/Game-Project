@@ -20,11 +20,10 @@ public abstract class BaseController : MonoBehaviour
         set
         {
             _state = value;
-
-            Animator anim = GetComponent<Animator>();
             switch (_state)
             {
                 case Define.State.Die:
+                    OnDie();
                     break;
                 case Define.State.Idle:
                     break;
@@ -70,16 +69,17 @@ public abstract class BaseController : MonoBehaviour
     protected virtual void UpdateIdle() { }
     protected virtual void UpdateSkill() { }
     protected virtual void UpdateReturn() { }
+    protected virtual void OnDie() {}
     public virtual void OnHitEvent() { }
 }
 /*
  protected override void UpdateReturn()
     {
-        // ¹æÇâ°ú °Å¸® °è»ê
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½
         Vector3 dir = (_spawnPos - transform.position).normalized;
         float distToThomeSqr = (_spawnPos - transform.position).sqrMagnitude;
 
-        // µµÂø ÆÇÁ¤
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (distToThomeSqr < 0.01f)
         {
             _rb.linearVelocity = Vector2.zero;
@@ -88,10 +88,10 @@ public abstract class BaseController : MonoBehaviour
             _lockTarget = null;
             return;
         }
-// Rigidbody·Î ÀÌµ¿ (ÀÌµ¿ ¹æ½Ä ÅëÀÏ)
+// Rigidbodyï¿½ï¿½ ï¿½Ìµï¿½ (ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
         _rb.linearVelocity = dir * _stat.MoveSpeed;
 
-        // µ¹¾Æ°¥ ¶§µµ ¹æÇâ ÀüÈ¯
+        // ï¿½ï¿½ï¿½Æ°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
         if (dir.x != 0)
         {
             float xTargetScale = (dir.x < 0) ? -1f : 1f;
