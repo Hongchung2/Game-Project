@@ -130,17 +130,11 @@ public class Stat : MonoBehaviour
         if (Hp <= 0)
         {
             Hp = 0;
-            Debug.Log("상태 변화 -> 죽음");
-            spum.PlayAnimation(PlayerState.DAMAGED, 0);
-
             bc.State = Define.State.Die;
         }
         else
         {
-            if (spum != null)
-            {
-                spum.PlayAnimation(PlayerState.DAMAGED, 0);
-            }
+            spum.PlayAnimation(PlayerState.DAMAGED, 0);
         }
         
     }
@@ -163,42 +157,6 @@ public class Stat : MonoBehaviour
 
         _IsDeath=false;
     }
-
-    /*protected virtual void OnDead(Stat attacker)
-    {
-        PlayerStat playerStat = attacker as PlayerStat;
-        if (playerStat != null)
-        {
-            playerStat.Exp += 5;
-        }
-
-        Managers.Game.Despawn(gameObject);
-
-        // 부모 오브젝트에 붙은 컨트롤러 찾기
-        BaseController controller = GetComponent<BaseController>();
-        if (controller != null)
-        {
-            controller.State = Define.State.Die; // 🚩 여기서 상태 변경!
-            Debug.Log("상태를 Die로 변경 시도함");
-        }
-        else
-        {
-            Debug.LogError("BaseController를 찾을 수 없습니다!");
-        }
-
-        // 자식(Visual)에 있는 애니메이터 찾기
-        Animator anim = GetComponentInChildren<Animator>();
-        if (anim != null)
-        {
-            anim.CrossFade("Dead", 0.1f);
-        }
-
-        // 물리/충돌 끄기
-        if (GetComponent<Collider2D>() != null) GetComponent<Collider2D>().enabled = false;
-        if (GetComponent<Rigidbody2D>() != null) GetComponent<Rigidbody2D>().simulated = false;
-
-        Debug.Log($"{gameObject.name} 사망 처리 완료");
-    }*/
 
 }
 

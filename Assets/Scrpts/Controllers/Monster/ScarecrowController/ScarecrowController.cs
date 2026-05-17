@@ -3,195 +3,11 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using System.Collections;
 
-public class ScarecrowController : BaseController
+public class ScarecrowController : BaseMonsterController
 {
-    Stat _stat;
-    Rigidbody2D _rb;
-    Vector3 _spawnPos;
-    Vector3 _initialScale;
-    private SPUM_Prefabs _spum;
-    public float StopTime = 1f;
-    private bool _isAttacking = false; // °ø°Ý ·çÆ¾ ÁßÀÎÁö Ã¼Å©
-    private bool _isDeath = false;
-    private Coroutine _attackCoroutine;
-    UI_NormalMonsterHPBar HPBar;
-
-
-    [SerializeField]
-    private Detection detection;
-
-    [SerializeField]
-    float _scanRange = 5f;
-
-    [SerializeField]
-    float _moveRange = 20f;
-
-    [SerializeField]
-    SpriteRenderer _spriteRenderer;
-
-
-
-    public override void Init()
-    {
-        _initialScale = transform.localScale;
-
-        WorldObjectType = Define.WorldObject.Monster;
-
-        _stat = gameObject.GetComponent<Stat>();
-
-        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-
-        if (detection == null) detection = GetComponent<Detection>();
-
-
-
-        _rb = gameObject.GetOrAddComponent<Rigidbody2D>();
-        _rb.gravityScale = 0;
-        _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-
-        _spawnPos = transform.position;
-
-        if (HPBar == null)
-        {
-            HPBar = Managers.UI.MakeWorldSpaceUI<UI_NormalMonsterHPBar>(transform);
-            HPBar.transform.localPosition = new Vector3(0, 1.0f, 0);
-            HPBar.SetTarget(_stat);
-        }
-
-        _spum = GetComponent<SPUM_Prefabs>();
-        if (_spum != null )
-        {
-            _spum.PopulateAnimationLists();
-            _spum.OverrideControllerInit();
-
-            State = Define.State.Idle;
-            _spum.PlayAnimation(PlayerState.IDLE, 0);
-        }
-    }
-    protected override void UpdateIdle()
-    {
-
-        if (_isAttacking) return;
-
-        if (_destPos == _spawnPos)
-        {
-            float disToHomeSqr = (transform.position - _spawnPos).sqrMagnitude;
-            if (disToHomeSqr > 0.01f)
-                return;
-        }
-        GameObject player = Managers.Game.GetPlayer();
-
-        if (player == null)
-        {
-            return;
-        }
-        
-        float distanceSqr = (player.transform.position - transform.position).sqrMagnitude;
-        if (distanceSqr < _scanRange * _scanRange)
-        {
-            _lockTarget = player;
-
-            State = Define.State.Moving;
-            _spum.PlayAnimation(PlayerState.MOVE, 0);
-            return;
-        }
-    }
-
-    protected override void UpdateMoving()
-    {
-        if (_lockTarget == null)
-        {
-            State = Define.State.Idle;
-            _spum.PlayAnimation(PlayerState.IDLE, 0);
-            return;
-        }
-        if (_isAttacking) return;
-
-        // ¹æÇâ °è»ê
-        _destPos = _lockTarget.transform.position;
-
-
-        // °ø°Ý »ç°Å¸® Ã¼Å©
-        if (detection.playerDetected)
-        {
-            _rb.linearVelocity = Vector2.zero;
-            if (!_isAttacking && _attackCoroutine == null)
-            {
-                _attackCoroutine = StartCoroutine(AttackRoutine());
-            }
-            return;
-        }
-
-        // ½ÇÁ¦ ÀÌµ¿
-        Vector3 dir = (_destPos - transform.position).normalized;
-        _rb.linearVelocity = dir * _stat.MoveSpeed;
-        Debug.Log("ÀÌµ¿");
-        // ÁÂ¿ì ¹ÝÀü (ÀÌµ¿½Ã)
-        if (dir.x != 0)
-        {
-            float xTargetScale = (dir.x < 0) ? 1f : -1f;
-            transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);
-        }
-
-        // º¹±Í
-        float disFromHomeSqr = (transform.position - _spawnPos).sqrMagnitude;
-        if (disFromHomeSqr > _moveRange * _moveRange)
-        {
-            _lockTarget = null;
-            State = Define.State.Return;
-        }
-    }
-
-    protected override void UpdateSkill()
-    {
-        if (_isAttacking) return;   
-
-        if (_lockTarget == null)
-        {
-            State = Define.State.Idle;
-            _spum.PlayAnimation(PlayerState.IDLE, 0);
-            return;
-        }
-
-        Stat targetStat = _lockTarget.GetComponent<Stat>();
-        if (targetStat != null && targetStat.Hp <= 0)
-        {
-            _lockTarget = null;
-            State = Define.State.Return;
-            return;
-        }
-
-        // ¶§¸®´Ù°¡ ¸Ö¾îÁö¸é ÂÑ¾Æ°¡±â
-        if (!detection.playerDetected)
-        {
-            State = Define.State.Moving;
-            _spum.PlayAnimation(PlayerState.MOVE, 0);
-            return;
-        }
-
-        // ¶§¸± ¶§ ÇÃ·¹ÀÌ¾î ÃÄ´Ùº¸±â
-        Vector3 dir = (_lockTarget.transform.position - transform.position).normalized;
-        if (dir.x != 0)
-        {
-            float xTargetScale = (dir.x < 0) ? 1f : -1f;
-            transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);
-        }
-    }
-
-    protected override void UpdateDie()
-    {
-        if (_isDeath) return;
-        StartCoroutine(DeadAction());
-    }
-
-    protected override void UpdateReturn()
-    {
-        Return();
-    }
-
     public override void OnHitEvent()
     {
-        Debug.Log("onhitevent Á¤»óÀûÀ¸·Î ½ÇÇà");
+        Debug.Log("onhitevent ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
         if (_lockTarget == null) return;
 
         if (detection.playerDetected)
@@ -200,39 +16,16 @@ public class ScarecrowController : BaseController
             if (targetStat != null)
             {
                 targetStat.OnAttacked(_stat);
-                Debug.Log($"ÇöÀç Hp : {targetStat.Hp}");
+                Debug.Log($"ï¿½ï¿½ï¿½ï¿½ Hp : {targetStat.Hp}");
             }
         }
         else
         {
-            Debug.Log("È¸ÇÇ ¼º°ø");
+            Debug.Log("È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
         }
     }
 
-    public void Return()
-    {
-        Vector3 dir = (_spawnPos - transform.position).normalized;
-        float disToHomeSqr = (_spawnPos - transform.position).sqrMagnitude;
-
-        if (disToHomeSqr < 0.01f)
-        {
-            _rb.linearVelocity = Vector2.zero;
-            transform.position = _spawnPos;
-            State = Define.State.Idle;
-            _spum.PlayAnimation(PlayerState.IDLE, 0);
-            _lockTarget = null;
-            return;
-        }
-
-        _rb.linearVelocity = dir * _stat.MoveSpeed;
-        if (dir.x != 0)
-        {
-            float xTargetScale = (dir.x < 0) ? 1f : -1f;
-            transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);
-        }
-    }
-
-    IEnumerator AttackRoutine()
+    protected override IEnumerator AttackRoutine()
     {
         _isAttacking = true;
 
@@ -245,7 +38,7 @@ public class ScarecrowController : BaseController
         {
             State = Define.State.Skill;
             _spum.PlayAnimation(PlayerState.ATTACK, 0);
-            Debug.Log("°ø°Ý (ÄÚ·çÆ¾)");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ (ï¿½Ú·ï¿½Æ¾)");
         }
 
         yield return new WaitForSeconds(StopTime);
@@ -255,31 +48,4 @@ public class ScarecrowController : BaseController
         _isAttacking = false;
         _attackCoroutine = null;
     }
-
-    IEnumerator DeadAction()
-    {
-        if (_lockTarget != null) _lockTarget = null;
-
-        _isDeath = true;
-
-        if (_attackCoroutine != null)
-        {
-            StopCoroutine(_attackCoroutine);
-            _attackCoroutine = null;
-        }
-
-        _rb.linearVelocity = Vector2.zero;
-
-        var col = GetComponent<Collider2D>();
-        if (col != null) col.enabled = false;
-
-        _spum.PlayAnimation(PlayerState.DEATH, 0);
-
-        yield return new WaitForSeconds(3.0f);
-
-        gameObject.SetActive(false);
-
-        _isDeath = false;
-    }
-
 }
