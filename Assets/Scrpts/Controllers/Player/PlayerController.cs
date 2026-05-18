@@ -1,6 +1,8 @@
 using System.Collections;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : BaseController
 {
@@ -12,27 +14,27 @@ public class PlayerController : BaseController
     public float speed = 5f;
     Animator _anim;
     private SPUM_Prefabs _spum;
-
     float _bounceTime = 0;
     public float bounceSpeed = 20f;
     public float bounceHeight = 0.2f;
+    [SerializeField] IWeapon _currentWeapon;
+    [SerializeField] Button _swapButton;
+    [SerializeField] TextMeshProUGUI _swapButtonText;
 
-    [SerializeField]
-    SpriteRenderer _spriteRenderer;
+    //나중에 작업 할 예정 (아트분 그림 나오면)
+    /*[SerializeField] Image _swapButtonImage; 
+    [SerializeField] Sprite _swordSprite;
+    [SerializeField] Sprite _bowSprite;*/
 
-    [SerializeField]
-    Joystick _joystick;
+    [SerializeField] SpriteRenderer _spriteRenderer;
 
-    [SerializeField]
-    float _attackRange = 0.8f;
+    [SerializeField] Joystick _joystick;
 
-    [SerializeField]
-    float _interactRange = 0.5f;
+    [SerializeField] float _attackRange = 0.8f;
 
-    [SerializeField]
-    IIdentifiable _interactTarget;
+    [SerializeField] float _interactRange = 0.5f;
 
-    
+    [SerializeField] IIdentifiable _interactTarget;
 
 
     public override void Init()
@@ -53,7 +55,22 @@ public class PlayerController : BaseController
         }
 
         _rb = GetComponent<Rigidbody2D>();
+        
+        _currentWeapon = GetComponent<SwordWeapon>();
+        _swapButtonText.text = "Bow";
+        //_swapButtonImage.sprite = _bowSprite;
     }
+    
+    public void EquipSword()
+    {
+        _currentWeapon = GetComponent<SwordWeapon>();
+    }
+
+    public void EquipBow()
+    {
+        _currentWeapon = GetComponent<BowWeapon>();
+    }
+
     protected override void UpdateIdle()
     {
         // 사망 처리
@@ -95,6 +112,7 @@ public class PlayerController : BaseController
             State = Define.State.Die;
             _spum.PlayAnimation(PlayerState.DEATH, 0);
         }
+
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -161,12 +179,17 @@ public class PlayerController : BaseController
 
     public void OnAttack()
     {
-        if (State != Define.State.Skill)
+        if (State != Define.State.Skill && _currentWeapon != null)
         {
             MonsterLockTarget();
 
             State = Define.State.Skill;
             _spum.PlayAnimation(PlayerState.ATTACK, 0);
+
+            if (_currentWeapon is BowWeapon)
+            {
+                _currentWeapon.Attack(_lockTarget, _stat);
+            }
             StartCoroutine(CoReturnToIdle());
         }
     }
@@ -228,20 +251,25 @@ public class PlayerController : BaseController
     }
     public override void OnHitEvent()
     {
-        if (_lockTarget == null) return;
-
-        float dist = (transform.position - _lockTarget.transform.position).magnitude;
-        if (dist > _attackRange)
+        if (_currentWeapon is SwordWeapon)
         {
-            Debug.Log("��Ÿ� ��");
-            return;
+            _currentWeapon.Attack(_lockTarget, _stat);
         }
+    }
 
-        Stat targetStat = _lockTarget.GetComponent<Stat>();
-        if (targetStat != null)
+    public void SwapWeapon()
+    {
+        if (_currentWeapon is SwordWeapon)
         {
-            targetStat.OnAttacked(_stat);
-            Debug.Log($"���� Hp : {targetStat.Hp}");
+            EquipBow();
+            _swapButtonText.text = "Sword";
+            //_swapButtonImage.sprite = _swordSprite;
+        }
+        else
+        {
+            EquipSword();
+             _swapButtonText.text = "Bow";
+             //_swapButtonImage.sprite = _bowSprite;
         }
     }
 

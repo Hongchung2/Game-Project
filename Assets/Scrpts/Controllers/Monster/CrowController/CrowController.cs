@@ -13,7 +13,7 @@ public class CrowController : BaseMonsterController
 
     public void Shoot()
     {
-        if (_lockTarget == null) return;
+        if (_lockTarget == null || !detection.playerDetected) return;
 
         Vector2 dir = (_lockTarget.transform.position - transform.position).normalized;
 
@@ -28,8 +28,6 @@ public class CrowController : BaseMonsterController
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         bullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-        float distance = Vector2.Distance(_lockTarget.transform.position, transform.position);
-        Debug.Log($"�Ҹ� ��ǥ {bullet.transform.position}");
         Destroy(bullet, 5.0f);
     }
     
@@ -74,6 +72,16 @@ public class CrowController : BaseMonsterController
 
             while (moveTime > 0)
             {
+                float disFromHome = (transform.position - _spawnPos).sqrMagnitude;
+                if (disFromHome > _moveRange * _moveRange)
+                {
+                    _rb.linearVelocity = Vector2.zero;
+                    _isAttacking = false;
+                    _attackCoroutine = null;
+                    State = Define.State.Return;
+                    yield break;
+                }
+
                 _rb.linearVelocity = moveDir * _stat.Total_MoveSpeed;
 
                 Vector3 dir = (_lockTarget.transform.position - transform.position).normalized;
