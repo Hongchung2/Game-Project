@@ -2932,6 +2932,8 @@ GameObject:
   - component: {fileID: 6749805547070822653}
   - component: {fileID: 8436926612168499773}
   - component: {fileID: 9214471182013272523}
+  - component: {fileID: 6327608627309025578}
+  - component: {fileID: 5343119788992904886}
   m_Layer: 9
   m_Name: 'Player '
   m_TagString: Player
@@ -2956,7 +2958,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 1, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.98598, y: 1.59102}
+  m_AnchoredPosition: {x: 4.72, y: 1.62}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7793183132881460990
@@ -5983,9 +5985,12 @@ MonoBehaviour:
   speed: 5
   bounceSpeed: 20
   bounceHeight: 0.2
+  _swapButton: {fileID: 0}
+  _swapButtonText: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   _joystick: {fileID: 0}
   _attackRange: 1
+  _interactRange: 0.5
 --- !u!50 &6749805547070822653
 Rigidbody2D:
   serializedVersion: 5
@@ -6068,6 +6073,7 @@ MonoBehaviour:
   _attack: 0
   _attackSpeed: 0
   _defense: 0
+  _maxdefense: 0
   _moveSpeed: 0
   data: {fileID: 11400000, guid: 426a6a54857ac874ab5023c4a6acf2c6, type: 2}
   base_Hp: 0
@@ -6080,8 +6086,37 @@ MonoBehaviour:
   add_AttackSpeed: 0
   base_Defense: 0
   add_Defense: 0
+  base_MaxDefense: 0
+  add_MaxDefense: 0
   base_MoveSpeed: 0
   add_MoveSpeed: 0
+--- !u!114 &6327608627309025578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5636758013200641154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c2e4caa1904804ca7d5ca8113d42a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwordWeapon
+  _attackrange: 1
+--- !u!114 &5343119788992904886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5636758013200641154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e3d91fb46c9524bacff04f16239f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BowWeapon
+  ArrowSpeed: 5
+  arrowPrefab: {fileID: 8073897967015975387, guid: 73d64d181139e6741bed087930a04f05, type: 3}
 --- !u!1 &5984387003540605815
 GameObject:
   m_ObjectHideFlags: 0

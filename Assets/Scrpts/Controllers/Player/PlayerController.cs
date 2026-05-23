@@ -17,6 +17,7 @@ public class PlayerController : BaseController
     float _bounceTime = 0;
     public float bounceSpeed = 20f;
     public float bounceHeight = 0.2f;
+    bool _isDying = false;
     [SerializeField] IWeapon _currentWeapon;
     [SerializeField] Button _swapButton;
     [SerializeField] TextMeshProUGUI _swapButtonText;
@@ -57,7 +58,7 @@ public class PlayerController : BaseController
         _rb = GetComponent<Rigidbody2D>();
         
         _currentWeapon = GetComponent<SwordWeapon>();
-        _swapButtonText.text = "Bow";
+        _swapButtonText.text = "활";
         //_swapButtonImage.sprite = _bowSprite;
     }
     
@@ -153,7 +154,9 @@ public class PlayerController : BaseController
 
     protected override void UpdateDie()
     {
-        
+        if (_isDying) return;
+        _isDying = true;
+        StartCoroutine(DieSequence());
     }
 
     // 이동 좌표 계산
@@ -262,15 +265,20 @@ public class PlayerController : BaseController
         if (_currentWeapon is SwordWeapon)
         {
             EquipBow();
-            _swapButtonText.text = "Sword";
+            _swapButtonText.text = "검";
             //_swapButtonImage.sprite = _swordSprite;
         }
         else
         {
             EquipSword();
-             _swapButtonText.text = "Bow";
+             _swapButtonText.text = "활";
              //_swapButtonImage.sprite = _bowSprite;
         }
     }
 
+    IEnumerator DieSequence()
+    {
+        yield return new WaitForSeconds(1.5f);
+        StartCoroutine(Managers.Load.FadeAndLoad("GameScene", "YOU DIED"));
+    }
 }
