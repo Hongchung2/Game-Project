@@ -19,6 +19,7 @@ public class Managers : MonoBehaviour
     SceneManagerEx _scene = new SceneManagerEx();
     SoundManager _sound = new SoundManager();
     UIManager _ui = new UIManager();
+    LoadManagers _load;
 
     public static DataManager Data { get { return Instance._data; } }
     public static InputManager Input { get { return Instance._input; } }
@@ -27,6 +28,7 @@ public class Managers : MonoBehaviour
     public static SceneManagerEx Scene { get { return Instance._scene; } }
     public static SoundManager Sound { get { return Instance._sound; } }
     public static UIManager UI { get { return Instance._ui; } }
+    public static LoadManagers Load { get {return Instance._load;}}
     #endregion
     void Awake()
     {
@@ -55,6 +57,7 @@ public class Managers : MonoBehaviour
             s_instance._data.Init();
             s_instance._pool.Init();
             //s_instance._sound.Init();
+            s_instance._load = FindAnyObjectByType<LoadManagers>();
         }
     }
     public static void Clear()

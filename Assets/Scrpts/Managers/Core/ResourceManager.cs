@@ -1,11 +1,10 @@
-using Mono.Cecil;
 using UnityEngine;
 
 public class ResourceManager
 {
     public ResourceManager() { }
 
-    // poolmanager°¡ ÀÌ¹Ì µé°í ÀÖ´Â ¿øº»ÀÌ ÀÖ´ÂÁö È®ÀÎ
+    // poolmanagerï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½
     public T Load<T>(string path) where T : Object
     {
         if (typeof(T) == typeof(GameObject))
@@ -23,8 +22,8 @@ public class ResourceManager
         }
         return Resources.Load<T>(path);
     }
-    // ¿ÀºêÁ§Æ®¸¦ ¼ÒÈ¯ÇÒ ¶§ poolable ÄÄÆ÷³ÍÆ®°¡ ºÙ¾î ÀÖ´ÂÁö È®ÀÎÇÑ´ÙÀ½ ÀÖÀ¸¸é
-    // manager.pool.popÀ» È£ÃâÇØ ²¨³»¿À°í ¾Æ´Ï¸é »õ·Î ¸¸µê
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ poolable ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ù¾ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    // manager.pool.popï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public GameObject Instantiate(string path, Transform parent = null)
     {
         GameObject original = Load<GameObject>($"Prefabs/{path}");
@@ -41,7 +40,7 @@ public class ResourceManager
         go.name = original.name;
         return go;
     }
-    // poolableÀÌ ºÙ¾î ÀÖÀ¸¸é ÆÄ±«ÇÏÁö ¾Ê°í pool¿¡ ´Ù½Ã ÀúÀå
+    // poolableï¿½ï¿½ ï¿½Ù¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ poolï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void Destroy(GameObject go)
     {
         if (go != null)

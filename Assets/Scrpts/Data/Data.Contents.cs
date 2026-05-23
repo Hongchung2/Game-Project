@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEditor.AdaptivePerformance.Editor.Metadata;
-using UnityEngine;
 
 namespace Data
 {
