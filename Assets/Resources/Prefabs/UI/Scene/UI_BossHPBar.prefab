@@ -274,6 +274,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_HPBar
   _stat: {fileID: 0}
+  _HPText: {fileID: 0}
+  _hpbar: {fileID: 0}
+  _defensebar: {fileID: 0}
 --- !u!223 &6687302216877806008
 Canvas:
   m_ObjectHideFlags: 0
@@ -319,7 +322,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!1 &7637006324537315552
 GameObject:
   m_ObjectHideFlags: 0
