@@ -79,6 +79,8 @@ public class PlayerController : BaseController
         {
             State = Define.State.Die;
             _spum.PlayAnimation(PlayerState.DEATH, 0);
+
+            return;
         }
 
         // 상호작용 및 공격
@@ -112,6 +114,7 @@ public class PlayerController : BaseController
         {
             State = Define.State.Die;
             _spum.PlayAnimation(PlayerState.DEATH, 0);
+            return;
         }
 
 
@@ -152,11 +155,10 @@ public class PlayerController : BaseController
 
 
 
-    protected override void UpdateDie()
+    protected override void OnDie()
     {
         if (_isDying) return;
-        _isDying = true;
-        StartCoroutine(DieSequence());
+        StartCoroutine(DeadAction());
     }
 
     // 이동 좌표 계산
@@ -199,7 +201,7 @@ public class PlayerController : BaseController
 
     void MonsterLockTarget()
     {
-        Collider2D[] phtocells = Physics2D.OverlapCircleAll(transform.position, 2.0f);
+        Collider2D[] phtocells = Physics2D.OverlapCircleAll(transform.position, _attackRange);
 
         float closestDistance = Mathf.Infinity;
         GameObject closestMonster = null;
@@ -231,6 +233,11 @@ public class PlayerController : BaseController
                 _interactTarget = Interact;
             }
         }
+
+        if (collision.CompareTag("Door"))
+        {
+            collision.GetComponent<DoorController>()?.TriggerDoor();
+        }
     }
 
     // 플레이어가 범위 밖으로 나갔을 때
@@ -254,7 +261,7 @@ public class PlayerController : BaseController
     }
     public override void OnHitEvent()
     {
-        if (_currentWeapon is SwordWeapon)
+        if (_currentWeapon is SwordWeapon && _lockTarget != null)
         {
             _currentWeapon.Attack(_lockTarget, _stat);
         }
@@ -276,9 +283,24 @@ public class PlayerController : BaseController
         }
     }
 
-    IEnumerator DieSequence()
+
+    IEnumerator DeadAction()
     {
-        yield return new WaitForSeconds(1.5f);
-        StartCoroutine(Managers.Load.FadeAndLoad("GameScene", "YOU DIED"));
+        if (_lockTarget != null) _lockTarget = null;
+
+        _isDying = true;
+
+        _rb.linearVelocity = Vector2.zero;
+
+        var col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = false;
+
+        _spum.PlayAnimation(PlayerState.DEATH, 0);
+
+        yield return new WaitForSeconds(3.0f);
+
+        _isDying = false;
+        Managers.Load.StartFadeAndLoad("GameScene", "YOU DIED");
+        gameObject.SetActive(false);
     }
 }

@@ -42,6 +42,8 @@ public class InGameDialogManager : MonoBehaviour
         Time.timeScale = 0f;
         _isDialogActive = true;
 
+        _arrowIcon.SetActive(false);
+
         // 패널 나타내기
         _dialogPanel.SetActive(true);
         _panelCanvasGroup.alpha = 0f;
@@ -63,7 +65,7 @@ public class InGameDialogManager : MonoBehaviour
             yield return null;
         }
 
-        _arrowIcon.SetActive(false);
+        
         _typingCoroutine = StartCoroutine(TypeText(_dialogues[0]));
     }
     
@@ -85,16 +87,16 @@ public class InGameDialogManager : MonoBehaviour
             StopCoroutine(_typingCoroutine);
             _dialogText.text = _dialogues[_index];
             _isTyping = false;
-            StartCoroutine(ShowArrow());
             return;
         }
 
         _index++;
         if (_index < _dialogues.Length)
         {
-            _arrowIcon.SetActive(false);
             _typingCoroutine = StartCoroutine(TypeText(_dialogues[_index]));
+            
         }
+
         else
         {
             StartCoroutine(EndDialogue());
@@ -113,8 +115,12 @@ public class InGameDialogManager : MonoBehaviour
             _dialogText.text += c;
             yield return new WaitForSecondsRealtime(0.05f); // TimeScale이 0이라 Realtime 사용해야함
         }
+
+        if (_index == _dialogues.Length-1)
+        {
+            StartCoroutine(ShowArrow());
+        }
         _isTyping = false;
-        StartCoroutine(ShowArrow());
     }
 
     IEnumerator ShowArrow()
