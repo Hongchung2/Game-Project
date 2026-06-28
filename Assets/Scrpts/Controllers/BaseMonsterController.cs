@@ -24,6 +24,8 @@ public abstract class BaseMonsterController : BaseController
     protected float _moveRange = 20f;
     [SerializeField]
     protected SpriteRenderer _spriteRenderer;
+    [SerializeField]
+    private float stopDistance = 0.8f;
     public float StopTime = 1f;
     protected abstract IEnumerator AttackRoutine();
 
@@ -105,8 +107,8 @@ public abstract class BaseMonsterController : BaseController
 
         _destPos = _lockTarget.transform.position;
 
-
-        if (detection.playerDetected)
+        float distToPlayer = (transform.position - _lockTarget.transform.position).sqrMagnitude;
+        if (distToPlayer < stopDistance * stopDistance || detection.playerDetected)
         {
             _rb.linearVelocity = Vector2.zero;
             if (!_isAttacking && _attackCoroutine == null)
@@ -246,5 +248,19 @@ public abstract class BaseMonsterController : BaseController
         _isDeath = false;
     }
 
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            _rb.linearVelocity = Vector2.zero;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            _rb.linearVelocity = Vector2.zero;
+        }
+    }
 }

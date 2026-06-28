@@ -5,7 +5,6 @@ public class ScarecrowController : BaseMonsterController
 {
     public override void OnHitEvent()
     {
-        Debug.Log("onhitevent ���������� ����");
         if (_lockTarget == null) return;
 
         if (detection.playerDetected)
