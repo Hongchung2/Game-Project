@@ -14,6 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 49e5c8458b7bdd2468c8615fd40eda4d
+  - enabled: 1
+    path: Assets/Scenes/Stage2_SpringScene.unity
+    guid: fd23436c735e49645822209d066c97ac
+  - enabled: 1
+    path: Assets/Scenes/Stage2_SummerScene.unity
+    guid: e9ff58eb9db27734d8da70dbcd756bce
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
