@@ -1,63 +1,74 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
+using Cinemachine;
 
 public class DoorController : MonoBehaviour
 {
-    [SerializeField] private bool isLocked = true; // 잠김 여부
-    [SerializeField] private Transform moveTarget; // 이동할 위치
-    [SerializeField] private Image fadeImage; // 검은 화면 Image
-    [SerializeField] private GameObject player;
+    [Header("이동 목적지")]
+    public Transform destination;  // 도착 지점 
+    public PolygonCollider2D nextConfiner;  // 도착 공간의 Confiner
 
-    // 문 충돌 시
-    private void OnTriggerEnter2D(Collider2D other)
+    [Header("카메라")]
+    public CinemachineConfiner cinemachineConfiner; // 직접 할당
+
+    [Header("페이드")]
+    public CanvasGroup fadeCanvasGroup; // 검은 화면 CanvasGroup
+    public float fadeDuration = 0.5f; // 페이딩 지속 시간
+
+    private bool isTransitioning = false;
+    private bool isLocked = false;
+
+    void Start()
     {
-        if (!other.CompareTag("Player")) return;
-        if (isLocked) return;
-
-        StartCoroutine(MoveRoutine());
-    } 
-
-    // 문 충돌 시 코루틴 발생 (화면 꺼매짐)
-    private IEnumerator MoveRoutine()
-    {
-        yield return StartCoroutine(FadeOut());
-        player.transform.position = moveTarget.position;
-        yield return StartCoroutine(FadeIn());
+        
     }
 
-    // 화면 꺼매지는 코루틴
-    private IEnumerator FadeOut()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        float t = 0f;
-        while (t < 1f)
+        Debug.Log("트리거 감지: " + other.name);
+        Debug.Log("isLocked: " + isLocked + " isTransitioning: " + isTransitioning);
+        if (other.CompareTag("Player") && !isTransitioning && !isLocked)
         {
-            t += Time.deltaTime;
-            fadeImage.color = new Color(0, 0, 0, t);
-            yield return null;
-        }
-    }
-    // 화면 밝아지는 코루틴
-    private IEnumerator FadeIn()
-    {
-        float t = 1f;
-        while (t > 0f)
-        {
-            t -= Time.deltaTime;
-            fadeImage.color = new Color(0, 0, 0, t);
-            yield return null;
+            StartCoroutine(Transition(other.gameObject));
         }
     }
 
-    public void TriggerDoor()
+    IEnumerator Transition(GameObject player)
     {
-        if (isLocked) return;
-        StartCoroutine(MoveRoutine());
+        isTransitioning = true;
+
+        // 페이드 아웃
+        yield return StartCoroutine(Fade(0f, 1f));
+
+        // 플레이어 이동
+        player.transform.position = destination.position;
+
+        // 카메라 Confiner 교체
+        cinemachineConfiner.m_BoundingShape2D = nextConfiner;
+        cinemachineConfiner.InvalidatePathCache();
+
+        // 페이드 인
+        yield return StartCoroutine(Fade(1f, 0f));
+
+        isTransitioning = false;
     }
-    
-    // 해당 지역 조건 만족시 문 열리도록
-    public void UnlockDoor()
+
+    IEnumerator Fade(float from, float to)
     {
-        isLocked = false;
+        float elapsed = 0f;
+        fadeCanvasGroup.alpha = from;
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            fadeCanvasGroup.alpha = Mathf.Lerp(from, to, elapsed / fadeDuration);
+            yield return null;
+        }
+        fadeCanvasGroup.alpha = to;
     }
+
+    public void SetDoorLocked(bool locked)
+    {
+        isLocked = locked;
+    }
+
 }

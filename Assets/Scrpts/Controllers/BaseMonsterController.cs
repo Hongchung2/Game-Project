@@ -28,6 +28,8 @@ public abstract class BaseMonsterController : BaseController
     private float stopDistance = 0.8f;
     public float StopTime = 1f;
     protected abstract IEnumerator AttackRoutine();
+    [SerializeField]
+    EnemyManager _enemyManager;
 
 
 
@@ -171,6 +173,10 @@ public abstract class BaseMonsterController : BaseController
     protected override void OnDie()
     {
         if (_isDeath) return;
+        if (_enemyManager != null)
+        {
+            _enemyManager.OnEnemyDied();
+        }
         StartCoroutine(DeadAction());
     }
 
