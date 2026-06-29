@@ -7,78 +7,105 @@ public class StatueController : MonoBehaviour
     public string statueId; // "hak", "turtle", "tiger", "dragon"
 
     [Header("감지 설정")]
-    public float playerDetectRadius = 1.2f;
-    public LayerMask playerLayer;
+    public float contactRange = 1.0f;  // 플레이어가 석상에 닿았다고 판정하는 거리
+    public float alignTolerance = 0.5f; // 미는 방향과 수직으로 허용되는 어긋남 (작을수록 정밀)
+    public LayerMask playerLayer;      // 플레이어 레이어
 
-    private bool _isPlayerNear = false;
+    [Header("이동 설정")]
+    public float moveTimePerCell = 0.5f; // 한 칸 미끄러지는 데 걸리는 시간
+    public int maxSlideCells = 20;       // 최대 탐색 칸 수
+
     private bool _isSliding = false;
     private bool _isSealed = false;
+    private bool _wasPushing = false;    // 직전 프레임에 밀고 있었는지 (한 번의 부딪힘 = 한 번의 슬라이드)
 
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
+    private Vector2 _originPos;          // 초기화 종을 위한 시작 위치
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
+        _originPos = transform.position;
     }
 
     private void Update()
     {
         if (_isSealed || _isSliding) return;
 
-        // 플레이어가 근처에 있는지 매 프레임 체크
-        Collider2D col = Physics2D.OverlapCircle(transform.position, playerDetectRadius, playerLayer);
-        _isPlayerNear = col != null;
-
-        if (!_isPlayerNear) return;
-
-        // F키를 누른 채로 방향키 입력 감지
-        if (Input.GetKey(KeyCode.F))
+        // F키를 누르고 있지 않으면 무시
+        if (!Input.GetKey(KeyCode.F))
         {
-            Vector2 dir = Vector2.zero;
-
-            if (Input.GetKeyDown(KeyCode.UpArrow))    dir = Vector2.up;
-            if (Input.GetKeyDown(KeyCode.DownArrow))  dir = Vector2.down;
-            if (Input.GetKeyDown(KeyCode.LeftArrow))  dir = Vector2.left;
-            if (Input.GetKeyDown(KeyCode.RightArrow)) dir = Vector2.right;
-
-            if (dir != Vector2.zero)
-                StartCoroutine(Slide(dir));
+            _wasPushing = false;
+            return;
         }
+
+        // 석상에 닿은 플레이어 찾기
+        Collider2D player = Physics2D.OverlapCircle(transform.position, contactRange, playerLayer);
+        if (player == null)
+        {
+            _wasPushing = false;
+            return;
+        }
+
+        // 플레이어가 누르는 방향 (방향키/WASD)
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 dir = GetCardinalDirection(input);
+
+        // 플레이어 → 석상 벡터를 미는 방향 기준으로 분해
+        Vector2 toStatue = (Vector2)transform.position - (Vector2)player.transform.position;
+        float parallel = Vector2.Dot(toStatue, dir);                       // 미는 방향 성분 (앞에 있어야 함)
+        float perp = Vector2.Dot(toStatue, new Vector2(-dir.y, dir.x));    // 수직 어긋남
+
+        // 미는 방향 앞에 있고 + 같은 줄에 정렬돼 있어야만 발동
+        bool pushing = dir != Vector2.zero
+            && parallel > 0f
+            && Mathf.Abs(perp) < alignTolerance;
+
+        // "툭 부딪히는 순간"에만 한 번 발동 (계속 누르고 있어도 한 번만)
+        if (pushing && !_wasPushing)
+        {
+            StartCoroutine(Slide(dir));
+        }
+
+        _wasPushing = pushing;
+    }
+
+    // 입력을 가장 가까운 상하좌우 방향으로 스냅
+    private Vector2 GetCardinalDirection(Vector2 v)
+    {
+        if (v == Vector2.zero) return Vector2.zero;
+
+        if (Mathf.Abs(v.x) > Mathf.Abs(v.y))
+            return v.x > 0 ? Vector2.right : Vector2.left;
+        else
+            return v.y > 0 ? Vector2.up : Vector2.down;
     }
 
     private IEnumerator Slide(Vector2 dir)
     {
         _isSliding = true;
+        _wasPushing = false;
 
-        // Raycast로 이동 가능한 거리 계산
-        float slideDistance = CalculateSlideDistance(dir);
+        int steps = CalculateSlideDistance(dir);
 
-        if (slideDistance <= 0)
-        {
-            _isSliding = false;
-            yield break;
-        }
-
-        // 1칸씩 이동 (0.5초/칸)
-        int steps = Mathf.RoundToInt(slideDistance);
         for (int i = 0; i < steps; i++)
         {
-            Vector2 targetPos = _rb.position + dir;
-            float elapsed = 0f;
             Vector2 startPos = _rb.position;
+            Vector2 targetPos = startPos + dir;
+            float elapsed = 0f;
 
-            while (elapsed < 0.5f)
+            while (elapsed < moveTimePerCell)
             {
-                elapsed += Time.deltaTime;
-                _rb.MovePosition(Vector2.Lerp(startPos, targetPos, elapsed / 0.5f));
-                yield return null;
+                elapsed += Time.fixedDeltaTime;
+                _rb.MovePosition(Vector2.Lerp(startPos, targetPos, elapsed / moveTimePerCell));
+                yield return new WaitForFixedUpdate();
             }
-
             _rb.MovePosition(targetPos);
+            yield return new WaitForFixedUpdate();
 
-            // 매 칸 이동 후 발판 체크
+            // 한 칸 이동할 때마다 발판 체크
             CheckPedestal();
             if (_isSealed) break;
         }
@@ -86,22 +113,32 @@ public class StatueController : MonoBehaviour
         _isSliding = false;
     }
 
-    private float CalculateSlideDistance(Vector2 dir)
+    // 장애물(벽/기둥/다른 석상)에 닿기 직전까지 몇 칸 갈 수 있는지 계산
+    private int CalculateSlideDistance(Vector2 dir)
     {
-        // 석상 크기(0.5f)를 고려한 Raycast
-        RaycastHit2D hit = Physics2D.BoxCast(
-            transform.position,
-            Vector2.one * 0.9f,
-            0f,
-            dir,
-            20f
-        );
+        int steps = 0;
 
-        if (hit.collider == null) return 0f;
+        for (int i = 1; i <= maxSlideCells; i++)
+        {
+            Vector2 nextCell = (Vector2)transform.position + dir * i;
+            Collider2D[] hits = Physics2D.OverlapBoxAll(nextCell, Vector2.one * 0.8f, 0f);
 
-        // 충돌 지점까지 거리에서 0.5 빼서 딱 앞 칸에 멈추게
-        float dist = hit.distance;
-        return Mathf.Floor(dist);
+            bool blocked = false;
+            foreach (var h in hits)
+            {
+                if (h.gameObject == gameObject) continue; // 자기 자신 무시
+                if (h.isTrigger) continue;                // 발판/스위치/종(트리거)은 통과
+                if (h.CompareTag("Player")) continue;     // 플레이어 무시
+                // 남은 것: 벽, 기둥, 다른 석상 = 장애물
+                blocked = true;
+                break;
+            }
+
+            if (blocked) break;
+            steps = i;
+        }
+
+        return steps;
     }
 
     private void CheckPedestal()
@@ -126,11 +163,15 @@ public class StatueController : MonoBehaviour
         SummerPuzzleManager.Instance.OnStatueSealed();
     }
 
-    public void ResetToOrigin(Vector2 originPos)
+    // 초기화 종이 울리면 시작 위치로 복귀
+    public void ResetToOrigin()
     {
+        StopAllCoroutines();
         _isSealed = false;
         _isSliding = false;
-        _rb.MovePosition(originPos);
+        _wasPushing = false;
+        _rb.position = _originPos;
+        transform.position = _originPos;
         _sr.color = Color.white;
     }
 }

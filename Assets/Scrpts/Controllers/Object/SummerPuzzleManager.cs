@@ -5,6 +5,10 @@ public class SummerPuzzleManager : MonoBehaviour
 {
     public static SummerPuzzleManager Instance;
 
+    [Header("퍼즐 구성요소 연결")]
+    public StatueController[] statues;          // 석상 4개 (인스펙터에서 연결)
+    public SummerSwitchController switchObject;  // 스위치 (리셋 시 기둥 복구용)
+
     private int _sealedCount = 0;
     private const int TOTAL_STATUES = 4;
 
@@ -54,6 +58,16 @@ public class SummerPuzzleManager : MonoBehaviour
     public void ResetAll()
     {
         _sealedCount = 0;
-        // TODO: 각 석상 원위치로 리셋
+
+        // 모든 석상을 시작 위치로 되돌림
+        foreach (var statue in statues)
+        {
+            if (statue != null) statue.ResetToOrigin();
+        }
+
+        // 스위치도 초기 상태로 (기둥 다시 활성화)
+        if (switchObject != null) switchObject.ResetSwitch();
+
+        Debug.Log("여름방 퍼즐 전체 초기화 완료!");
     }
 }
