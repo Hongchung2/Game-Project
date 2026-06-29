@@ -1,5 +1,6 @@
 ﻿<Solution>
   <Project Path="Unity.Timeline.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Unity.RenderPipelines.GPUDriven.Runtime.csproj" />
   <Project Path="Unity.PlasticSCM.Editor.csproj" />
   <Project Path="Unity.2D.Aseprite.Editor.csproj" />
@@ -21,12 +22,12 @@
   <Project Path="Unity.2D.Tilemap.Editor.csproj" />
   <Project Path="Unity.Burst.csproj" />
   <Project Path="Unity.VisualScripting.Flow.Editor.csproj" />
+  <Project Path="Cinemachine.csproj" />
   <Project Path="Unity.2D.SpriteShape.Editor.csproj" />
   <Project Path="Unity.VisualStudio.Editor.csproj" />
   <Project Path="Unity.InputSystem.csproj" />
   <Project Path="PPv2URPConverters.csproj" />
   <Project Path="Unity.2D.Animation.Editor.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Unity.Searcher.Editor.csproj" />
   <Project Path="NavMeshPlusEditor.csproj" />
   <Project Path="Unity.2D.SpriteShape.Runtime.csproj" />
@@ -46,6 +47,7 @@
   <Project Path="PsdPlugin.csproj" />
   <Project Path="Unity.2D.IK.Editor.csproj" />
   <Project Path="Unity.InternalAPIEngineBridge.001.csproj" />
+  <Project Path="com.unity.cinemachine.editor.csproj" />
   <Project Path="Unity.Burst.Editor.csproj" />
   <Project Path="Unity.2D.Common.Path.Editor.csproj" />
   <Project Path="Unity.2D.Common.Editor.csproj" />
