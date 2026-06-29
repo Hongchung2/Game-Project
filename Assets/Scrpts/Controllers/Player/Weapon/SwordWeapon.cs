@@ -7,7 +7,7 @@ public class SwordWeapon : MonoBehaviour, IWeapon
     public void Attack(GameObject target, Stat AttackerStat)
     {
         if (target == null) return;
-
+        Debug.Log("Attack target: " + target.name);
         float distance = Vector2.Distance(transform.position, target.transform.position);
         if (distance > _attackrange) return;
 

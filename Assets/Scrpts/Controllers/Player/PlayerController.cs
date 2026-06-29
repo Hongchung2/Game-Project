@@ -236,7 +236,7 @@ public class PlayerController : BaseController
 
         if (collision.CompareTag("Door"))
         {
-            collision.GetComponent<DoorController>()?.TriggerDoor();
+            //collision.GetComponent<DoorController>()?.TriggerDoor();
         }
     }
 
@@ -264,6 +264,13 @@ public class PlayerController : BaseController
         if (_currentWeapon is SwordWeapon && _lockTarget != null)
         {
             _currentWeapon.Attack(_lockTarget, _stat);
+
+            // 물건이면 OnHitEvent 호출
+            HiddenObjectController hiddenObject = _lockTarget.GetComponent<HiddenObjectController>();
+            if (hiddenObject != null)
+            {
+                hiddenObject.OnHitEvent();
+            }
         }
     }
 
