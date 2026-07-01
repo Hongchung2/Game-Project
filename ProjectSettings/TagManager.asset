@@ -8,6 +8,8 @@ TagManager:
   - Interactable
   - Door
   - Path
+  - AnchaeArea
+  - GlowTile
   layers:
   - Default
   - TransparentFX
