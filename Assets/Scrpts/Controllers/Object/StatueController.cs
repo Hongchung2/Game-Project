@@ -22,12 +22,14 @@ public class StatueController : MonoBehaviour
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
     private Vector2 _originPos;          // 초기화 종을 위한 시작 위치
+    private Color _originColor;          // 석상 고유 색 (리셋 시 복원용)
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
         _originPos = transform.position;
+        _originColor = _sr.color;
     }
 
     private void Update()
@@ -172,6 +174,6 @@ public class StatueController : MonoBehaviour
         _wasPushing = false;
         _rb.position = _originPos;
         transform.position = _originPos;
-        _sr.color = Color.white;
+        _sr.color = _originColor;
     }
 }

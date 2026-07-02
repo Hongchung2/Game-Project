@@ -163,8 +163,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d822e4aff514d438892817878ebbaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SummerPuzzleManager
-  statues: []
-  switchObject: {fileID: 0}
+  statues:
+  - {fileID: 1711453821}
+  - {fileID: 979802756}
+  - {fileID: 503280047}
+  - {fileID: 694968458}
+  switchObject: {fileID: 472388307}
 --- !u!1 &59194948
 GameObject:
   m_ObjectHideFlags: 0
@@ -6992,7 +6996,7 @@ MonoBehaviour:
   detectRadius: 1
   interactableLayer:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 2560
 --- !u!114 &1148651067
 MonoBehaviour:
   m_ObjectHideFlags: 0

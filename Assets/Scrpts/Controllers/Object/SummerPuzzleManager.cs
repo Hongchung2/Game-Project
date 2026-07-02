@@ -9,6 +9,9 @@ public class SummerPuzzleManager : MonoBehaviour
     public StatueController[] statues;          // 석상 4개 (인스펙터에서 연결)
     public SummerSwitchController switchObject;  // 스위치 (리셋 시 기둥 복구용)
 
+    [Header("클리어 보상")]
+    public GameObject summerScroll;              // 클리어 시 등장할 여름 족자 (맵 중앙)
+
     private int _sealedCount = 0;
     private const int TOTAL_STATUES = 4;
 
@@ -49,9 +52,21 @@ public class SummerPuzzleManager : MonoBehaviour
     private IEnumerator PuzzleClear()
     {
         Debug.Log("퍼즐 클리어!");
-        // TODO: 화이트 페이드아웃 연출 추가
-        // TODO: 족자 오브젝트 활성화
-        yield return null;
+
+        // 마지막 봉인 시 흔들림이 끝날 시간을 살짝 준다
+        yield return new WaitForSeconds(0.3f);
+
+        // 1) 0.5초에 걸쳐 화면을 하얗게 덮음
+        if (ScreenFader.Instance != null)
+            yield return ScreenFader.Instance.FadeOut(Color.white, 0.5f);
+
+        // 2) 하얀 화면 동안 맵 중앙에 족자 등장
+        if (summerScroll != null)
+            summerScroll.SetActive(true);
+
+        // 3) 1초에 걸쳐 다시 원래 화면으로 (족자가 드러남)
+        if (ScreenFader.Instance != null)
+            yield return ScreenFader.Instance.FadeIn(1f);
     }
 
     // 초기화 종 호출 시 전체 리셋
