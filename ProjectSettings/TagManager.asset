@@ -10,6 +10,9 @@ TagManager:
   - Path
   - AnchaeArea
   - GlowTile
+  - EnemyBullet
+  - GoblinFireArea
+  - DokkaebiTile
   layers:
   - Default
   - TransparentFX

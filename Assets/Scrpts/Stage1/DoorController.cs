@@ -16,17 +16,18 @@ public class DoorController : MonoBehaviour
     public float fadeDuration = 0.5f; // 페이딩 지속 시간
 
     private bool isTransitioning = false;
-    private bool isLocked = false;
+
+    [Header("잠금 설정")]
+    public bool startLocked = false;
+    private bool isLocked;
 
     void Start()
     {
-        
+        isLocked = startLocked;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("트리거 감지: " + other.name);
-        Debug.Log("isLocked: " + isLocked + " isTransitioning: " + isTransitioning);
         if (other.CompareTag("Player") && !isTransitioning && !isLocked)
         {
             StartCoroutine(Transition(other.gameObject));

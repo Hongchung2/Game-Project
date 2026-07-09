@@ -13,12 +13,11 @@ public class ScarecrowController : BaseMonsterController
             if (targetStat != null)
             {
                 targetStat.OnAttacked(_stat);
-                Debug.Log($"���� Hp : {targetStat.Hp}");
             }
         }
         else
         {
-            Debug.Log("ȸ�� ����");
+            
         }
     }
 
@@ -35,7 +34,6 @@ public class ScarecrowController : BaseMonsterController
         {
             State = Define.State.Skill;
             _spum.PlayAnimation(PlayerState.ATTACK, 0);
-            Debug.Log("���� (�ڷ�ƾ)");
         }
 
         yield return new WaitForSeconds(StopTime);

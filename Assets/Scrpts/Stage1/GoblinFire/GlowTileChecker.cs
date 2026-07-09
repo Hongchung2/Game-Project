@@ -5,11 +5,11 @@ public class GlowTileChecker : MonoBehaviour
 {
     public Transform respawnPoint;
     public float checkRadius = 0.3f;
-    public bool isInAnchae = false; // 안마당 구역 안에 있을 때만 체크
+    public bool IsGoblinFire = false; // 안마당 구역 안에 있을 때만 체크
 
     void Update()
     {
-        if (!isInAnchae) return;
+        if (!IsGoblinFire) return;
 
         Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, checkRadius);
         bool onGlowTile = false;
@@ -31,17 +31,17 @@ public class GlowTileChecker : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("AnchaeArea"))
+        if (other.CompareTag("GoblinFireArea"))
         {
-            isInAnchae = true;
+            IsGoblinFire = true;
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("AnchaeArea"))
+        if (other.CompareTag("GoblinFireArea"))
         {
-            isInAnchae = false;
+            IsGoblinFire = false;
         }
     }
 }

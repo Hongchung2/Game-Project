@@ -4,7 +4,6 @@ public class ResourceManager
 {
     public ResourceManager() { }
 
-    // poolmanager�� �̹� ��� �ִ� ������ �ִ��� Ȯ��
     public T Load<T>(string path) where T : Object
     {
         if (typeof(T) == typeof(GameObject))
@@ -22,8 +21,6 @@ public class ResourceManager
         }
         return Resources.Load<T>(path);
     }
-    // ������Ʈ�� ��ȯ�� �� poolable ������Ʈ�� �پ� �ִ��� Ȯ���Ѵ��� ������
-    // manager.pool.pop�� ȣ���� �������� �ƴϸ� ���� ����
     public GameObject Instantiate(string path, Transform parent = null)
     {
         GameObject original = Load<GameObject>($"Prefabs/{path}");
@@ -40,7 +37,6 @@ public class ResourceManager
         go.name = original.name;
         return go;
     }
-    // poolable�� �پ� ������ �ı����� �ʰ� pool�� �ٽ� ����
     public void Destroy(GameObject go)
     {
         if (go != null)

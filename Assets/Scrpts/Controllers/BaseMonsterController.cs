@@ -187,7 +187,6 @@ public abstract class BaseMonsterController : BaseController
 
     public override void OnHitEvent()
     {
-        Debug.Log("onhitevent ���������� ����");
         if (_lockTarget == null) return;
 
         if (detection.playerDetected)
@@ -196,12 +195,8 @@ public abstract class BaseMonsterController : BaseController
             if (targetStat != null)
             {
                 targetStat.OnAttacked(_stat);
-                Debug.Log($"���� Hp : {targetStat.Hp}");
+                
             }
-        }
-        else
-        {
-            Debug.Log("ȸ�� ����");
         }
     }
 
