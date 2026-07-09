@@ -9,7 +9,6 @@ public class GoblinSpearController : BaseMonsterController
 
     public override void OnHitEvent()
     {
-        Debug.Log("onhitevent ���������� ����");
         if (_lockTarget == null) return;
 
         if (detection.playerDetected)
@@ -18,12 +17,11 @@ public class GoblinSpearController : BaseMonsterController
             if (targetStat != null)
             {
                 targetStat.OnAttacked(_stat);
-                Debug.Log($"���� Hp : {targetStat.Hp}");
             }
         }
         else
         {
-            Debug.Log("ȸ�� ����");
+            
         }
     }
 

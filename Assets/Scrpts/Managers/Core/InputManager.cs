@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 public class InputManager
 {
-    public Action KeyAction = null; // 키액션을 처음에 null로 세팅
+    public Action KeyAction = null; 
     public Action<Define.MouseEvent> MouseAction = null;
 
     bool _pressed = false;
@@ -15,12 +15,12 @@ public class InputManager
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (Input.anyKey && KeyAction != null) // 입력이 있으면 키액션에 등록된 함수 실행
+        if (Input.anyKey && KeyAction != null) 
             KeyAction.Invoke();
 
         if (MouseAction != null)
         {
-            if (Input.GetMouseButton(0)) // 마우스 버튼을 누를 때 이벤트 발생
+            if (Input.GetMouseButton(0)) 
             {
                 if (!_pressed)
                 {

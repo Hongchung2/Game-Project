@@ -29,7 +29,6 @@ public class UIManager
         }
     }
 
-    // UI에  Canvas 컴포넌트를 붙이고 누가 앞에 나올지 번호를 매김
     public void SetCanvas(GameObject go, bool sort = true)
     {
         Canvas canvas = Util.GetOrAddComponent<Canvas>(go);
@@ -47,7 +46,6 @@ public class UIManager
         }
     }
 
-    // 화면이 아닌 게임 월드 (캐릭터 위)에 UI를 띄울 때
     public T MakeWorldSpaceUI<T>(Transform parent = null, string name = null) where T : UI_Base
     {
         if (string.IsNullOrEmpty(name))
@@ -64,7 +62,6 @@ public class UIManager
         return Util.GetOrAddComponent<T>(go);
     }
 
-    // UI 안에 들어가는 작은 부품들을 만들 때
     public T makeSubItem<T>(Transform parent = null, string name = null) where T:UI_Base
     {
         if (string.IsNullOrEmpty(name))
@@ -77,7 +74,6 @@ public class UIManager
         return Util.GetOrAddComponent<T>(go);
     }
 
-    // 게임 내내 화면에 붙어있는 메인 UI를 띄울 때 (ex: hp바, 조이스틱 등)
     public T ShowSceneUI<T>(string name = null) where T : UI_Scene
     {
         if (string.IsNullOrEmpty(name))
@@ -92,7 +88,6 @@ public class UIManager
         return sceneUI;
     }
 
-    // 필요할 때만 띄우는 팝업창을 만들 때
     public T showPopupUI<T>(string name = null) where T : UI_Popup
     {
         if (string.IsNullOrEmpty(name))
@@ -112,7 +107,6 @@ public class UIManager
         return _sceneUI as T;
     }
 
-    // 특정 팝업을 지정해서 닫음
     public void ClosePopupUI(UI_Popup popup)
     {
         if (_popupStack.Count == 0)
@@ -126,7 +120,6 @@ public class UIManager
         ClosePopupUI();
     }
 
-    // 아무 인자 없이 부르면 가장 최근에 뜬 팝업을 하나 지움
     public void ClosePopupUI()
     {
         if (_popupStack.Count == 0)
@@ -147,7 +140,6 @@ public class UIManager
         }
     }
 
-    // 매니저 상태 초기화
     public void Clear()
     {
         CloseAllPopupUI();

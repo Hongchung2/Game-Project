@@ -18,6 +18,9 @@ public class PlayerController : BaseController
     public float bounceSpeed = 20f;
     public float bounceHeight = 0.2f;
     bool _isDying = false;
+    private bool _isReversed = false;
+    private int _dokkaebiTileCount = 0;
+    private Coroutine _reverseCoroutine;
     [SerializeField] IWeapon _currentWeapon;
     [SerializeField] Button _swapButton;
     [SerializeField] TextMeshProUGUI _swapButtonText;
@@ -179,6 +182,11 @@ public class PlayerController : BaseController
             v = Input.GetAxisRaw("Vertical");
         }
 
+        if (_isReversed)
+        {
+            h = -h;
+            v = -v;
+        }
         _moveDir = new Vector3(h, v, 0).normalized;
     }
 
@@ -238,6 +246,23 @@ public class PlayerController : BaseController
         {
             //collision.GetComponent<DoorController>()?.TriggerDoor();
         }
+
+        if (collision.CompareTag("DokkaebiTile"))
+        {
+            _dokkaebiTileCount++;
+            if (_reverseCoroutine != null)
+            {
+                StopCoroutine(_reverseCoroutine);
+            }
+            _reverseCoroutine = StartCoroutine(SetReverse(true));
+        }
+    }
+
+    // 조작 반대 코루틴
+    IEnumerator SetReverse(bool reverse)
+    {
+        yield return new WaitForSeconds(1f);
+        _isReversed = reverse;
     }
 
     // 플레이어가 범위 밖으로 나갔을 때
@@ -246,6 +271,20 @@ public class PlayerController : BaseController
         if (collision.CompareTag("Interactable"))
         {
             _interactTarget = null;
+        }
+
+        if (collision.CompareTag("DokkaebiTile"))
+        {
+            _dokkaebiTileCount--;
+            if (_dokkaebiTileCount <= 0)
+            {
+                _dokkaebiTileCount = 0;
+                if (_reverseCoroutine != null)
+                {
+                    StopCoroutine(_reverseCoroutine);
+                }
+                _reverseCoroutine = StartCoroutine(SetReverse(false));
+            }
         }
     }
 
@@ -270,6 +309,12 @@ public class PlayerController : BaseController
             if (hiddenObject != null)
             {
                 hiddenObject.OnHitEvent();
+            }
+
+            DisguisedGoblin disguisedGoblin = _lockTarget.GetComponent<DisguisedGoblin>();
+            if (disguisedGoblin != null)
+            {
+                disguisedGoblin.OnHitEvent();
             }
         }
     }
@@ -310,4 +355,10 @@ public class PlayerController : BaseController
         Managers.Load.StartFadeAndLoad("GameScene", "YOU DIED");
         gameObject.SetActive(false);
     }
+
+    // 조작 반전
+    
+
+
+
 }
