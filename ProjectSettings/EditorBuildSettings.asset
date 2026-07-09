@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/GameTitle.unity
+    guid: b372233143a49ab48816c61f13759b66
+  - enabled: 1
+    path: Assets/Scenes/DialogScene.unity
+    guid: 622fa0ba3dc86d24f95c862ade4a52a0
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 49e5c8458b7bdd2468c8615fd40eda4d
+  - enabled: 1
     path: Assets/Scenes/Stage1_Scene.unity
     guid: 9742dd9d55ce1b848b134bfa056aa6a7
   - enabled: 1
@@ -14,5 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage1_UndergroundScene2.unity
     guid: f4a0298a38e15344996250ee87f00982
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/Stage2_SpringScene.unity
+    guid: fd23436c735e49645822209d066c97ac
+  - enabled: 1
+    path: Assets/Scenes/Stage2_SummerScene.unity
+    guid: e9ff58eb9db27734d8da70dbcd756bce
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
