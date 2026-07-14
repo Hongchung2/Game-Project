@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: c6eaef01bad39cb40a85ac9e805d566a
+guid: f99bf6db096d92e43b84c1a3192a5f79
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3290137396571889818
-    second: "\uBCBD1_0"
-  - first:
-      213: -2335613358676724197
-    second: "\uBCBD1_1"
+      213: -7906358147993269665
+    second: KakaoTalk_20260710_211745455_03_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,45 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uBCBD1_0"
+      name: KakaoTalk_20260710_211745455_03_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 66
-        width: 38
-        height: 22
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 66f9a1f38751752d0800000000000000
-      internalID: -3290137396571889818
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uBCBD1_1"
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 9
-        width: 53
-        height: 51
+        x: 31
+        y: 3
+        width: 50
+        height: 66
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b16ba6f560c369fd0800000000000000
-      internalID: -2335613358676724197
+      spriteID: f5a88d17729f64290800000000000000
+      internalID: -7906358147993269665
       vertices: []
       indices: 
       edges: []
@@ -163,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4aa6bebb182063d4f999915f9b0e1670
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\uBCBD1_0": -3290137396571889818
-      "\uBCBD1_1": -2335613358676724197
+      KakaoTalk_20260710_211745455_03_0: -7906358147993269665
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
