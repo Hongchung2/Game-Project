@@ -139,7 +139,7 @@ public class PlayerController : BaseController
         }
 
         _rb.MovePosition(_rb.position + (Vector2)_moveDir * speed * Time.deltaTime);
-
+Debug.Log("MovePosition 호출: " + _moveDir);
         _bounceTime += Time.deltaTime * bounceSpeed;
         float yOffest = Mathf.Abs(Mathf.Sin(_bounceTime)) * bounceHeight;
 
@@ -249,7 +249,6 @@ public class PlayerController : BaseController
 
         if (collision.CompareTag("DokkaebiTile"))
         {
-            _dokkaebiTileCount++;
             if (_reverseCoroutine != null)
             {
                 StopCoroutine(_reverseCoroutine);
@@ -261,8 +260,10 @@ public class PlayerController : BaseController
     // 조작 반대 코루틴
     IEnumerator SetReverse(bool reverse)
     {
+        Debug.Log(reverse);
         yield return new WaitForSeconds(1f);
         _isReversed = reverse;
+        Debug.Log(reverse);
     }
 
     // 플레이어가 범위 밖으로 나갔을 때
@@ -275,16 +276,11 @@ public class PlayerController : BaseController
 
         if (collision.CompareTag("DokkaebiTile"))
         {
-            _dokkaebiTileCount--;
-            if (_dokkaebiTileCount <= 0)
-            {
-                _dokkaebiTileCount = 0;
                 if (_reverseCoroutine != null)
                 {
                     StopCoroutine(_reverseCoroutine);
                 }
                 _reverseCoroutine = StartCoroutine(SetReverse(false));
-            }
         }
     }
 
