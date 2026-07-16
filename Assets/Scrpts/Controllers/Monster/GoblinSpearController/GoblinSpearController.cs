@@ -50,13 +50,13 @@ public class GoblinSpearController : BaseMonsterController
         }
 
         State = Define.State.Skill;
-        _spum.PlayAnimation(PlayerState.ATTACK, 0);
+        _animator.SetTrigger("Attack");
         AttackCount = 0f;
 
         yield return new WaitForSeconds(2.0f);
         _stat.add_MoveSpeed = 0;
         State = Define.State.Moving;
-        _spum.PlayAnimation(PlayerState.MOVE, 0);
+        _animator.SetBool("IsMoving", true);
         _isAttacking = false;
         _isWaiting = false;
         _attackCoroutine = null;
@@ -72,7 +72,7 @@ public class GoblinSpearController : BaseMonsterController
         
         if (detection.playerDetected)
         {
-            _spum.PlayAnimation(PlayerState.MOVE, 0);
+            _animator.SetBool("IsMoving", true);
 
             float xTargetScale = (_lockTarget.transform.position.x < transform.position.x) ? 1f : -1f;
             transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);

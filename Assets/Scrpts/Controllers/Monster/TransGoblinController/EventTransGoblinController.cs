@@ -43,9 +43,8 @@ public class EventTransGoblinController : BaseMonsterController
         _transObject.SetActive(false);
         _originObject.SetActive(true);
 
-        _spum.PlayAnimation(PlayerState.DAMAGED, 0);
         yield return new WaitForSeconds(0.5f);
-        _spum.PlayAnimation(PlayerState.DEATH, 0);
+        _animator.SetTrigger("Death");
 
         var col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false;

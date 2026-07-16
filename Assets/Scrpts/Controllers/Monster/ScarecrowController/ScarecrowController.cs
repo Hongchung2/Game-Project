@@ -26,19 +26,19 @@ public class ScarecrowController : BaseMonsterController
         _isAttacking = true;
 
         State = Define.State.Idle;
-        _spum.PlayAnimation(PlayerState.IDLE, 0);
+        _animator.SetBool("IsMoving", false);
 
         yield return new WaitForSeconds(StopTime);
 
         if (_lockTarget != null)
         {
             State = Define.State.Skill;
-            _spum.PlayAnimation(PlayerState.ATTACK, 0);
+            _animator.SetTrigger("Attack");
         }
 
         yield return new WaitForSeconds(StopTime);
         State = Define.State.Moving;
-        _spum.PlayAnimation(PlayerState.MOVE, 0);
+        _animator.SetBool("IsMoving", true);
         
         _isAttacking = false;
         _attackCoroutine = null;

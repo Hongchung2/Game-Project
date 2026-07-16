@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections;
+using Goldmetal.UndeadSurvivor;
 public class CrowController : BaseMonsterController
 {
     [SerializeField]
@@ -9,14 +10,64 @@ public class CrowController : BaseMonsterController
     [SerializeField]
     private GameObject bulletPrefab;
 
+    protected override void UpdateMoving()
+    {
+        if (_lockTarget == null)
+        {
+            State = Define.State.Idle;
+            _animator.SetBool("IsMoving", false); 
+            return;
+        }
+
+        if (_isAttacking) return;
+
+        // Crow는 detection 범위에 들어오면 바로 공격
+        if (detection.playerDetected)
+        {
+            _rb.linearVelocity = Vector2.zero;
+            if (!_isAttacking && _attackCoroutine == null)
+            {
+                _attackCoroutine = StartCoroutine(AttackRoutine());
+            }
+            return;
+        }
+
+        // 플레이어 방향으로 이동
+        _destPos = _lockTarget.transform.position;
+        Vector3 dir = (_destPos - transform.position).normalized;
+        _rb.linearVelocity = dir * _stat.MoveSpeed;
+
+        if (dir.x != 0)
+        {
+            float xTargetScale = (dir.x < 0) ? 1f : -1f;
+            transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);
+        }
+
+        float disFromHomeSqr = (transform.position - _spawnPos).sqrMagnitude;
+        if (disFromHomeSqr > _moveRange * _moveRange)
+        {
+            _lockTarget = null;
+            State = Define.State.Return;
+        }
+
+        float distanceSqr = (_lockTarget.transform.position - transform.position).sqrMagnitude;
+        if (distanceSqr > _scanRange * _scanRange)
+        {
+            _lockTarget = null;
+            State = Define.State.Return;
+            _animator.SetBool("IsMoving", false);
+            return;
+        }
+    }
+
     public void Shoot()
     {
-        if (_lockTarget == null || !detection.playerDetected) return;
+        if (_lockTarget == null) return;
 
         Vector2 dir = (_lockTarget.transform.position - transform.position).normalized;
 
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-
+       
         Bullet bulletComponent = bullet.GetOrAddComponent<Bullet>();
         bulletComponent.Init(_stat);
 
@@ -49,6 +100,16 @@ public class CrowController : BaseMonsterController
 
         while (_lockTarget != null)
         {
+            float distanceSqr = (_lockTarget.transform.position - transform.position).sqrMagnitude;
+            if (distanceSqr > _scanRange * _scanRange)
+            {
+                _rb.linearVelocity = Vector2.zero;
+                _isAttacking = false;
+                _attackCoroutine = null;
+                State = Define.State.Return;
+                yield break;
+            }
+
             Stat targetStat = _lockTarget.GetComponent<Stat>();
             if (targetStat != null && targetStat.Hp <= 0)
             {
@@ -56,15 +117,18 @@ public class CrowController : BaseMonsterController
                 break;
             }
 
+            // 공격
             State = Define.State.Skill;
-            _spum.PlayAnimation(PlayerState.ATTACK, 0);
+            _animator.SetTrigger("Attack");
             yield return new WaitForSeconds(0.3f);
-            Shoot();
-            yield return new WaitForSeconds(StopTime - 0.3f);
+            Shoot(); // playerDetected 조건 없이 발사
 
+            // 1초 경직
+            yield return new WaitForSeconds (1f);
+
+            // 0.8초 대각선 이동
             State = Define.State.Moving;
-            _spum.PlayAnimation(PlayerState.MOVE, 0);
-
+            _animator.SetBool("IsMoving", true);
             Vector2 moveDir = GetDiagonalDirection();
             float moveTime = 0.8f;
 
@@ -93,16 +157,15 @@ public class CrowController : BaseMonsterController
                 yield return null;
             }
 
+            // 1.2초 경직
             _rb.linearVelocity = Vector2.zero;
             State = Define.State.Idle;
-            _spum.PlayAnimation(PlayerState.IDLE, 0);
-            yield return new WaitForSeconds(StopTime + 0.2f);
-
+            _animator.SetBool("IsMoving", false);
+            yield return new WaitForSeconds(1.2f);
         }
 
         _isAttacking = false;
         _attackCoroutine = null;
-        yield return null;
     }
 
 
