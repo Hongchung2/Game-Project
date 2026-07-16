@@ -12,8 +12,7 @@ public class PlayerController : BaseController
     Rigidbody2D _rb;
 
     public float speed = 5f;
-    Animator _anim;
-    private SPUM_Prefabs _spum;
+    private Animator _animator;
     float _bounceTime = 0;
     public float bounceSpeed = 20f;
     public float bounceHeight = 0.2f;
@@ -45,18 +44,10 @@ public class PlayerController : BaseController
     {
         WorldObjectType = Define.WorldObject.Player;
         _stat = gameObject.GetComponent<Stat>();
-        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
 
-        _spum = GetComponent<SPUM_Prefabs>();
-        if (_spum != null)
-        {
-            _spum.PopulateAnimationLists();
-
-            _spum.OverrideControllerInit();
-
-            State = Define.State.Idle;
-            _spum.PlayAnimation(PlayerState.IDLE, 0);
-        }
+        _animator = GetComponent<Animator>();
+        State = Define.State.Idle;
 
         _rb = GetComponent<Rigidbody2D>();
         
@@ -81,7 +72,7 @@ public class PlayerController : BaseController
         if (_stat.Hp <= 0)
         {
             State = Define.State.Die;
-            _spum.PlayAnimation(PlayerState.DEATH, 0);
+            _animator.SetTrigger("Death");
 
             return;
         }
@@ -103,7 +94,7 @@ public class PlayerController : BaseController
         if (_moveDir.magnitude > 0)
         {
             State = Define.State.Moving;
-            _spum.PlayAnimation(PlayerState.MOVE, 0);
+            _animator.SetBool("IsMoving", true);
         }
     }
 
@@ -116,7 +107,7 @@ public class PlayerController : BaseController
         if (_stat.Hp <= 0)
         {
             State = Define.State.Die;
-            _spum.PlayAnimation(PlayerState.DEATH, 0);
+            _animator.SetTrigger("Death");
             return;
         }
 
@@ -131,15 +122,14 @@ public class PlayerController : BaseController
         if (_moveDir.magnitude == 0)
         {
             State = Define.State.Idle;
-            _spum.PlayAnimation(PlayerState.IDLE, 0);
+            _animator.SetBool("IsMoving", false);
 
-            if (_spriteRenderer != null)
-                _spriteRenderer.transform.localPosition = Vector3.zero;
+            
             return;
         }
 
         _rb.MovePosition(_rb.position + (Vector2)_moveDir * speed * Time.deltaTime);
-Debug.Log("MovePosition 호출: " + _moveDir);
+        Debug.Log("MovePosition: " + _rb.position + " moveDir: " + _moveDir);
         _bounceTime += Time.deltaTime * bounceSpeed;
         float yOffest = Mathf.Abs(Mathf.Sin(_bounceTime)) * bounceHeight;
 
@@ -150,8 +140,8 @@ Debug.Log("MovePosition 호출: " + _moveDir);
 
             if (_moveDir.x != 0)
             {
-                float xTargetScale = (_moveDir.x < 0) ? 1f : -1f;
-                _spriteRenderer.transform.parent.localScale = new Vector3(xTargetScale, 1f, 1f);
+                float xTargetScale = (_moveDir.x < 0) ? -1f : 1f;
+                _spriteRenderer.transform.localScale = new Vector3(xTargetScale, 1f, 1f);
             }
         }
     }
@@ -197,7 +187,7 @@ Debug.Log("MovePosition 호출: " + _moveDir);
             MonsterLockTarget();
 
             State = Define.State.Skill;
-            _spum.PlayAnimation(PlayerState.ATTACK, 0);
+            _animator.SetTrigger("Attack");
 
             if (_currentWeapon is BowWeapon)
             {
@@ -291,7 +281,7 @@ Debug.Log("MovePosition 호출: " + _moveDir);
         if (State == Define.State.Skill)
         {
             State = Define.State.Idle;
-            _spum.PlayAnimation(PlayerState.IDLE, 0);
+            _animator.SetBool("IsMoving", false);
         }
     }
     public override void OnHitEvent()
@@ -343,7 +333,7 @@ Debug.Log("MovePosition 호출: " + _moveDir);
         var col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false;
 
-        _spum.PlayAnimation(PlayerState.DEATH, 0);
+        _animator.SetTrigger("Death");
 
         yield return new WaitForSeconds(3.0f);
 

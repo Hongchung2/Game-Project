@@ -9,7 +9,7 @@ public abstract class BaseMonsterController : BaseController
     protected Vector3 _spawnPos;
     protected Vector3 _initialScale;
 
-    protected SPUM_Prefabs _spum;
+    protected Animator _animator;
     protected bool _isAttacking = false; 
     protected bool _isDeath = false;
     protected Coroutine _attackCoroutine;
@@ -53,16 +53,9 @@ public abstract class BaseMonsterController : BaseController
 
         _spawnPos = transform.position;
 
-
-        _spum = GetComponent<SPUM_Prefabs>();
-        if (_spum != null )
-        {
-            _spum.PopulateAnimationLists();
-            _spum.OverrideControllerInit();
-
-            State = Define.State.Idle;
-            _spum.PlayAnimation(PlayerState.IDLE, 0);
-        }
+        _animator = GetComponent<Animator>();
+        State = Define.State.Idle;
+        _animator.SetBool("IsMoving", false);
     }
 
     protected virtual void InitHPBar()
@@ -92,7 +85,7 @@ public abstract class BaseMonsterController : BaseController
             _lockTarget = player;
 
             State = Define.State.Moving;
-            _spum.PlayAnimation(PlayerState.MOVE, 0);
+            _animator.SetBool("IsMoving", true);
             return;
         }
     }
@@ -102,7 +95,7 @@ public abstract class BaseMonsterController : BaseController
         if (_lockTarget == null)
         {
             State = Define.State.Idle;
-            _spum.PlayAnimation(PlayerState.IDLE, 0);
+            _animator.SetBool("IsMoving", false);
             return;
         }
         if (_isAttacking) return;
@@ -134,6 +127,15 @@ public abstract class BaseMonsterController : BaseController
             _lockTarget = null;
             State = Define.State.Return;
         }
+
+        float distanceSqr = (_lockTarget.transform.position - transform.position).sqrMagnitude;
+        if (distanceSqr > _scanRange * _scanRange)
+        {
+            _lockTarget = null;
+            State = Define.State.Return;
+            _animator.SetBool("IsMoving", false);
+            return;
+        }
     }
 
     protected override void UpdateSkill()
@@ -143,7 +145,7 @@ public abstract class BaseMonsterController : BaseController
         if (_lockTarget == null)
         {
             State = Define.State.Idle;
-            _spum.PlayAnimation(PlayerState.IDLE, 0);
+            _animator.SetBool("IsMoving", false);
             return;
         }
 
@@ -155,10 +157,12 @@ public abstract class BaseMonsterController : BaseController
             return;
         }
 
+         
+
         if (!detection.playerDetected)
         {
             State = Define.State.Moving;
-            _spum.PlayAnimation(PlayerState.MOVE, 0);
+            _animator.SetBool("IsMoving", true);
             return;
         }
 
@@ -168,6 +172,8 @@ public abstract class BaseMonsterController : BaseController
             float xTargetScale = (dir.x < 0) ? 1f : -1f;
             transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);
         }
+
+       
     }
 
     protected override void OnDie()
@@ -210,7 +216,7 @@ public abstract class BaseMonsterController : BaseController
             _rb.linearVelocity = Vector2.zero;
             transform.position = _spawnPos;
             State = Define.State.Idle;
-            _spum.PlayAnimation(PlayerState.IDLE, 0);
+           _animator.SetBool("IsMoving", false);
             _lockTarget = null;
             return;
         }
@@ -240,7 +246,7 @@ public abstract class BaseMonsterController : BaseController
         var col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false;
 
-        _spum.PlayAnimation(PlayerState.DEATH, 0);
+        _animator.SetTrigger("Death");
 
         yield return new WaitForSeconds(3.0f);
 
@@ -263,5 +269,16 @@ public abstract class BaseMonsterController : BaseController
         {
             _rb.linearVelocity = Vector2.zero;
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        // 스캔 범위 (파랑)
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, _scanRange);
+
+        // 이동 범위 (초록색)
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(_spawnPos == Vector3.zero ? transform.position : _spawnPos, _moveRange );
     }
 }

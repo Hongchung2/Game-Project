@@ -123,8 +123,7 @@ public class Stat : MonoBehaviour
                 _defense = 0;
             }
         }
-        Debug.Log($"<color=red>[Hit]</color>{gameObject.name} | 데미지 {damage}");
-        Debug.Log($"방어력: {_defense}");
+
         Hp -= damage;
 
         if (Hp <= 0)
@@ -134,7 +133,7 @@ public class Stat : MonoBehaviour
         }
         else
         {
-            spum.PlayAnimation(PlayerState.DAMAGED, 0);
+            
         }
         
     }

@@ -19,7 +19,7 @@ public class InvTransGoblinController : BaseMonsterController
         if (State != Define.State.Idle)
         {
             State = Define.State.Idle;
-            _spum.PlayAnimation(PlayerState.IDLE, 0);
+           _animator.SetBool("IsMoving", false);
         }
     }
 

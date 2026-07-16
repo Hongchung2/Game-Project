@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Detection : MonoBehaviour
 {
-    [Header("���� ����")]
+    [Header("감지 범위")]
 
     [SerializeField]
     private float detectWidth = 6.0f;   
@@ -19,7 +19,7 @@ public class Detection : MonoBehaviour
     [SerializeField]
     private LayerMask playerLayer;
 
-    [Header("����׿�")]
+    [Header("감지 색")]
 
     [SerializeField]
     private Color gizmoColor = new Color(1, 0, 0, 1.0f);
