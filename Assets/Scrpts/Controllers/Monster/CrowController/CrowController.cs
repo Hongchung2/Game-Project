@@ -48,6 +48,7 @@ public class CrowController : BaseMonsterController
         {
             _lockTarget = null;
             State = Define.State.Return;
+            return;
         }
 
         float distanceSqr = (_lockTarget.transform.position - transform.position).sqrMagnitude;

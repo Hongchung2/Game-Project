@@ -123,25 +123,29 @@ public class PlayerController : BaseController
         {
             State = Define.State.Idle;
             _animator.SetBool("IsMoving", false);
-
+            _spriteRenderer.transform.localScale = Vector3.one;
             
             return;
         }
 
-        _rb.MovePosition(_rb.position + (Vector2)_moveDir * speed * Time.deltaTime);
+        _rb.MovePosition(_rb.position + (Vector2)_moveDir * _stat.MoveSpeed * Time.deltaTime);
         Debug.Log("MovePosition: " + _rb.position + " moveDir: " + _moveDir);
         _bounceTime += Time.deltaTime * bounceSpeed;
         float yOffest = Mathf.Abs(Mathf.Sin(_bounceTime)) * bounceHeight;
 
-        if (_spriteRenderer != null)
+       if (_spriteRenderer != null)
         {
-            float currentX = _spriteRenderer.transform.localPosition.x;
-            _spriteRenderer.transform.localPosition = new Vector3(currentX, yOffest, 0);
-
+            _bounceTime += Time.deltaTime * bounceSpeed;
+            float bounce = 1f + Mathf.Abs(Mathf.Sin(_bounceTime)) * 0.05f;
             if (_moveDir.x != 0)
             {
                 float xTargetScale = (_moveDir.x < 0) ? -1f : 1f;
-                _spriteRenderer.transform.localScale = new Vector3(xTargetScale, 1f, 1f);
+                _spriteRenderer.transform.localScale = new Vector3(xTargetScale * bounce, bounce, 1f);
+            }
+            else
+            {
+                float currentX = _spriteRenderer.transform.localScale.x >= 0 ? 1f: -1f;
+                _spriteRenderer.transform.localScale = new Vector3(currentX * bounce, bounce, 1f);
             }
         }
     }

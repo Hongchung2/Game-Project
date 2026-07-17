@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 3d105bc0a91a27c4a8a5a1d77ddbf3a3
+guid: 6bfbff1f5a4e5c8488f39f38ca860c20
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8394543146991227078
-    second: Scarecrow_Attack_0
+      213: 2652813378313738332
+    second: Scarecrow_Move_SpriteSheet_0
+  - first:
+      213: 5283539848436992574
+    second: Scarecrow_Move_SpriteSheet_1
+  - first:
+      213: -7222650244445683913
+    second: Scarecrow_Move_SpriteSheet_2
+  - first:
+      213: 736047721785483426
+    second: Scarecrow_Move_SpriteSheet_3
+  - first:
+      213: -3217621873676274733
+    second: Scarecrow_Move_SpriteSheet_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,12 +125,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scarecrow_Attack_0
+      name: Scarecrow_Move_SpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 69
+        x: 104
         y: 78
-        width: 422
+        width: 387
         height: 422
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +140,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a3fe5e7eb77908b80800000000000000
-      internalID: -8394543146991227078
+      spriteID: c585bcd56bfa0d420800000000000000
+      internalID: 2652813378313738332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Move_SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 78
+        width: 300
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3a45beaf77e25940800000000000000
+      internalID: 5283539848436992574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Move_SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 78
+        width: 387
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73f3de2beddf3cb90800000000000000
+      internalID: -7222650244445683913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Move_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 1819
+        y: 78
+        width: 300
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a062c2d087f63a00800000000000000
+      internalID: 736047721785483426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Move_SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 2344
+        y: 78
+        width: 387
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d3bffd14f5b853d0800000000000000
+      internalID: -3217621873676274733
       vertices: []
       indices: 
       edges: []
@@ -148,7 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Scarecrow_Attack_0: -8394543146991227078
+      Scarecrow_Move_SpriteSheet_0: 2652813378313738332
+      Scarecrow_Move_SpriteSheet_1: 5283539848436992574
+      Scarecrow_Move_SpriteSheet_2: -7222650244445683913
+      Scarecrow_Move_SpriteSheet_3: 736047721785483426
+      Scarecrow_Move_SpriteSheet_4: -3217621873676274733
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
