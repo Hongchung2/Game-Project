@@ -1,0 +1,436 @@
+fileFormatVersion: 2
+guid: 4ba2dfab6c7bd60428fc11cc2b596e25
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -586188541564929084
+    second: Scarecrow_Attack_SpriteSheet_0
+  - first:
+      213: -9202141073083053099
+    second: Scarecrow_Attack_SpriteSheet_1
+  - first:
+      213: 3500863341981069797
+    second: Scarecrow_Attack_SpriteSheet_2
+  - first:
+      213: 8920082304081278073
+    second: Scarecrow_Attack_SpriteSheet_3
+  - first:
+      213: 2908815411958592245
+    second: Scarecrow_Attack_SpriteSheet_4
+  - first:
+      213: -1424859312365995975
+    second: Scarecrow_Attack_SpriteSheet_5
+  - first:
+      213: -6298867270294865380
+    second: Scarecrow_Attack_SpriteSheet_6
+  - first:
+      213: 4300162095356828346
+    second: Scarecrow_Attack_SpriteSheet_7
+  - first:
+      213: 3239946313240068088
+    second: Scarecrow_Attack_SpriteSheet_8
+  - first:
+      213: -4699172222802675253
+    second: Scarecrow_Attack_SpriteSheet_9
+  - first:
+      213: 5458288299105243993
+    second: Scarecrow_Attack_SpriteSheet_10
+  - first:
+      213: -6855786467795812389
+    second: Scarecrow_Attack_SpriteSheet_11
+  - first:
+      213: 3824325229165529052
+    second: Scarecrow_Attack_SpriteSheet_12
+  - first:
+      213: 2563047747154953077
+    second: Scarecrow_Attack_SpriteSheet_13
+  - first:
+      213: -394219564659417258
+    second: Scarecrow_Attack_SpriteSheet_14
+  - first:
+      213: 6696108242496701593
+    second: Scarecrow_Attack_SpriteSheet_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Scarecrow_Attack_SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 1198
+        width: 422
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cb3e9090a07dd7f0800000000000000
+      internalID: -586188541564929084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Attack_SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 1198
+        width: 492
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5db4ad5f27d6b4080800000000000000
+      internalID: -9202141073083053099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Attack_SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 1198
+        width: 474
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e1f7f149a0959030800000000000000
+      internalID: 3500863341981069797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Attack_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 1723
+        y: 1198
+        width: 474
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 974330e489f7acb70800000000000000
+      internalID: 8920082304081278073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Attack_SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 2300
+        y: 1198
+        width: 431
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f239f2a4303e5820800000000000000
+      internalID: 2908815411958592245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Attack_SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 629
+        width: 431
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 938748f2102e93ce0800000000000000
+      internalID: -1424859312365995975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Attack_SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 629
+        width: 431
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1a7dba279de598a0800000000000000
+      internalID: -6298867270294865380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Attack_SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 629
+        width: 334
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abad75a74ae3dab30800000000000000
+      internalID: 4300162095356828346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Attack_SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 1810
+        y: 646
+        width: 327
+        height: 404
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ffb204810a96fc20800000000000000
+      internalID: 3239946313240068088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Attack_SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 2311
+        y: 646
+        width: 431
+        height: 318
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc9b679b2cf29ceb0800000000000000
+      internalID: -4699172222802675253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Attack_SpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 69
+        width: 334
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 994c49318fa5dec50800000000000000
+      internalID: 6696108242496701593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3f5f3a667fa223d44bafba731b99fef0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Scarecrow_Attack_SpriteSheet_0: -586188541564929084
+      Scarecrow_Attack_SpriteSheet_1: -9202141073083053099
+      Scarecrow_Attack_SpriteSheet_10: 5458288299105243993
+      Scarecrow_Attack_SpriteSheet_11: -6855786467795812389
+      Scarecrow_Attack_SpriteSheet_12: 3824325229165529052
+      Scarecrow_Attack_SpriteSheet_13: 2563047747154953077
+      Scarecrow_Attack_SpriteSheet_14: -394219564659417258
+      Scarecrow_Attack_SpriteSheet_15: 6696108242496701593
+      Scarecrow_Attack_SpriteSheet_2: 3500863341981069797
+      Scarecrow_Attack_SpriteSheet_3: 8920082304081278073
+      Scarecrow_Attack_SpriteSheet_4: 2908815411958592245
+      Scarecrow_Attack_SpriteSheet_5: -1424859312365995975
+      Scarecrow_Attack_SpriteSheet_6: -6298867270294865380
+      Scarecrow_Attack_SpriteSheet_7: 4300162095356828346
+      Scarecrow_Attack_SpriteSheet_8: 3239946313240068088
+      Scarecrow_Attack_SpriteSheet_9: -4699172222802675253
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

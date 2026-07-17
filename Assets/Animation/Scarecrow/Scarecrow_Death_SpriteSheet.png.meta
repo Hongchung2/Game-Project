@@ -1,0 +1,478 @@
+fileFormatVersion: 2
+guid: 349cabf24b4af4f4c98b52b68d827413
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5871998532231012059
+    second: Scarecrow_Death_SpriteSheet_0
+  - first:
+      213: -8482620812847562461
+    second: Scarecrow_Death_SpriteSheet_1
+  - first:
+      213: 2498150434929877101
+    second: Scarecrow_Death_SpriteSheet_2
+  - first:
+      213: 2738210724523496339
+    second: Scarecrow_Death_SpriteSheet_3
+  - first:
+      213: -712668014999131930
+    second: Scarecrow_Death_SpriteSheet_4
+  - first:
+      213: -4325901543418744253
+    second: Scarecrow_Death_SpriteSheet_5
+  - first:
+      213: -4989464175343773574
+    second: Scarecrow_Death_SpriteSheet_6
+  - first:
+      213: 4316569099065235060
+    second: Scarecrow_Death_SpriteSheet_7
+  - first:
+      213: 1809605238293398499
+    second: Scarecrow_Death_SpriteSheet_8
+  - first:
+      213: 6573804908450421079
+    second: Scarecrow_Death_SpriteSheet_9
+  - first:
+      213: -8534108708058797322
+    second: Scarecrow_Death_SpriteSheet_10
+  - first:
+      213: -3066730028371420153
+    second: Scarecrow_Death_SpriteSheet_11
+  - first:
+      213: -5121039634273390752
+    second: Scarecrow_Death_SpriteSheet_12
+  - first:
+      213: 3734832757678397043
+    second: Scarecrow_Death_SpriteSheet_13
+  - first:
+      213: 3132667065861573081
+    second: Scarecrow_Death_SpriteSheet_14
+  - first:
+      213: 3855051680513255994
+    second: Scarecrow_Death_SpriteSheet_15
+  - first:
+      213: -3288030356701902502
+    second: Scarecrow_Death_SpriteSheet_16
+  - first:
+      213: -3378332050356969124
+    second: Scarecrow_Death_SpriteSheet_17
+  - first:
+      213: -5351524055809769917
+    second: Scarecrow_Death_SpriteSheet_18
+  - first:
+      213: -8142636324788364869
+    second: Scarecrow_Death_SpriteSheet_19
+  - first:
+      213: -5422957821215375982
+    second: Scarecrow_Death_SpriteSheet_20
+  - first:
+      213: -8098299346059409940
+    second: Scarecrow_Death_SpriteSheet_21
+  - first:
+      213: 2746763607995010180
+    second: Scarecrow_Death_SpriteSheet_22
+  - first:
+      213: -4522136883845553746
+    second: Scarecrow_Death_SpriteSheet_23
+  - first:
+      213: -5397222369394378315
+    second: Scarecrow_Death_SpriteSheet_24
+  - first:
+      213: 7203147687056811822
+    second: Scarecrow_Death_SpriteSheet_25
+  - first:
+      213: -2149445867292853900
+    second: Scarecrow_Death_SpriteSheet_26
+  - first:
+      213: -3499771173844153920
+    second: Scarecrow_Death_SpriteSheet_27
+  - first:
+      213: 1404217810916353125
+    second: Scarecrow_Death_SpriteSheet_28
+  - first:
+      213: -5595266349379781379
+    second: Scarecrow_Death_SpriteSheet_29
+  - first:
+      213: 4991416342756560128
+    second: Scarecrow_Death_SpriteSheet_30
+  - first:
+      213: 2100154201923090359
+    second: Scarecrow_Death_SpriteSheet_31
+  - first:
+      213: -4520479239351701267
+    second: Scarecrow_Death_SpriteSheet_32
+  - first:
+      213: -5340470051551816885
+    second: Scarecrow_Death_SpriteSheet_33
+  - first:
+      213: 7618353807708493657
+    second: Scarecrow_Death_SpriteSheet_34
+  - first:
+      213: 8196855912965249092
+    second: Scarecrow_Death_SpriteSheet_35
+  - first:
+      213: 8809118100023077474
+    second: Scarecrow_Death_SpriteSheet_36
+  - first:
+      213: 4950934256982422458
+    second: Scarecrow_Death_SpriteSheet_37
+  - first:
+      213: 3873474412283280589
+    second: Scarecrow_Death_SpriteSheet_38
+  - first:
+      213: 570382900740017188
+    second: Scarecrow_Death_SpriteSheet_39
+  - first:
+      213: 6283360092241140380
+    second: Scarecrow_Death_SpriteSheet_40
+  - first:
+      213: 5998747596457124744
+    second: Scarecrow_Death_SpriteSheet_41
+  - first:
+      213: 34859683492891214
+    second: Scarecrow_Death_SpriteSheet_42
+  - first:
+      213: 2884259286030783214
+    second: Scarecrow_Death_SpriteSheet_43
+  - first:
+      213: -5639076542860183707
+    second: Scarecrow_Death_SpriteSheet_44
+  - first:
+      213: -1562419730711808190
+    second: Scarecrow_Death_SpriteSheet_45
+  - first:
+      213: 3842299275611745723
+    second: Scarecrow_Death_SpriteSheet_46
+  - first:
+      213: 3161752351485443241
+    second: Scarecrow_Death_SpriteSheet_47
+  - first:
+      213: 2971344578670215525
+    second: Scarecrow_Death_SpriteSheet_48
+  - first:
+      213: 2642646997688612158
+    second: Scarecrow_Death_SpriteSheet_49
+  - first:
+      213: -5366957013794834053
+    second: Scarecrow_Death_SpriteSheet_50
+  - first:
+      213: 2322382604662400634
+    second: Scarecrow_Death_SpriteSheet_51
+  - first:
+      213: 3278381443452572291
+    second: Scarecrow_Death_SpriteSheet_52
+  - first:
+      213: 4634109614551965873
+    second: Scarecrow_Death_SpriteSheet_53
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Scarecrow_Death_SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 638
+        width: 422
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52161c43278728ea0800000000000000
+      internalID: -5871998532231012059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Death_SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 638
+        width: 370
+        height: 404
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 321c2e5405da74a80800000000000000
+      internalID: -8482620812847562461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Death_SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 638
+        width: 370
+        height: 402
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d60ab75b5963ba220800000000000000
+      internalID: 2498150434929877101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Death_SpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 1784
+        y: 638
+        width: 370
+        height: 383
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce5c951c6af0d9f80800000000000000
+      internalID: -8098299346059409940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Death_SpriteSheet_36
+      rect:
+        serializedVersion: 2
+        x: 2330
+        y: 638
+        width: 362
+        height: 311
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26ae6504d36404a70800000000000000
+      internalID: 8809118100023077474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarecrow_Death_SpriteSheet_42
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 66
+        width: 434
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4a839b82b8db7000800000000000000
+      internalID: 34859683492891214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ce12a4dec7815324aa8a506ca1a0f62c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Scarecrow_Death_SpriteSheet_0: -5871998532231012059
+      Scarecrow_Death_SpriteSheet_1: -8482620812847562461
+      Scarecrow_Death_SpriteSheet_10: -8534108708058797322
+      Scarecrow_Death_SpriteSheet_11: -3066730028371420153
+      Scarecrow_Death_SpriteSheet_12: -5121039634273390752
+      Scarecrow_Death_SpriteSheet_13: 3734832757678397043
+      Scarecrow_Death_SpriteSheet_14: 3132667065861573081
+      Scarecrow_Death_SpriteSheet_15: 3855051680513255994
+      Scarecrow_Death_SpriteSheet_16: -3288030356701902502
+      Scarecrow_Death_SpriteSheet_17: -3378332050356969124
+      Scarecrow_Death_SpriteSheet_18: -5351524055809769917
+      Scarecrow_Death_SpriteSheet_19: -8142636324788364869
+      Scarecrow_Death_SpriteSheet_2: 2498150434929877101
+      Scarecrow_Death_SpriteSheet_20: -5422957821215375982
+      Scarecrow_Death_SpriteSheet_21: -8098299346059409940
+      Scarecrow_Death_SpriteSheet_22: 2746763607995010180
+      Scarecrow_Death_SpriteSheet_23: -4522136883845553746
+      Scarecrow_Death_SpriteSheet_24: -5397222369394378315
+      Scarecrow_Death_SpriteSheet_25: 7203147687056811822
+      Scarecrow_Death_SpriteSheet_26: -2149445867292853900
+      Scarecrow_Death_SpriteSheet_27: -3499771173844153920
+      Scarecrow_Death_SpriteSheet_28: 1404217810916353125
+      Scarecrow_Death_SpriteSheet_29: -5595266349379781379
+      Scarecrow_Death_SpriteSheet_3: 2738210724523496339
+      Scarecrow_Death_SpriteSheet_30: 4991416342756560128
+      Scarecrow_Death_SpriteSheet_31: 2100154201923090359
+      Scarecrow_Death_SpriteSheet_32: -4520479239351701267
+      Scarecrow_Death_SpriteSheet_33: -5340470051551816885
+      Scarecrow_Death_SpriteSheet_34: 7618353807708493657
+      Scarecrow_Death_SpriteSheet_35: 8196855912965249092
+      Scarecrow_Death_SpriteSheet_36: 8809118100023077474
+      Scarecrow_Death_SpriteSheet_37: 4950934256982422458
+      Scarecrow_Death_SpriteSheet_38: 3873474412283280589
+      Scarecrow_Death_SpriteSheet_39: 570382900740017188
+      Scarecrow_Death_SpriteSheet_4: -712668014999131930
+      Scarecrow_Death_SpriteSheet_40: 6283360092241140380
+      Scarecrow_Death_SpriteSheet_41: 5998747596457124744
+      Scarecrow_Death_SpriteSheet_42: 34859683492891214
+      Scarecrow_Death_SpriteSheet_43: 2884259286030783214
+      Scarecrow_Death_SpriteSheet_44: -5639076542860183707
+      Scarecrow_Death_SpriteSheet_45: -1562419730711808190
+      Scarecrow_Death_SpriteSheet_46: 3842299275611745723
+      Scarecrow_Death_SpriteSheet_47: 3161752351485443241
+      Scarecrow_Death_SpriteSheet_48: 2971344578670215525
+      Scarecrow_Death_SpriteSheet_49: 2642646997688612158
+      Scarecrow_Death_SpriteSheet_5: -4325901543418744253
+      Scarecrow_Death_SpriteSheet_50: -5366957013794834053
+      Scarecrow_Death_SpriteSheet_51: 2322382604662400634
+      Scarecrow_Death_SpriteSheet_52: 3278381443452572291
+      Scarecrow_Death_SpriteSheet_53: 4634109614551965873
+      Scarecrow_Death_SpriteSheet_6: -4989464175343773574
+      Scarecrow_Death_SpriteSheet_7: 4316569099065235060
+      Scarecrow_Death_SpriteSheet_8: 1809605238293398499
+      Scarecrow_Death_SpriteSheet_9: 6573804908450421079
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
