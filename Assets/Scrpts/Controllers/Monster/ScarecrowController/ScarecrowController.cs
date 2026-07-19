@@ -4,21 +4,17 @@ using System.Collections;
 public class ScarecrowController : BaseMonsterController
 {
     public override void OnHitEvent()
-    {
+    {   
         if (_lockTarget == null) return;
 
-        if (detection.playerDetected)
-        {
+        
             Stat targetStat = _lockTarget.GetComponent<Stat>();
-            if (targetStat != null)
+            float distToPlayer = (_lockTarget.transform.position - transform.position).sqrMagnitude;
+            if (targetStat != null && distToPlayer < _attackRange * _attackRange)
             {
                 targetStat.OnAttacked(_stat);
             }
-        }
-        else
-        {
-            
-        }
+        
     }
 
     protected override IEnumerator AttackRoutine()
