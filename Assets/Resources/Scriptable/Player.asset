@@ -17,4 +17,4 @@ MonoBehaviour:
   baseAttack: 1
   baseMaxDefense: 10
   attackSpeed: 1
-  moveSpeed: 2
+  moveSpeed: 10

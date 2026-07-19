@@ -7,21 +7,18 @@ using UnityEngine.UI;
 public class PlayerController : BaseController
 {
     Stat _stat;
-    Vector3 _moveDir;
+    public Vector3 _moveDir;
 
     Rigidbody2D _rb;
 
     public float speed = 5f;
     private Animator _animator;
-    float _bounceTime = 0;
     public float bounceSpeed = 20f;
     public float bounceHeight = 0.2f;
     bool _isDying = false;
     private bool _isReversed = false;
-    private int _dokkaebiTileCount = 0;
     private Coroutine _reverseCoroutine;
     [SerializeField] IWeapon _currentWeapon;
-    [SerializeField] Button _swapButton;
     [SerializeField] TextMeshProUGUI _swapButtonText;
 
     //나중에 작업 할 예정 (아트분 그림 나오면)
@@ -101,8 +98,6 @@ public class PlayerController : BaseController
 
     protected override void UpdateMoving()
     {
-        // 공격 중 이동 막기
-        if (State == Define.State.Skill) return;
         // 사망 처리
         if (_stat.Hp <= 0)
         {
@@ -123,29 +118,18 @@ public class PlayerController : BaseController
         {
             State = Define.State.Idle;
             _animator.SetBool("IsMoving", false);
-            _spriteRenderer.transform.localScale = Vector3.one;
             
             return;
         }
 
         _rb.MovePosition(_rb.position + (Vector2)_moveDir * _stat.MoveSpeed * Time.deltaTime);
-        Debug.Log("MovePosition: " + _rb.position + " moveDir: " + _moveDir);
-        _bounceTime += Time.deltaTime * bounceSpeed;
-        float yOffest = Mathf.Abs(Mathf.Sin(_bounceTime)) * bounceHeight;
 
        if (_spriteRenderer != null)
         {
-            _bounceTime += Time.deltaTime * bounceSpeed;
-            float bounce = 1f + Mathf.Abs(Mathf.Sin(_bounceTime)) * 0.05f;
             if (_moveDir.x != 0)
             {
                 float xTargetScale = (_moveDir.x < 0) ? -1f : 1f;
-                _spriteRenderer.transform.localScale = new Vector3(xTargetScale * bounce, bounce, 1f);
-            }
-            else
-            {
-                float currentX = _spriteRenderer.transform.localScale.x >= 0 ? 1f: -1f;
-                _spriteRenderer.transform.localScale = new Vector3(currentX * bounce, bounce, 1f);
+                _spriteRenderer.transform.localScale = new Vector3(xTargetScale, 1f, 1f);
             }
         }
     }
@@ -186,6 +170,8 @@ public class PlayerController : BaseController
 
     public void OnAttack()
     {
+        Debug.Log("OnAttack 호출");
+        Debug.Log("State: " + State + " currentWeapon: " + _currentWeapon);
         if (State != Define.State.Skill && _currentWeapon != null)
         {
             MonsterLockTarget();
@@ -193,6 +179,23 @@ public class PlayerController : BaseController
             State = Define.State.Skill;
             _animator.SetTrigger("Attack");
 
+            // 직접 공격
+            _currentWeapon.Attack(_lockTarget, _stat);
+            // 칼 발향 설정
+            SwordController sword = GetComponentInChildren<SwordController>(true);
+            if (sword != null)
+            {
+                if (_lockTarget != null)
+                {
+                    sword.LookAtTarget(_lockTarget.transform.position);
+                }
+                else
+                {
+                    sword.LookAtMoveDir(_moveDir);
+                }
+
+                StartCoroutine(sword.Swing());
+            }
             if (_currentWeapon is BowWeapon)
             {
                 _currentWeapon.Attack(_lockTarget, _stat);
@@ -204,14 +207,14 @@ public class PlayerController : BaseController
     void MonsterLockTarget()
     {
         Collider2D[] phtocells = Physics2D.OverlapCircleAll(transform.position, _attackRange);
-
+        Debug.Log("감지된 콜라이더 수: " + phtocells.Length);
         float closestDistance = Mathf.Infinity;
         GameObject closestMonster = null;
 
         foreach (var collider in  phtocells)
-        {
+        {Debug.Log("감지된 오브젝트: " + collider.name + " 태그: " + collider.tag);
             if (collider.CompareTag("Monster"))
-            {
+            {   
                 float distance = (transform.position - collider.transform.position).sqrMagnitude;
 
                 if (distance < closestDistance)
@@ -222,6 +225,7 @@ public class PlayerController : BaseController
             }
         }
         _lockTarget = closestMonster;
+        Debug.Log("LockTarget: " + _lockTarget);
     }
 
     // 플레이어가 "Interactable" 태그 오브젝트 범위 안에 들어왔을 때
@@ -281,11 +285,19 @@ public class PlayerController : BaseController
     // 공격 후 잠시 경직
     IEnumerator CoReturnToIdle()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0f);
         if (State == Define.State.Skill)
         {
-            State = Define.State.Idle;
-            _animator.SetBool("IsMoving", false);
+            if (_moveDir.magnitude > 0)
+            {
+                State = Define.State.Moving;
+                _animator.SetBool("IsMoving", true);
+            }
+            else
+            {
+                State = Define.State.Idle;
+                _animator.SetBool("IsMoving", false);
+            }
         }
     }
     public override void OnHitEvent()
@@ -346,7 +358,6 @@ public class PlayerController : BaseController
         gameObject.SetActive(false);
     }
 
-    // 조작 반전
     
 
 

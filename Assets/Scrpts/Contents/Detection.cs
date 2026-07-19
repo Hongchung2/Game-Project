@@ -46,7 +46,7 @@ public class Detection : MonoBehaviour
 
         Vector2 boxsize = new Vector2(detectWidth, detectHeight);
 
-        Collider2D hit = Physics2D.OverlapBox(center, boxsize, 0f, playerLayer);
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, detectWidth / 2f, playerLayer);
         playerDetected = (hit != null);
 
         if (playerDetected)
@@ -80,6 +80,6 @@ public class Detection : MonoBehaviour
         Vector2 centerOffset = new Vector2(offsetX * xDirection, offsetY);
         Vector2 center = (Vector2)transform.position + centerOffset;
 
-        Gizmos.DrawWireCube(center, new Vector3(detectWidth, detectHeight, 1));
+        Gizmos.DrawWireSphere(transform.position, detectWidth / 2f);
     }
 }
