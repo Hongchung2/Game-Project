@@ -5,7 +5,7 @@ public class Detection : MonoBehaviour
     [Header("감지 범위")]
 
     [SerializeField]
-    private float detectWidth = 6.0f;   
+    public float detectWidth = 6.0f;   
 
     [SerializeField]
     private float detectHeight = 2.0f;  
@@ -44,9 +44,7 @@ public class Detection : MonoBehaviour
         Vector2 centerOffset = new Vector2(offsetX * xDirection, offsetY);
         Vector2 center = (Vector2)transform.position + centerOffset;
 
-        Vector2 boxsize = new Vector2(detectWidth, detectHeight);
-
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, detectWidth / 2f, playerLayer);
+        Collider2D hit = Physics2D.OverlapCircle(center, detectWidth / 2f, playerLayer);
         playerDetected = (hit != null);
 
         if (playerDetected)

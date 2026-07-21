@@ -33,6 +33,8 @@ public class PlayerController : BaseController
     [SerializeField] float _attackRange = 0.8f;
 
     [SerializeField] float _interactRange = 0.5f;
+    [SerializeField] float _attackCooltime = 0.3f;
+    [SerializeField] private float _lastAttackTime = 0f;
 
     [SerializeField] IIdentifiable _interactTarget;
 
@@ -49,10 +51,9 @@ public class PlayerController : BaseController
         _rb = GetComponent<Rigidbody2D>();
         
         _currentWeapon = GetComponent<SwordWeapon>();
-        _swapButtonText.text = "활";
+        //_swapButtonText.text = "활";
         //_swapButtonImage.sprite = _bowSprite;
     }
-    
     public void EquipSword()
     {
         _currentWeapon = GetComponent<SwordWeapon>();
@@ -65,6 +66,15 @@ public class PlayerController : BaseController
 
     protected override void UpdateIdle()
     {
+        if (_lockTarget != null)
+        {
+            float distance = Vector2.Distance(transform.position, _lockTarget.transform.position);
+            if (distance > _attackRange)
+            {
+                _lockTarget = null;
+            }
+        }
+
         // 사망 처리
         if (_stat.Hp <= 0)
         {
@@ -98,6 +108,15 @@ public class PlayerController : BaseController
 
     protected override void UpdateMoving()
     {
+        if (_lockTarget != null)
+        {
+            float distance = Vector2.Distance(transform.position, _lockTarget.transform.position);
+            if (distance > _attackRange)
+            {
+                _lockTarget = null;
+            }
+        }
+
         // 사망 처리
         if (_stat.Hp <= 0)
         {
@@ -170,8 +189,9 @@ public class PlayerController : BaseController
 
     public void OnAttack()
     {
-        Debug.Log("OnAttack 호출");
-        Debug.Log("State: " + State + " currentWeapon: " + _currentWeapon);
+        if (Time.time - _lastAttackTime < _attackCooltime) return; // 쿨타임 체크
+        _lastAttackTime = Time.time;
+        
         if (State != Define.State.Skill && _currentWeapon != null)
         {
             MonsterLockTarget();
@@ -207,12 +227,11 @@ public class PlayerController : BaseController
     void MonsterLockTarget()
     {
         Collider2D[] phtocells = Physics2D.OverlapCircleAll(transform.position, _attackRange);
-        Debug.Log("감지된 콜라이더 수: " + phtocells.Length);
         float closestDistance = Mathf.Infinity;
         GameObject closestMonster = null;
 
         foreach (var collider in  phtocells)
-        {Debug.Log("감지된 오브젝트: " + collider.name + " 태그: " + collider.tag);
+        {
             if (collider.CompareTag("Monster"))
             {   
                 float distance = (transform.position - collider.transform.position).sqrMagnitude;
@@ -225,7 +244,6 @@ public class PlayerController : BaseController
             }
         }
         _lockTarget = closestMonster;
-        Debug.Log("LockTarget: " + _lockTarget);
     }
 
     // 플레이어가 "Interactable" 태그 오브젝트 범위 안에 들어왔을 때
@@ -357,9 +375,4 @@ public class PlayerController : BaseController
         Managers.Load.StartFadeAndLoad("GameScene", "YOU DIED");
         gameObject.SetActive(false);
     }
-
-    
-
-
-
 }

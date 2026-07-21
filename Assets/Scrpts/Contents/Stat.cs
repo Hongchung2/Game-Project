@@ -20,10 +20,10 @@ public class Stat : MonoBehaviour
     [SerializeField]
     protected float _moveSpeed;
     
+    
 
     public ObjectData data;
 
-    private SPUM_Prefabs spum;
     private BaseController bc;
     bool _IsDeath = false;
 
@@ -87,8 +87,7 @@ public class Stat : MonoBehaviour
     }
 
     public virtual void Init()
-    {
-        spum = GetComponent<SPUM_Prefabs>();    
+    {  
         bc = GetComponent<BaseController>();
     }
     // 스텟 초기화
@@ -125,7 +124,12 @@ public class Stat : MonoBehaviour
         }
 
         Hp -= damage;
-
+        HitFlash hitFlash = GetComponent<HitFlash>();
+        if (hitFlash != null)
+        {
+            hitFlash.StartCoroutine(hitFlash.Flash());
+        }
+        
         if (Hp <= 0)
         {
             Hp = 0;
@@ -148,7 +152,6 @@ public class Stat : MonoBehaviour
         var col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false;
         
-        if (spum != null) spum.PlayAnimation(PlayerState.DEATH, 0);
 
         yield return new WaitForSeconds(3.0f);
 

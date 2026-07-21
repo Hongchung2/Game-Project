@@ -28,39 +28,72 @@ public class GoblinSpearController : BaseMonsterController
     protected override IEnumerator AttackRoutine()
     {
         _isAttacking = true;
-        _isWaiting = true;
         AttackCount = 0f;
 
-        lastdistance = Vector2.Distance(transform.position, _lockTarget.transform.position);
-        while (AttackCount < 1.0f && detection.playerDetected) 
+        // 1초 누적 (나갔다 와도 유지)
+        while (AttackCount < 1.0f)
         {
-            FollowPlayerSlowly();
-            AttackCount += Time.deltaTime;
+            if (detection.playerDetected)
+            {
+                FollowPlayerSlowly();
+                AttackCount += Time.deltaTime;
+            }
+            else
+            {
+                _animator.SetBool("IsMoving", false);
+                _rb.linearVelocity = Vector2.zero;
+            }
+
+            // 스캔 범위 벗어나면 공격 취소
+            if (_lockTarget == null)
+            {
+                _stat.add_MoveSpeed = 0;
+                _isAttacking = false;
+                _attackCoroutine = null;
+                yield break;
+            }
+
             lastdistance = Vector2.Distance(transform.position, _lockTarget.transform.position);
             yield return null;
         }
 
-        if (AttackCount < 1.0f)
+        // 공격
+        Vector3 attackTargetPos = _lockTarget.transform.position; // 플레이어 위치 저장
+        State = Define.State.Skill;
+        //_animator.SetTrigger("Attack");
+
+        SpearController spear = GetComponentInChildren<SpearController>(true);
+        if (spear != null)
         {
-            _stat.add_MoveSpeed = 0;
-            _isAttacking = false;
-            _isWaiting = false;
-            _attackCoroutine = null;
-            yield break;
+            yield return StartCoroutine(spear.Thrust());
         }
 
-        State = Define.State.Skill;
-        _animator.SetTrigger("Attack");
-        AttackCount = 0f;
+        // 데미지
+        if (_lockTarget != null)
+        {
+            float dist = Vector2.Distance(transform.position, _lockTarget.transform.position);
+            if (dist <= detection.detectWidth / 2f)
+            {
+                Stat targetStat = _lockTarget.GetComponent<Stat>();
+                if (targetStat != null)
+                {
+                    targetStat.OnAttacked(_stat);
+                }
+            }
+        }
 
-        yield return new WaitForSeconds(2.0f);
+        // 2초 쿨타임
         _stat.add_MoveSpeed = 0;
         State = Define.State.Moving;
         _animator.SetBool("IsMoving", true);
+        yield return new WaitForSeconds(2.0f);
+
+        // 다음 공격 준비
+        AttackCount = 0f;
         _isAttacking = false;
-        _isWaiting = false;
         _attackCoroutine = null;
     }
+
     void FollowPlayerSlowly()
     {
         if (_lockTarget == null) return;

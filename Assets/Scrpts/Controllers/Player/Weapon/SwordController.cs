@@ -42,6 +42,7 @@ public class SwordController : MonoBehaviour
     {
         Vector3 dir = (targetPos - transform.position).normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        angle -= 60f;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
