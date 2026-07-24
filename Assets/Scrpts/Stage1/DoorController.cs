@@ -28,6 +28,7 @@ public class DoorController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("트리거 감지: " + other.name);
         if (other.CompareTag("Player") && !isTransitioning && !isLocked)
         {
             StartCoroutine(Transition(other.gameObject));

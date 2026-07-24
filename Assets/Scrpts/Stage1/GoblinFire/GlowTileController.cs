@@ -1,18 +1,20 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GlowTileController : MonoBehaviour
 {
-    SpriteRenderer _sr;
+    TilemapRenderer _tr;
 
     void Awake()
     {
-        _sr = GetComponent<SpriteRenderer>();
+        _tr = GetComponent<TilemapRenderer >();
     }
 
     public void SetVisible(bool visible)
     {
-        gameObject.SetActive(visible);
+        GetComponent<TilemapRenderer>().enabled = visible;
+        GetComponent<TilemapCollider2D>().enabled = visible;
     }
 
     public IEnumerator Blink(float blinkTime, float interval)
@@ -20,10 +22,10 @@ public class GlowTileController : MonoBehaviour
         float elapsed = 0f;
         while (elapsed < blinkTime)
         {
-            _sr.enabled = !_sr.enabled;
+            _tr.enabled = !_tr.enabled;
             yield return new WaitForSeconds(interval);
             elapsed += interval;
         }
-        _sr.enabled = true;
+        _tr.enabled = true;
     }
 }

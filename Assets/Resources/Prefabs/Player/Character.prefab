@@ -142,7 +142,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19.32, y: 1.84, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2388576, y: 0.2388576, z: 0.2388576}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5697416052275049366}
@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c2e4caa1904804ca7d5ca8113d42a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwordWeapon
-  _attackrange: 15
+  _attackrange: 2
 --- !u!114 &6753158766541387476
 MonoBehaviour:
   m_ObjectHideFlags: 0
