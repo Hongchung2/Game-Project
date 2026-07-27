@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.8, y: 3.03, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1738449, y: 0.1738449, z: 0.1738449}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -202,8 +202,8 @@ MonoBehaviour:
   _lockTarget: {fileID: 0}
   detection: {fileID: 5161138327316074338}
   _attackRange: 3
-  _scanRange: 15
-  _moveRange: 15
+  _scanRange: 2
+  _moveRange: 3
   _spriteRenderer: {fileID: 0}
   stopDistance: 0.8
   StopTime: 1
@@ -223,8 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adf462d1badad740b33cbaf2acafe42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Detection
-  detectWidth: 20
-  detectHeight: 20
+  detectWidth: 4
+  detectHeight: 4
   offsetX: 0
   offsetY: 0
   playerLayer:

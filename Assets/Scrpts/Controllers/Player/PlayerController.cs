@@ -18,6 +18,7 @@ public class PlayerController : BaseController
     bool _isDying = false;
     private bool _isReversed = false;
     private Coroutine _reverseCoroutine;
+    private Vector3 _originalScale;
     [SerializeField] IWeapon _currentWeapon;
     [SerializeField] TextMeshProUGUI _swapButtonText;
 
@@ -38,9 +39,6 @@ public class PlayerController : BaseController
 
     [SerializeField] IIdentifiable _interactTarget;
 
-    private Vector3 _baseScale = Vector3.one; // 좌우 반전 시 원래 크기(오브젝트 Scale)를 유지하기 위한 캐시
-
-
     public override void Init()
     {
         WorldObjectType = Define.WorldObject.Player;
@@ -50,14 +48,13 @@ public class PlayerController : BaseController
         _animator = GetComponent<Animator>();
         State = Define.State.Idle;
 
-        if (_spriteRenderer != null)
-            _baseScale = _spriteRenderer.transform.localScale;
-
         _rb = GetComponent<Rigidbody2D>();
         
         _currentWeapon = GetComponent<SwordWeapon>();
         //_swapButtonText.text = "활";
         //_swapButtonImage.sprite = _bowSprite;
+
+        _originalScale = transform.localScale;
     }
     public void EquipSword()
     {
@@ -152,8 +149,12 @@ public class PlayerController : BaseController
         {
             if (_moveDir.x != 0)
             {
-                float xTargetScale = (_moveDir.x < 0) ? -Mathf.Abs(_baseScale.x) : Mathf.Abs(_baseScale.x);
-                _spriteRenderer.transform.localScale = new Vector3(xTargetScale, _baseScale.y, _baseScale.z);
+                float xTargetScale = (_moveDir.x < 0) ? -1f : 1f;
+                _spriteRenderer.transform.localScale = new Vector3(
+                    xTargetScale * Mathf.Abs(_originalScale.x),
+                    _originalScale.y,
+                    _originalScale.z
+                );
             }
         }
     }
@@ -213,6 +214,18 @@ public class PlayerController : BaseController
                 if (_lockTarget != null)
                 {
                     sword.LookAtTarget(_lockTarget.transform.position);
+
+                    DisguisedGoblin disguisedGoblin = _lockTarget.GetComponent<DisguisedGoblin>();
+                    if (disguisedGoblin != null)
+                    {
+                        disguisedGoblin.OnHitEvent();
+                    }
+
+                    HiddenObjectController hiddenObject = _lockTarget.GetComponent<HiddenObjectController>();
+                    if (hiddenObject != null)
+                    {
+                        hiddenObject.OnHitEvent();
+                    }
                 }
                 else
                 {
@@ -281,10 +294,8 @@ public class PlayerController : BaseController
     // 조작 반대 코루틴
     IEnumerator SetReverse(bool reverse)
     {
-        Debug.Log(reverse);
         yield return new WaitForSeconds(1f);
         _isReversed = reverse;
-        Debug.Log(reverse);
     }
 
     // 플레이어가 범위 밖으로 나갔을 때

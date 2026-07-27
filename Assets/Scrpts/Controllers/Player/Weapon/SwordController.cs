@@ -17,13 +17,6 @@ public class SwordController : MonoBehaviour
 
     void Update()
     {
-        // 부모 스케일 반전(좌우 flip)만 보정 - 크기 자체는 캐릭터 크기를 따라가게 둔다
-        Vector3 parentScale = transform.parent.localScale;
-        transform.localScale = new Vector3(
-            Mathf.Sign(parentScale.x),
-            Mathf.Sign(parentScale.y),
-            1f
-        );
         PlayerController player = GetComponentInParent<PlayerController>();
 
         // 타겟 있으면 타겟 방향
@@ -40,10 +33,10 @@ public class SwordController : MonoBehaviour
     // 타겟 방향으로 칼 끝 향하게
     public void LookAtTarget(Vector3 targetPos)
     {
-        Vector3 dir = (targetPos - transform.position).normalized;
+        /*Vector3 dir = (targetPos - transform.position).normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         angle -= 60f;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);*/
     }
 
     // 이동 방향으로 칼 끝 향하게
@@ -51,7 +44,17 @@ public class SwordController : MonoBehaviour
     {
         if (moveDir.magnitude == 0) return;
         float angle = Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg;
-        angle -= 60f; // 보정값, 스프라이트 방향에 딸 조절
+
+        // 부모 스케일이 -1이면 (왼쪽 볼 때) 각도 반전
+        if (transform.parent.localScale.x < 0)
+        {
+            angle -= 120f; // 왼쪽 볼 때 보정
+        }
+        else
+        {
+            angle -= 60f; // 오른 쪽 볼 때 보정
+        }
+
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
@@ -62,8 +65,17 @@ public class SwordController : MonoBehaviour
         _isSwinging = true;
         gameObject.SetActive(true);
 
-        float startAngle = transform.eulerAngles.z + swingAngle / 2f;
-        float endAngle = startAngle - swingAngle;
+        float startAngle, endAngle;
+        if (transform.parent.localScale.x < 0)
+        {
+            startAngle = transform.eulerAngles.z - swingAngle / 2f;
+            endAngle = startAngle + swingAngle;
+        }
+        else
+        {
+            startAngle = transform.eulerAngles.z + swingAngle / 2f;
+            endAngle = startAngle - swingAngle;
+        }
         float returnAngle = transform.eulerAngles.z;
         float elapsed = 0f;
         float duration = 1f / swingSpeed;

@@ -16,6 +16,12 @@ public class SwordWeapon : MonoBehaviour, IWeapon
         {
             targetStat.OnAttacked(AttackerStat);
         }
+
+        HiddenObjectController hiddenObject = target.GetComponent<HiddenObjectController>();
+        if (hiddenObject != null)
+        {
+            hiddenObject.OnHitEvent();
+        }
     }
 
     private void OnDrawGizmosSelected()
