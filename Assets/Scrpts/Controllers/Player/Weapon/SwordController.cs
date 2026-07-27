@@ -17,11 +17,11 @@ public class SwordController : MonoBehaviour
 
     void Update()
     {
-        // 부모 스케일 반전 보정
+        // 부모 스케일 반전(좌우 flip)만 보정 - 크기 자체는 캐릭터 크기를 따라가게 둔다
         Vector3 parentScale = transform.parent.localScale;
         transform.localScale = new Vector3(
-            1f / parentScale.x,
-            1f / parentScale.y,
+            Mathf.Sign(parentScale.x),
+            Mathf.Sign(parentScale.y),
             1f
         );
         PlayerController player = GetComponentInParent<PlayerController>();

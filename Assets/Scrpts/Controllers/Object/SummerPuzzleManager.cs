@@ -14,11 +14,36 @@ public class SummerPuzzleManager : MonoBehaviour
 
     private int _sealedCount = 0;
     private const int TOTAL_STATUES = 4;
+    private bool _isCleared = false; // 클리어 연출 중복 방지
 
     private void Awake()
     {
         Instance = this;
     }
+
+#if UNITY_EDITOR
+    // 개발용 치트키 (에디터에서만 작동, 실제 빌드엔 포함 안 됨)
+    private void Update()
+    {
+        // F9: 퍼즐 즉시 클리어 (클리어 연출 강제 발동)
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            Debug.Log("[치트] F9 - 퍼즐 강제 클리어!");
+            if (!_isCleared)
+            {
+                _isCleared = true;
+                StartCoroutine(PuzzleClear());
+            }
+        }
+
+        // F10: 전체 리셋 (초기화 종과 동일)
+        if (Input.GetKeyDown(KeyCode.F10))
+        {
+            Debug.Log("[치트] F10 - 전체 리셋!");
+            ResetAll();
+        }
+    }
+#endif
 
     // 석상 하나 봉인될 때마다 호출
     public void OnStatueSealed()
@@ -26,8 +51,11 @@ public class SummerPuzzleManager : MonoBehaviour
         _sealedCount++;
         StartCoroutine(ScreenShake());
 
-        if (_sealedCount >= TOTAL_STATUES)
+        if (_sealedCount >= TOTAL_STATUES && !_isCleared)
+        {
+            _isCleared = true;
             StartCoroutine(PuzzleClear());
+        }
     }
 
     // 화면 흔들림 (0.5초)
@@ -73,6 +101,10 @@ public class SummerPuzzleManager : MonoBehaviour
     public void ResetAll()
     {
         _sealedCount = 0;
+        _isCleared = false;
+
+        // 족자가 이미 나와있으면 다시 숨김
+        if (summerScroll != null) summerScroll.SetActive(false);
 
         // 모든 석상을 시작 위치로 되돌림
         foreach (var statue in statues)

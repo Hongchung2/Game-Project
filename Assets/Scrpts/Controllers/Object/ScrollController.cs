@@ -9,6 +9,7 @@ public class ScrollController : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
+        ScrollCollection.Collect("spring");
         ExitController.Instance.UnlockExit();
         gameObject.SetActive(false);
     }

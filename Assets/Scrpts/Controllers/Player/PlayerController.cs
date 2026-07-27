@@ -38,6 +38,8 @@ public class PlayerController : BaseController
 
     [SerializeField] IIdentifiable _interactTarget;
 
+    private Vector3 _baseScale = Vector3.one; // 좌우 반전 시 원래 크기(오브젝트 Scale)를 유지하기 위한 캐시
+
 
     public override void Init()
     {
@@ -47,6 +49,9 @@ public class PlayerController : BaseController
 
         _animator = GetComponent<Animator>();
         State = Define.State.Idle;
+
+        if (_spriteRenderer != null)
+            _baseScale = _spriteRenderer.transform.localScale;
 
         _rb = GetComponent<Rigidbody2D>();
         
@@ -147,8 +152,8 @@ public class PlayerController : BaseController
         {
             if (_moveDir.x != 0)
             {
-                float xTargetScale = (_moveDir.x < 0) ? -1f : 1f;
-                _spriteRenderer.transform.localScale = new Vector3(xTargetScale, 1f, 1f);
+                float xTargetScale = (_moveDir.x < 0) ? -Mathf.Abs(_baseScale.x) : Mathf.Abs(_baseScale.x);
+                _spriteRenderer.transform.localScale = new Vector3(xTargetScale, _baseScale.y, _baseScale.z);
             }
         }
     }

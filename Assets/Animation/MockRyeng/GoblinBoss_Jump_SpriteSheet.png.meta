@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 3b90b67070e91444ba0e84268887915c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2012439147295098731
+    second: GoblinBoss_Jump_SpriteSheet_0
+  - first:
+      213: -8316155408434076265
+    second: GoblinBoss_Jump_SpriteSheet_1
+  - first:
+      213: 4655747951522668272
+    second: GoblinBoss_Jump_SpriteSheet_2
+  - first:
+      213: 7548681680005746103
+    second: GoblinBoss_Jump_SpriteSheet_3
+  - first:
+      213: 2500020286870164136
+    second: GoblinBoss_Jump_SpriteSheet_4
+  - first:
+      213: -5289609008771145061
+    second: GoblinBoss_Jump_SpriteSheet_5
+  - first:
+      213: 7885414474553128731
+    second: GoblinBoss_Jump_SpriteSheet_6
+  - first:
+      213: -3769378515276034319
+    second: GoblinBoss_Jump_SpriteSheet_7
+  - first:
+      213: 463391944517722176
+    second: GoblinBoss_Jump_SpriteSheet_8
+  - first:
+      213: -3632526093483898036
+    second: GoblinBoss_Jump_SpriteSheet_9
+  - first:
+      213: -262096840017979869
+    second: GoblinBoss_Jump_SpriteSheet_10
+  - first:
+      213: 4003344973800132326
+    second: GoblinBoss_Jump_SpriteSheet_11
+  - first:
+      213: 7466006678354855270
+    second: GoblinBoss_Jump_SpriteSheet_12
+  - first:
+      213: 905623297235525999
+    second: GoblinBoss_Jump_SpriteSheet_13
+  - first:
+      213: 6651524451670172481
+    second: GoblinBoss_Jump_SpriteSheet_14
+  - first:
+      213: 4225996734962410516
+    second: GoblinBoss_Jump_SpriteSheet_15
+  - first:
+      213: 3938585487146028679
+    second: GoblinBoss_Jump_SpriteSheet_16
+  - first:
+      213: -2780902705287639711
+    second: GoblinBoss_Jump_SpriteSheet_17
+  - first:
+      213: 5376158543955614699
+    second: GoblinBoss_Jump_SpriteSheet_18
+  - first:
+      213: 7240015306931573432
+    second: GoblinBoss_Jump_SpriteSheet_19
+  - first:
+      213: -5559309379665411843
+    second: GoblinBoss_Jump_SpriteSheet_20
+  - first:
+      213: -6807528143925428214
+    second: GoblinBoss_Jump_SpriteSheet_21
+  - first:
+      213: 4934132083399647640
+    second: GoblinBoss_Jump_SpriteSheet_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 889
+        width: 482
+        height: 434
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b674d9afdbe9deb10800000000000000
+      internalID: 2012439147295098731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 890
+        width: 498
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 795e75787b4179c80800000000000000
+      internalID: -8316155408434076265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 1045
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fed24e381a8c9040800000000000000
+      internalID: 4655747951522668272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 1978
+        y: 871
+        width: 338
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bdcd3b4efd42c860800000000000000
+      internalID: 7548681680005746103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 2390
+        y: 1058
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a29a2a843bd1b220800000000000000
+      internalID: 2500020286870164136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 1711
+        y: 1034
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b926d7fc1a88796b0800000000000000
+      internalID: -5289609008771145061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1905
+        y: 1029
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1776769fae9e6d60800000000000000
+      internalID: 7885414474553128731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 938
+        width: 34
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fe8bfc163a70bbc0800000000000000
+      internalID: -3769378515276034319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 1727
+        y: 938
+        width: 50
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 040a1c4b48c4e6600800000000000000
+      internalID: 463391944517722176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 917
+        width: 50
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4b0e8093cca69dc0800000000000000
+      internalID: -3632526093483898036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 2278
+        y: 930
+        width: 50
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 326d9f90058dc5cf0800000000000000
+      internalID: -262096840017979869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 244
+        width: 418
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eec3b40b0dbe8730800000000000000
+      internalID: 4003344973800132326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 217
+        width: 770
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 665090274859c9760800000000000000
+      internalID: 7466006678354855270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 1646
+        y: 585
+        width: 98
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f61aa04379b619c00800000000000000
+      internalID: 905623297235525999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 388
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14320ac5f36fe4c50800000000000000
+      internalID: 6651524451670172481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 238
+        width: 498
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4142561e3a1c5aa30800000000000000
+      internalID: 4225996734962410516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 2456
+        y: 382
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78e09de02aaa8a630800000000000000
+      internalID: 3938585487146028679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 276
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16d486039bf3869d0800000000000000
+      internalID: -2780902705287639711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 276
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bebd7ac26b3fb9a40800000000000000
+      internalID: 5376158543955614699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 1912
+        y: 286
+        width: 34
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b21c0aff83b97460800000000000000
+      internalID: 7240015306931573432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 2472
+        y: 286
+        width: 50
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df0cb8cd29d59d2b0800000000000000
+      internalID: -5559309379665411843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 228
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a00c9de883dc681a0800000000000000
+      internalID: -6807528143925428214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Jump_SpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 212
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 891e4e9dcfe897440800000000000000
+      internalID: 4934132083399647640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      GoblinBoss_Jump_SpriteSheet_0: 2012439147295098731
+      GoblinBoss_Jump_SpriteSheet_1: -8316155408434076265
+      GoblinBoss_Jump_SpriteSheet_10: -262096840017979869
+      GoblinBoss_Jump_SpriteSheet_11: 4003344973800132326
+      GoblinBoss_Jump_SpriteSheet_12: 7466006678354855270
+      GoblinBoss_Jump_SpriteSheet_13: 905623297235525999
+      GoblinBoss_Jump_SpriteSheet_14: 6651524451670172481
+      GoblinBoss_Jump_SpriteSheet_15: 4225996734962410516
+      GoblinBoss_Jump_SpriteSheet_16: 3938585487146028679
+      GoblinBoss_Jump_SpriteSheet_17: -2780902705287639711
+      GoblinBoss_Jump_SpriteSheet_18: 5376158543955614699
+      GoblinBoss_Jump_SpriteSheet_19: 7240015306931573432
+      GoblinBoss_Jump_SpriteSheet_2: 4655747951522668272
+      GoblinBoss_Jump_SpriteSheet_20: -5559309379665411843
+      GoblinBoss_Jump_SpriteSheet_21: -6807528143925428214
+      GoblinBoss_Jump_SpriteSheet_22: 4934132083399647640
+      GoblinBoss_Jump_SpriteSheet_3: 7548681680005746103
+      GoblinBoss_Jump_SpriteSheet_4: 2500020286870164136
+      GoblinBoss_Jump_SpriteSheet_5: -5289609008771145061
+      GoblinBoss_Jump_SpriteSheet_6: 7885414474553128731
+      GoblinBoss_Jump_SpriteSheet_7: -3769378515276034319
+      GoblinBoss_Jump_SpriteSheet_8: 463391944517722176
+      GoblinBoss_Jump_SpriteSheet_9: -3632526093483898036
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
