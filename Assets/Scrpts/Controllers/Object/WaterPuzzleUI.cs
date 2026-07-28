@@ -72,6 +72,19 @@ public class WaterPuzzleUI : MonoBehaviour
         if (hintPanel != null) hintPanel.SetActive(false);
     }
 
+#if UNITY_EDITOR
+    // 개발 치트키: F9 - 정화수 퍼즐 즉시 강제 클리어 (매번 손으로 풀 필요 없이 뒷 구간 테스트용)
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            _amount = new int[] { 7, 7, 0 };
+            RefreshVisuals();
+            CheckWin();
+        }
+    }
+#endif
+
     public void Open()
     {
         _amount = new int[] { 14, 0, 0 };
@@ -177,13 +190,14 @@ public class WaterPuzzleUI : MonoBehaviour
     {
         if (_amount[0] == 7 && _amount[1] == 7)
         {
-            WaterPuzzleState.WaterSplit = true;
             Close();
 
             if (CenterMessageUI.Instance != null)
                 CenterMessageUI.Instance.Show("정화수가 정확히 둘로 나뉘었다.");
 
             Debug.Log("정화수 퍼즐 성공! 14L/9L 양동이에 각각 7L씩 나뉨.");
+
+            WaterPuzzleState.MarkSolved();
         }
     }
 

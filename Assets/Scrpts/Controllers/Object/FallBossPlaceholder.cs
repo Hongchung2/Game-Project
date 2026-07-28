@@ -25,6 +25,9 @@ public class FallBossPlaceholder : BaseController
     public Sprite[] deathFrames;  // 고통 표정 + 서서히 사라지는 얼룩
     public float deathFrameTime = 0.15f;
 
+    [Header("청동 방울 드롭 (평소 비활성 상태로 두면 죽을 때 위치 옮기고 활성화함)")]
+    public GameObject bellPickup;
+
     private Stat _stat;
     private SpriteRenderer _sr;
     private Color _originalColor;
@@ -158,12 +161,13 @@ public class FallBossPlaceholder : BaseController
             }
         }
 
-        BronzeBellState.HasBell = true;
+        if (bellPickup != null)
+        {
+            bellPickup.transform.position = transform.position;
+            bellPickup.SetActive(true);
+        }
 
-        if (CenterMessageUI.Instance != null)
-            CenterMessageUI.Instance.Show("청동 방울을 획득했습니다!");
-
-        Debug.Log("목령 처치! 청동방울 획득.");
+        Debug.Log("목령 처치! 청동 방울을 떨어뜨렸다.");
 
         gameObject.SetActive(false);
     }

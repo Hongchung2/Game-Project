@@ -37,7 +37,15 @@ public class ExitController : MonoBehaviour, IInteractable
         isUnlocked = true;
         StartCoroutine(FadeIn());   // 출구 바닥 타일 나타남
         StartCoroutine(OpenGate()); // 길 막던 벽 사라짐
+        StartCoroutine(ZoomAfterDelay()); // 족자 줌인 연출과 겹치지 않게 살짝 늦게 줌인
         Debug.Log("출구가 열렸습니다!");
+    }
+
+    // 족자 습득 줌인이 끝날 때쯤 통로 개방 줌인이 터지도록 텀을 둠
+    private IEnumerator ZoomAfterDelay()
+    {
+        yield return new WaitForSeconds(0.8f);
+        if (CameraZoomPulse.Instance != null) CameraZoomPulse.Instance.Pulse();
     }
 
     // 길을 막던 벽을 스르륵 사라지게 (Exit 페이드인의 반대)

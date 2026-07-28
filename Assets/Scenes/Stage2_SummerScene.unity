@@ -5058,6 +5058,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8965076729388796843, guid: 47405fd7970c1cc48906d4045ae74165,
+        type: 3}
+      propertyPath: add_MoveSpeed
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5648,7 +5653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f697309811c6c5b4f9784115cb8ac7b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SummerScrollController
-  nextSceneName: 
+  nextSceneName: Stage3_FallScene
   fadeDuration: 0.5
 --- !u!61 &953715894
 BoxCollider2D:

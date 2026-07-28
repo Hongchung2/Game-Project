@@ -20,6 +20,137 @@ public class Grandfather : MonoBehaviour, IInteractable
         "다른 양동이가 가득 찰 때까지 부어야 한다.\n\n" +
         "14리터 양동이와 9리터 양동이에 각각 7리터씩 나누어 담아라.";
 
+    private const string EscortText =
+        "할아버지가 자네의 손을 잡고 성큼성큼 걸어\n" +
+        "서쪽 호수로 가는 길목까지 데려다주었다.\n\n" +
+        "\"이 문을 지나면 서쪽 호수로 갈 수 있다네.\n" +
+        "그곳을 지키는 몬스터들을 전부 물리치고 나서\n" +
+        "정화수를 호수에 뿌려주게.\"";
+
+    private const string EastPortalText =
+        "할아버지가 흐뭇한 표정으로 말했다.\n\n" +
+        "\"서쪽 호수가 다시 맑아졌구먼!\n" +
+        "이제 동쪽 호수도 같은 방법으로 정화해주게.\n" +
+        "동쪽으로 가는 문도 열어두었다네.\"";
+
+    [Header("퍼즐 완료 후 포탈로 데려가기")]
+    public GameObject westPortal;   // 평소엔 비활성화 상태로 두고, 퍼즐 풀면 여기서 활성화함
+    public GameObject eastPortal;   // 서쪽 호수 정화 후 중앙으로 돌아오면 활성화됨
+    public float escortMoveSpeed = 3f;
+    public float escortStartDelay = 1.5f; // "정화수가 정확히 둘로 나뉘었다" 메시지가 보일 시간
+    public float centerReturnXThreshold = -15f; // 이 값보다 x가 크면 "중앙으로 돌아왔다"고 판단
+
+    private bool _eastAnnounced = false;
+
+    private void Update()
+    {
+        if (_eastAnnounced || eastPortal == null) return;
+        if (!LakePurifyState.WestPurified) return;
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null) return;
+
+        // 서쪽 호수 정화 후 포탈을 타고 중앙으로 돌아오면(x가 확 커짐) 동쪽 포탈을 안내
+        if (player.transform.position.x > centerReturnXThreshold)
+        {
+            _eastAnnounced = true;
+            StartCoroutine(AnnounceEastPortalSequence());
+        }
+    }
+
+    private IEnumerator AnnounceEastPortalSequence()
+    {
+        eastPortal.SetActive(true);
+
+        bool closed = false;
+        if (QuestPopupUI.Instance != null)
+            QuestPopupUI.Instance.Show(EastPortalText, () => closed = true);
+        else
+            closed = true;
+
+        yield return new WaitUntil(() => closed);
+    }
+
+    private void OnEnable()
+    {
+        WaterPuzzleState.OnSolved += HandlePuzzleSolved;
+    }
+
+    private void OnDisable()
+    {
+        WaterPuzzleState.OnSolved -= HandlePuzzleSolved;
+    }
+
+    private void HandlePuzzleSolved()
+    {
+        StartCoroutine(EscortToPortalSequence());
+    }
+
+    private IEnumerator EscortToPortalSequence()
+    {
+        yield return new WaitForSeconds(escortStartDelay);
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null || westPortal == null) yield break;
+
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
+
+        if (playerController != null) playerController.enabled = false;
+        if (playerRb != null) playerRb.linearVelocity = Vector2.zero;
+
+        // 포탈 트리거 범위 "밖", 포탈 앞까지만 이동 (도착하자마자 활성화하면 바로 밟혀서 워프되는 것 방지)
+        float portalRadius = 1f;
+        CircleCollider2D portalCollider = westPortal.GetComponent<CircleCollider2D>();
+        if (portalCollider != null) portalRadius = portalCollider.radius;
+        float clearance = portalRadius + 0.6f;
+
+        Vector2 portalPos = westPortal.transform.position;
+        Vector2 playerStart = player.transform.position;
+        Vector2 approachDir = (playerStart - portalPos).normalized;
+        if (approachDir == Vector2.zero) approachDir = Vector2.down;
+        Vector2 playerStop = portalPos + approachDir * clearance;
+
+        // 할아버지도 플레이어 옆으로 같이 이동 (포탈 바로 앞이 아니라 살짝 옆으로 비켜서 겹치지 않게)
+        Vector2 grandfatherStart = transform.position;
+        Vector2 sideOffset = new Vector2(-approachDir.y, approachDir.x) * 0.7f;
+        Vector2 grandfatherStop = playerStop + sideOffset;
+
+        float moveTime = Mathf.Max(
+            Vector2.Distance(playerStart, playerStop),
+            Vector2.Distance(grandfatherStart, grandfatherStop)) / escortMoveSpeed;
+
+        float elapsed = 0f;
+        while (elapsed < moveTime)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / moveTime;
+
+            Vector2 playerPos = Vector2.Lerp(playerStart, playerStop, t);
+            if (playerRb != null) playerRb.MovePosition(playerPos);
+            else player.transform.position = playerPos;
+
+            transform.position = Vector2.Lerp(grandfatherStart, grandfatherStop, t);
+
+            yield return null;
+        }
+        if (playerRb != null) playerRb.MovePosition(playerStop);
+        else player.transform.position = playerStop;
+        transform.position = grandfatherStop;
+
+        bool closed = false;
+        if (QuestPopupUI.Instance != null)
+            QuestPopupUI.Instance.Show(EscortText, () => closed = true);
+        else
+            closed = true;
+
+        yield return new WaitUntil(() => closed);
+
+        westPortal.SetActive(true);
+
+        if (playerController != null) playerController.enabled = true;
+    }
+
     public string GetInteractText()
     {
         if (ScrollCollection.IsCollected("winter")) return "F - 인사하기";

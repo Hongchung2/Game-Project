@@ -2,4 +2,14 @@
 public static class WaterPuzzleState
 {
     public static bool WaterSplit = false;
+
+    // 퍼즐을 처음 풀었을 때 한 번 발생 (할아버지가 포탈로 데려가는 연출 트리거용)
+    public static event System.Action OnSolved;
+
+    public static void MarkSolved()
+    {
+        if (WaterSplit) return;
+        WaterSplit = true;
+        OnSolved?.Invoke();
+    }
 }
