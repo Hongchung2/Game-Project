@@ -9,6 +9,8 @@ public class ScrollController : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
+        ScrollCollection.Collect("spring");
+        if (CameraZoomPulse.Instance != null) CameraZoomPulse.Instance.Pulse();
         ExitController.Instance.UnlockExit();
         gameObject.SetActive(false);
     }

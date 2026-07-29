@@ -29,6 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage2_SummerScene.unity
     guid: e9ff58eb9db27734d8da70dbcd756bce
+  - enabled: 1
+    path: Assets/Scenes/Stage3_FallScene.unity
+    guid: fcd9026ea45f68a40934a28044f75da1
+  - enabled: 1
+    path: Assets/Scenes/Stage4_WinterScene.unity
+    guid: 93423f3e628e2144f8f2b592e2aa6270
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100,
       type: 3}

@@ -7,9 +7,13 @@ public class ExitController : MonoBehaviour, IInteractable
     public static ExitController Instance;
 
     private bool isUnlocked = false;
+    private bool _isLoading = false;
     private SpriteRenderer sr;
 
     public float fadeDuration = 1.5f;
+
+    [Header("클리어 시 사라질 벽 (길을 막는 벽 오브젝트들)")]
+    public GameObject[] gateWalls;
 
     private void Awake()
     {
@@ -31,8 +35,56 @@ public class ExitController : MonoBehaviour, IInteractable
     public void UnlockExit()
     {
         isUnlocked = true;
-        StartCoroutine(FadeIn());
+        StartCoroutine(FadeIn());   // 출구 바닥 타일 나타남
+        StartCoroutine(OpenGate()); // 길 막던 벽 사라짐
+        StartCoroutine(ZoomAfterDelay()); // 족자 줌인 연출과 겹치지 않게 살짝 늦게 줌인
         Debug.Log("출구가 열렸습니다!");
+    }
+
+    // 족자 습득 줌인이 끝날 때쯤 통로 개방 줌인이 터지도록 텀을 둠
+    private IEnumerator ZoomAfterDelay()
+    {
+        yield return new WaitForSeconds(0.8f);
+        if (CameraZoomPulse.Instance != null) CameraZoomPulse.Instance.Pulse();
+    }
+
+    // 길을 막던 벽을 스르륵 사라지게 (Exit 페이드인의 반대)
+    private IEnumerator OpenGate()
+    {
+        // 콜라이더는 즉시 꺼서 바로 지나갈 수 있게
+        foreach (var wall in gateWalls)
+        {
+            if (wall == null) continue;
+            Collider2D col = wall.GetComponent<Collider2D>();
+            if (col != null) col.enabled = false;
+        }
+
+        // 스프라이트를 서서히 투명하게 (사라지는 연출)
+        float elapsed = 0f;
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            float alpha = Mathf.Clamp01(1f - elapsed / fadeDuration);
+
+            foreach (var wall in gateWalls)
+            {
+                if (wall == null) continue;
+                SpriteRenderer wsr = wall.GetComponent<SpriteRenderer>();
+                if (wsr != null)
+                {
+                    Color c = wsr.color;
+                    c.a = alpha;
+                    wsr.color = c;
+                }
+            }
+            yield return null;
+        }
+
+        // 완전히 비활성화
+        foreach (var wall in gateWalls)
+        {
+            if (wall != null) wall.SetActive(false);
+        }
     }
 
     private IEnumerator FadeIn()
@@ -52,6 +104,15 @@ public class ExitController : MonoBehaviour, IInteractable
         sr.color = c;
     }
 
+    // 잠금 해제된 상태에서 플레이어가 걸어 들어오면 자동으로 다음 씬으로
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!isUnlocked || _isLoading) return;
+        if (other.CompareTag("Player"))
+            GoNext();
+    }
+
+    // F키 상호작용도 유지 (감지되면 F로도 넘어감)
     public string GetInteractText()
     {
         return isUnlocked ? "F - 다음 스테이지로" : "";
@@ -60,12 +121,24 @@ public class ExitController : MonoBehaviour, IInteractable
     public void OnInteract()
     {
         if (!isUnlocked) return;
+        GoNext();
+    }
+
+    private void GoNext()
+    {
+        if (_isLoading) return;
+        _isLoading = true;
         StartCoroutine(LoadNextScene());
     }
 
     private IEnumerator LoadNextScene()
     {
-        yield return null;
+        Debug.Log("다음 스테이지로 이동!");
+
+        // 검은 페이드 후 전환 (ScreenFader 있으면)
+        if (ScreenFader.Instance != null)
+            yield return ScreenFader.Instance.FadeOut(Color.black, 0.5f);
+
         SceneManager.LoadScene("Stage2_SummerScene");
     }
 }

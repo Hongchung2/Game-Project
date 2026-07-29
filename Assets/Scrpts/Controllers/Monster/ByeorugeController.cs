@@ -1,0 +1,189 @@
+using System.Collections;
+using UnityEngine;
+
+// 벼루게(탱커형 몬스터). 평소엔 스폰 지점 주변을 배회하다, 플레이어를 발견하면
+// 방패를 든 채로 다가가고(피해 감소+반사 적용), 사거리 안이면 집게 찍기(부채꼴 범위)를 한다.
+public class ByeorugeController : BaseController
+{
+    [Header("이동 (배회 + 추적)")]
+    public float moveSpeed = 1.5f;
+    public float sightRange = 6f;      // 이 범위 안에 플레이어가 들어오면 발견(추적 시작)
+    public float wanderRadius = 2.5f;  // 스폰 지점 기준 배회 반경
+    public float wanderPauseMin = 1f;
+    public float wanderPauseMax = 2.5f;
+    public LayerMask wallLayer = 1;    // 배회 목표가 벽 안이면 재추첨 (기본값 Default 레이어=Wall이 있는 레이어)
+
+    [Header("집게 찍기")]
+    public float detectRange = 3f;
+    public float attackInterval = 4f;
+    public float pincerTelegraph = 0.6f;   // 예고 동작
+    public float pincerRange = 1.5f;
+    public float pincerAngle = 90f;        // 전방 부채꼴 각도
+    public float pincerDamageFraction = 1f / 5f;
+
+    [Header("먹물 방패")]
+    public float shieldBurnTotalFraction = 1f / 7f; // 방패 중 피격 시 공격자에게 튀는 도트 총합
+    public float shieldBurnDuration = 3f;
+    public int shieldBurnTicks = 6;
+
+    public bool IsShielding { get; private set; }
+    public Vector2 FacingDir { get; private set; } = Vector2.down;
+
+    private Transform _player;
+    private Stat _playerStat;
+    private bool _isDead = false;
+    private Vector3 _spawnPos;
+    private Vector3 _initialScale;
+
+    public override void Init()
+    {
+        WorldObjectType = Define.WorldObject.Monster;
+
+        _spawnPos = transform.position;
+        _initialScale = transform.localScale;
+
+        GameObject p = GameObject.FindGameObjectWithTag("Player");
+        if (p != null)
+        {
+            _player = p.transform;
+            _playerStat = p.GetComponent<Stat>();
+        }
+
+        StartCoroutine(BehaviorLoop());
+    }
+
+    private IEnumerator BehaviorLoop()
+    {
+        while (!_isDead)
+        {
+            if (_player == null)
+            {
+                yield return null;
+                continue;
+            }
+
+            float dist = Vector2.Distance(transform.position, _player.position);
+
+            if (dist > sightRange)
+            {
+                yield return StartCoroutine(Wander());
+                continue;
+            }
+
+            if (dist > detectRange)
+            {
+                yield return StartCoroutine(ChasePlayer());
+                continue;
+            }
+
+            FacingDir = ((Vector2)_player.position - (Vector2)transform.position).normalized;
+            yield return StartCoroutine(PincerAttack());
+            yield return new WaitForSeconds(attackInterval);
+        }
+    }
+
+    // 사거리 밖 ~ 발견 범위 안: 방패를 든 채로 다가간다
+    private IEnumerator ChasePlayer()
+    {
+        IsShielding = true;
+
+        while (!_isDead && _player != null)
+        {
+            float dist = Vector2.Distance(transform.position, _player.position);
+            if (dist <= detectRange || dist > sightRange) break;
+
+            FacingDir = ((Vector2)_player.position - (Vector2)transform.position).normalized;
+            transform.position = Vector2.MoveTowards(transform.position, _player.position, moveSpeed * Time.deltaTime);
+            FlipTowards(FacingDir.x);
+            yield return null;
+        }
+
+        IsShielding = false;
+    }
+
+    // 발견 범위 밖: 스폰 지점 주변을 천천히 배회
+    private IEnumerator Wander()
+    {
+        Vector2 target = PickWanderPoint();
+        float timeout = 3f;
+        float elapsed = 0f;
+
+        while (!_isDead && elapsed < timeout)
+        {
+            if (_player != null && Vector2.Distance(transform.position, _player.position) <= sightRange)
+                yield break; // 발견하면 즉시 BehaviorLoop로 복귀해서 추적 전환
+
+            if (Vector2.Distance(transform.position, target) < 0.1f)
+                break;
+
+            Vector2 dir = (target - (Vector2)transform.position).normalized;
+            transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * 0.6f * Time.deltaTime);
+            FlipTowards(dir.x);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(Random.Range(wanderPauseMin, wanderPauseMax));
+    }
+
+    private Vector2 PickWanderPoint()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            Vector2 candidate = (Vector2)_spawnPos + Random.insideUnitCircle * wanderRadius;
+            if (!Physics2D.OverlapCircle(candidate, 0.3f, wallLayer))
+                return candidate;
+        }
+        return _spawnPos;
+    }
+
+    private void FlipTowards(float dirX)
+    {
+        if (Mathf.Abs(dirX) < 0.01f) return;
+        float sign = dirX < 0 ? -1f : 1f;
+        transform.localScale = new Vector3(sign * Mathf.Abs(_initialScale.x), _initialScale.y, _initialScale.z);
+    }
+
+    private IEnumerator PincerAttack()
+    {
+        yield return new WaitForSeconds(pincerTelegraph);
+        if (_isDead || _player == null || _playerStat == null) yield break;
+
+        Vector2 toPlayer = (Vector2)_player.position - (Vector2)transform.position;
+        float dist = toPlayer.magnitude;
+        float angle = Vector2.Angle(FacingDir, toPlayer);
+
+        if (dist <= pincerRange && angle <= pincerAngle * 0.5f)
+        {
+            int dmg = Mathf.RoundToInt(_playerStat.MaxHp * pincerDamageFraction);
+            _playerStat.Hp = Mathf.Max(0, _playerStat.Hp - dmg);
+        }
+    }
+
+    // 방패 중 피격당하면 공격자(플레이어)에게 먹물 도트 데미지를 튀긴다
+    public void SplashInkOnAttacker(Stat attacker)
+    {
+        StartCoroutine(SplashDot(attacker));
+    }
+
+    private IEnumerator SplashDot(Stat attacker)
+    {
+        int totalBurn = Mathf.RoundToInt(attacker.MaxHp * shieldBurnTotalFraction);
+        int perTick = Mathf.Max(1, totalBurn / shieldBurnTicks);
+        float tickInterval = shieldBurnDuration / shieldBurnTicks;
+
+        for (int i = 0; i < shieldBurnTicks; i++)
+        {
+            yield return new WaitForSeconds(tickInterval);
+            if (attacker == null) yield break;
+            attacker.Hp = Mathf.Max(0, attacker.Hp - perTick);
+        }
+    }
+
+    protected override void OnDie()
+    {
+        if (_isDead) return;
+        _isDead = true;
+        gameObject.SetActive(false);
+    }
+}

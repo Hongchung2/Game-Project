@@ -124,12 +124,16 @@ public class Stat : MonoBehaviour
         }
 
         Hp -= damage;
+
+        if (bc != null && bc.WorldObjectType == Define.WorldObject.Monster)
+            Debug.Log($"[몬스터 HP] {name}: -{damage} → {Hp}/{MaxHp}");
+
         HitFlash hitFlash = GetComponent<HitFlash>();
         if (hitFlash != null)
         {
             hitFlash.StartCoroutine(hitFlash.Flash());
         }
-        
+
         if (Hp <= 0)
         {
             Hp = 0;
