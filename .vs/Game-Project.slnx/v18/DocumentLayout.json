@@ -25,6 +25,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\\uC0AC\uC6A9\uC790\\documents\\github\\game-project\\assets\\scrpts\\controllers\\object\\pedestalbuttoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\controllers\\object\\pedestalbuttoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\\uC0AC\uC6A9\uC790\\documents\\github\\game-project\\assets\\scrpts\\scenes\\gamescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\scenes\\gamescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F92DC329-BB8F-0CCB-C6D3-AFB95988EA17}|Unity.2D.Tilemap.Editor.csproj|c:\\users\\\uC0AC\uC6A9\uC790\\documents\\github\\game-project\\library\\packagecache\\com.unity.2d.tilemap@2428aeee2f73\\editor\\tiledraganddrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F92DC329-BB8F-0CCB-C6D3-AFB95988EA17}|Unity.2D.Tilemap.Editor.csproj|solutionrelative:library\\packagecache\\com.unity.2d.tilemap@2428aeee2f73\\editor\\tiledraganddrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,34 +42,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ExitController.cs",
-              "DocumentMoniker": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\ExitController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\Object\\ExitController.cs",
-              "ToolTip": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\ExitController.cs",
-              "RelativeToolTip": "Assets\\Scrpts\\Controllers\\Object\\ExitController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-24T04:37:54.331Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ScrollController.cs",
-              "DocumentMoniker": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\ScrollController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\Object\\ScrollController.cs",
-              "ToolTip": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\ScrollController.cs",
-              "RelativeToolTip": "Assets\\Scrpts\\Controllers\\Object\\ScrollController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-24T04:19:34.077Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -70,7 +52,7 @@
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\Object\\AnswerPedestal.cs",
               "ToolTip": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\AnswerPedestal.cs",
               "RelativeToolTip": "Assets\\Scrpts\\Controllers\\Object\\AnswerPedestal.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-23T14:25:41.763Z",
               "EditorCaption": ""
@@ -110,6 +92,54 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-24T03:00:33.986Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GameScene.cs",
+              "DocumentMoniker": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Scenes\\GameScene.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrpts\\Scenes\\GameScene.cs",
+              "ToolTip": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Scenes\\GameScene.cs",
+              "RelativeToolTip": "Assets\\Scrpts\\Scenes\\GameScene.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-02T02:19:06.101Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TileDragAndDrop.cs",
+              "DocumentMoniker": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Library\\PackageCache\\com.unity.2d.tilemap@2428aeee2f73\\Editor\\TileDragAndDrop.cs",
+              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.2d.tilemap@2428aeee2f73\\Editor\\TileDragAndDrop.cs",
+              "ToolTip": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Library\\PackageCache\\com.unity.2d.tilemap@2428aeee2f73\\Editor\\TileDragAndDrop.cs",
+              "RelativeToolTip": "Library\\PackageCache\\com.unity.2d.tilemap@2428aeee2f73\\Editor\\TileDragAndDrop.cs",
+              "ViewState": "AgIAAMMAAAAAAAAAAAAqwN0AAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-02T02:29:14.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ScrollController.cs",
+              "DocumentMoniker": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\ScrollController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\Object\\ScrollController.cs",
+              "ToolTip": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\ScrollController.cs",
+              "RelativeToolTip": "Assets\\Scrpts\\Controllers\\Object\\ScrollController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T04:19:34.077Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ExitController.cs",
+              "DocumentMoniker": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\ExitController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\Object\\ExitController.cs",
+              "ToolTip": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\ExitController.cs",
+              "RelativeToolTip": "Assets\\Scrpts\\Controllers\\Object\\ExitController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T04:37:54.331Z"
             }
           ]
         }

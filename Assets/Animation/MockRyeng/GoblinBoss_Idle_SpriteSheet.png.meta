@@ -1,0 +1,1157 @@
+fileFormatVersion: 2
+guid: 9bbffd3e8d64f1d429bf0e5e5dcd71e2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1861067781405459303
+    second: GoblinBoss_Idle_SpriteSheet_0
+  - first:
+      213: 8748663249028046416
+    second: GoblinBoss_Idle_SpriteSheet_1
+  - first:
+      213: 9186931170430653192
+    second: GoblinBoss_Idle_SpriteSheet_2
+  - first:
+      213: 53396583173764707
+    second: GoblinBoss_Idle_SpriteSheet_3
+  - first:
+      213: 8540847509857483933
+    second: GoblinBoss_Idle_SpriteSheet_4
+  - first:
+      213: -8653088024394471599
+    second: GoblinBoss_Idle_SpriteSheet_5
+  - first:
+      213: 6795469584387328034
+    second: GoblinBoss_Idle_SpriteSheet_6
+  - first:
+      213: 3000106155800135999
+    second: GoblinBoss_Idle_SpriteSheet_7
+  - first:
+      213: 4744661390523940166
+    second: GoblinBoss_Idle_SpriteSheet_8
+  - first:
+      213: 509679598206826451
+    second: GoblinBoss_Idle_SpriteSheet_9
+  - first:
+      213: -2199052392363783168
+    second: GoblinBoss_Idle_SpriteSheet_10
+  - first:
+      213: -5781918156468039532
+    second: GoblinBoss_Idle_SpriteSheet_11
+  - first:
+      213: 4946788996773983506
+    second: GoblinBoss_Idle_SpriteSheet_12
+  - first:
+      213: 1838191177002566466
+    second: GoblinBoss_Idle_SpriteSheet_13
+  - first:
+      213: -4658097277934865979
+    second: GoblinBoss_Idle_SpriteSheet_14
+  - first:
+      213: -2099926529052449946
+    second: GoblinBoss_Idle_SpriteSheet_15
+  - first:
+      213: -725024173822057996
+    second: GoblinBoss_Idle_SpriteSheet_16
+  - first:
+      213: 5324919872672225366
+    second: GoblinBoss_Idle_SpriteSheet_17
+  - first:
+      213: 597317997364089042
+    second: GoblinBoss_Idle_SpriteSheet_18
+  - first:
+      213: -665824105648552002
+    second: GoblinBoss_Idle_SpriteSheet_19
+  - first:
+      213: -3411902967987734053
+    second: GoblinBoss_Idle_SpriteSheet_20
+  - first:
+      213: -7220533574965356554
+    second: GoblinBoss_Idle_SpriteSheet_21
+  - first:
+      213: -7290315956390459303
+    second: GoblinBoss_Idle_SpriteSheet_22
+  - first:
+      213: -5979590072697680489
+    second: GoblinBoss_Idle_SpriteSheet_23
+  - first:
+      213: 8098645466384761519
+    second: GoblinBoss_Idle_SpriteSheet_24
+  - first:
+      213: 196898224986388667
+    second: GoblinBoss_Idle_SpriteSheet_25
+  - first:
+      213: 6140907532835801640
+    second: GoblinBoss_Idle_SpriteSheet_26
+  - first:
+      213: -1907614153166889817
+    second: GoblinBoss_Idle_SpriteSheet_27
+  - first:
+      213: 5184392400275629243
+    second: GoblinBoss_Idle_SpriteSheet_28
+  - first:
+      213: 3429776650972285034
+    second: GoblinBoss_Idle_SpriteSheet_29
+  - first:
+      213: -8572297368742643375
+    second: GoblinBoss_Idle_SpriteSheet_30
+  - first:
+      213: 6342938663615397066
+    second: GoblinBoss_Idle_SpriteSheet_31
+  - first:
+      213: -6681269518010227074
+    second: GoblinBoss_Idle_SpriteSheet_32
+  - first:
+      213: -4394556590142421231
+    second: GoblinBoss_Idle_SpriteSheet_33
+  - first:
+      213: 7878297784866333422
+    second: GoblinBoss_Idle_SpriteSheet_34
+  - first:
+      213: 4246990379286535890
+    second: GoblinBoss_Idle_SpriteSheet_35
+  - first:
+      213: 224523970548596273
+    second: GoblinBoss_Idle_SpriteSheet_36
+  - first:
+      213: 4893052513271597357
+    second: GoblinBoss_Idle_SpriteSheet_37
+  - first:
+      213: 143248302560400278
+    second: GoblinBoss_Idle_SpriteSheet_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 742
+        width: 530
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 763c89d6947d3d910800000000000000
+      internalID: 1861067781405459303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 1318
+        width: 66
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05ed4d16fde796970800000000000000
+      internalID: 8748663249028046416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 743
+        width: 530
+        height: 610
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8039b7d99398e7f70800000000000000
+      internalID: 9186931170430653192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 1335
+        width: 66
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 366ba44d8e3bdb000800000000000000
+      internalID: 53396583173764707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 743
+        width: 530
+        height: 610
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9cb5d11f8f278670800000000000000
+      internalID: 8540847509857483933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 1910
+        y: 1335
+        width: 66
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 157e7cfa94e0ae780800000000000000
+      internalID: -8653088024394471599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1478
+        y: 1207
+        width: 66
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 228c063459b5e4e50800000000000000
+      internalID: 6795469584387328034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 2199
+        y: 1213
+        width: 68
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f390ee847a482a920800000000000000
+      internalID: 3000106155800135999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 2376
+        y: 1272
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64db0b9756c68d140800000000000000
+      internalID: 4744661390523940166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 2424
+        y: 1288
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d7b168e4eeb21700800000000000000
+      internalID: 509679598206826451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 2632
+        y: 1272
+        width: 66
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c0fae00856b71e0800000000000000
+      internalID: -2199052392363783168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 1159
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4905753121082cfa0800000000000000
+      internalID: -5781918156468039532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 1175
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2153683226686a440800000000000000
+      internalID: 4946788996773983506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 2054
+        y: 1159
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 243ce76e221928910800000000000000
+      internalID: 1838191177002566466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 2152
+        y: 1176
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c17a73943d1b5fb0800000000000000
+      internalID: -4658097277934865979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 2248
+        y: 744
+        width: 530
+        height: 514
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 663e86d92ff8bd2e0800000000000000
+      internalID: -2099926529052449946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 1063
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f1e3c1fa5230f5f0800000000000000
+      internalID: -725024173822057996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 2776
+        y: 1128
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 658db0c596ae5e940800000000000000
+      internalID: 5324919872672225366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 1063
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d095dacd891a4800800000000000000
+      internalID: 597317997364089042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 2102
+        y: 1063
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb70debe08482c6f0800000000000000
+      internalID: -665824105648552002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 2166
+        y: 1058
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd97df0e35c76a0d0800000000000000
+      internalID: -3411902967987734053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 2792
+        y: 1064
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f7986738f28bcb90800000000000000
+      internalID: -7220533574965356554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 547
+        width: 68
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9580cfe634893da90800000000000000
+      internalID: -7290315956390459303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 599
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79d0766928a340da0800000000000000
+      internalID: -5979590072697680489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 615
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa201b9a42b246070800000000000000
+      internalID: 8098645466384761519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 599
+        width: 66
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb8f73574e58bb200800000000000000
+      internalID: 196898224986388667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 1893
+        y: 584
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82ac23d7dd2e83550800000000000000
+      internalID: 6140907532835801640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 2280
+        y: 72
+        width: 498
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7acdaffd80bc685e0800000000000000
+      internalID: -1907614153166889817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 71
+        width: 594
+        height: 514
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb4e9a28b69a2f740800000000000000
+      internalID: 5184392400275629243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 510
+        width: 66
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a68c12c31b3099f20800000000000000
+      internalID: 3429776650972285034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 556
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 159341b06f4190980800000000000000
+      internalID: -8572297368742643375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 572
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: accf2e4bb15a60850800000000000000
+      internalID: 6342938663615397066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 1270
+        y: 556
+        width: 66
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e76ea52b5cc5743a0800000000000000
+      internalID: -6681269518010227074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_33
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 72
+        width: 546
+        height: 514
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 117853b80166303c0800000000000000
+      internalID: -4394556590142421231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 503
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee264b52816555d60800000000000000
+      internalID: 7878297784866333422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_35
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 490
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2de10e99f3750fa30800000000000000
+      internalID: 4246990379286535890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_36
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 73
+        width: 592
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13efb149c5bad1300800000000000000
+      internalID: 224523970548596273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_37
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 377
+        width: 68
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d29c2e8165d97e340800000000000000
+      internalID: 4893052513271597357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoss_Idle_SpriteSheet_38
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 378
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6935acc729becf100800000000000000
+      internalID: 143248302560400278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      GoblinBoss_Idle_SpriteSheet_0: 1861067781405459303
+      GoblinBoss_Idle_SpriteSheet_1: 8748663249028046416
+      GoblinBoss_Idle_SpriteSheet_10: -2199052392363783168
+      GoblinBoss_Idle_SpriteSheet_11: -5781918156468039532
+      GoblinBoss_Idle_SpriteSheet_12: 4946788996773983506
+      GoblinBoss_Idle_SpriteSheet_13: 1838191177002566466
+      GoblinBoss_Idle_SpriteSheet_14: -4658097277934865979
+      GoblinBoss_Idle_SpriteSheet_15: -2099926529052449946
+      GoblinBoss_Idle_SpriteSheet_16: -725024173822057996
+      GoblinBoss_Idle_SpriteSheet_17: 5324919872672225366
+      GoblinBoss_Idle_SpriteSheet_18: 597317997364089042
+      GoblinBoss_Idle_SpriteSheet_19: -665824105648552002
+      GoblinBoss_Idle_SpriteSheet_2: 9186931170430653192
+      GoblinBoss_Idle_SpriteSheet_20: -3411902967987734053
+      GoblinBoss_Idle_SpriteSheet_21: -7220533574965356554
+      GoblinBoss_Idle_SpriteSheet_22: -7290315956390459303
+      GoblinBoss_Idle_SpriteSheet_23: -5979590072697680489
+      GoblinBoss_Idle_SpriteSheet_24: 8098645466384761519
+      GoblinBoss_Idle_SpriteSheet_25: 196898224986388667
+      GoblinBoss_Idle_SpriteSheet_26: 6140907532835801640
+      GoblinBoss_Idle_SpriteSheet_27: -1907614153166889817
+      GoblinBoss_Idle_SpriteSheet_28: 5184392400275629243
+      GoblinBoss_Idle_SpriteSheet_29: 3429776650972285034
+      GoblinBoss_Idle_SpriteSheet_3: 53396583173764707
+      GoblinBoss_Idle_SpriteSheet_30: -8572297368742643375
+      GoblinBoss_Idle_SpriteSheet_31: 6342938663615397066
+      GoblinBoss_Idle_SpriteSheet_32: -6681269518010227074
+      GoblinBoss_Idle_SpriteSheet_33: -4394556590142421231
+      GoblinBoss_Idle_SpriteSheet_34: 7878297784866333422
+      GoblinBoss_Idle_SpriteSheet_35: 4246990379286535890
+      GoblinBoss_Idle_SpriteSheet_36: 224523970548596273
+      GoblinBoss_Idle_SpriteSheet_37: 4893052513271597357
+      GoblinBoss_Idle_SpriteSheet_38: 143248302560400278
+      GoblinBoss_Idle_SpriteSheet_4: 8540847509857483933
+      GoblinBoss_Idle_SpriteSheet_5: -8653088024394471599
+      GoblinBoss_Idle_SpriteSheet_6: 6795469584387328034
+      GoblinBoss_Idle_SpriteSheet_7: 3000106155800135999
+      GoblinBoss_Idle_SpriteSheet_8: 4744661390523940166
+      GoblinBoss_Idle_SpriteSheet_9: 509679598206826451
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

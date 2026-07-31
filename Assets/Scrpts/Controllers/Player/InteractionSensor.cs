@@ -36,7 +36,9 @@ public class InteractionSensor : MonoBehaviour
                 {
                     currentTarget = interactable;
                     Debug.Log($"상호작용 가능: {currentTarget.GetInteractText()}");
-                    // TODO: 우측 하단 상호작용 UI 버튼 활성화 및 텍스트 변경
+
+                    if (InteractPromptUI.Instance != null)
+                        InteractPromptUI.Instance.Show(col.transform);
                 }
                 return;
             }
@@ -47,7 +49,9 @@ public class InteractionSensor : MonoBehaviour
         {
             currentTarget = null;
             Debug.Log("상호작용 대상이 범위를 벗어났습니다.");
-            // TODO: 상호작용 UI 버튼을 일반 공격 버튼으로 원상복구
+
+            if (InteractPromptUI.Instance != null)
+                InteractPromptUI.Instance.Hide();
         }
     }
 

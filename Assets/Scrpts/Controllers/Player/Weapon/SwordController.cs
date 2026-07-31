@@ -17,7 +17,6 @@ public class SwordController : MonoBehaviour
 
     void Update()
     {
-
         PlayerController player = GetComponentInParent<PlayerController>();
 
         // 타겟 있으면 타겟 방향

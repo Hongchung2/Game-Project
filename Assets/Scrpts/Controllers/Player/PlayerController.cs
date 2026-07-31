@@ -39,7 +39,6 @@ public class PlayerController : BaseController
 
     [SerializeField] IIdentifiable _interactTarget;
 
-
     public override void Init()
     {
         WorldObjectType = Define.WorldObject.Player;
