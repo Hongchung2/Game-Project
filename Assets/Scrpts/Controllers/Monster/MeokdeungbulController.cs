@@ -6,6 +6,9 @@ using UnityEngine;
 // '어둠 잠식'(화면 흐림 연출)은 셰이더 작업이 필요해 이번 버전에서는 제외.
 public class MeokdeungbulController : BaseController
 {
+    private const float ATTACK_TELEGRAPH_DURATION = 0f; // 코드상 발사 전 별도 대기 없음(실측값 그대로 보고)
+    private const int TELEMETRY_STAGE = 2; // 명세서 4.4 가중치 태깅용
+
     [Header("이동 (배회 + 추적)")]
     public float moveSpeed = 1.2f;
     public float sightRange = 10f;     // 이 범위 안에 플레이어가 들어오면 발견(추적 시작)
@@ -25,6 +28,7 @@ public class MeokdeungbulController : BaseController
     private bool _isDead = false;
     private Vector3 _spawnPos;
     private Vector3 _initialScale;
+    private Stat _selfStat; // 계측 전용: 후딜 중 반격당했는지 HP 비교로 확인하기 위함
 
     public override void Init()
     {
@@ -32,6 +36,7 @@ public class MeokdeungbulController : BaseController
 
         _spawnPos = transform.position;
         _initialScale = transform.localScale;
+        _selfStat = GetComponent<Stat>();
 
         GameObject p = GameObject.FindGameObjectWithTag("Player");
         if (p != null) _player = p.transform;
@@ -64,8 +69,26 @@ public class MeokdeungbulController : BaseController
             }
 
             yield return StartCoroutine(FireBurst());
+            int hpBeforeCooldown = _selfStat != null ? _selfStat.Hp : 0; // 후딜(쿨다운) 구간 중 반격당했는지 확인용
             yield return new WaitForSeconds(attackInterval);
+            if (_selfStat != null && _selfStat.Hp < hpBeforeCooldown) Telemetry.PlayerPunish("먹등불", TELEMETRY_STAGE);
         }
+    }
+
+    // 계측 전용: 교전 중 0.5초마다 플레이어와의 거리 샘플링 (기존 로직과 무관, 순수 추가)
+    private float _telemetrySampleTimer = 0f;
+    private void LateUpdate()
+    {
+        if (_player == null) return;
+
+        float dist = Vector2.Distance(transform.position, _player.position);
+        if (dist > sightRange) return;
+
+        _telemetrySampleTimer += Time.deltaTime;
+        if (_telemetrySampleTimer < 0.5f) return;
+        _telemetrySampleTimer = 0f;
+
+        Telemetry.PlayerPositionSample("먹등불", dist, dist <= detectRange, TELEMETRY_STAGE);
     }
 
     // 사거리 밖 ~ 발견 범위 안: 사거리 안으로 들어올 때까지 다가간다
@@ -130,6 +153,8 @@ public class MeokdeungbulController : BaseController
     {
         if (projectilePrefab == null || _player == null) yield break;
 
+        Telemetry.AttackTelegraphStart("먹등불", ATTACK_TELEGRAPH_DURATION, TELEMETRY_STAGE);
+
         Vector2 dir = ((Vector2)_player.position - (Vector2)transform.position).normalized;
 
         for (int i = 0; i < burstCount; i++)
@@ -137,6 +162,7 @@ public class MeokdeungbulController : BaseController
             GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             DokkaebiFireProjectile p = proj.GetComponent<DokkaebiFireProjectile>();
             if (p != null) p.Init(dir);
+            TelemetryDokkaebiFireObserver.Attach(proj, "먹등불", ATTACK_TELEGRAPH_DURATION, _player.gameObject, TELEMETRY_STAGE);
 
             yield return new WaitForSeconds(burstGap);
         }

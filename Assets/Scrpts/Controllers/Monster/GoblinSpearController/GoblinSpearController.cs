@@ -3,6 +3,8 @@ using System.Collections;
 
 public class GoblinSpearController : BaseMonsterController
 {
+    private const int TELEMETRY_STAGE = 1; // 명세서 4.4 가중치 태깅용
+
     float AttackCount = 0f;
     private float lastdistance;
     private bool _isWaiting = false;
@@ -63,6 +65,9 @@ public class GoblinSpearController : BaseMonsterController
         //_animator.SetTrigger("Attack");
 
         SpearController spear = GetComponentInChildren<SpearController>(true);
+        float telegraphDuration = spear != null ? 1f / spear.thrustSpeed : 0f; // 실제 찌르기 모션 시간(코드값)에서 읽어옴
+        Telemetry.AttackTelegraphStart("도깨비창병", telegraphDuration, TELEMETRY_STAGE);
+        Vector2 dodgeCheckStartPos = _lockTarget != null ? (Vector2)_lockTarget.transform.position : Vector2.zero; // 계측 전용: 예고 시작 시점 위치(회피 방향 판정용)
         if (spear != null)
         {
             yield return StartCoroutine(spear.Thrust());
@@ -79,6 +84,11 @@ public class GoblinSpearController : BaseMonsterController
                 {
                     targetStat.OnAttacked(_stat);
                 }
+                Telemetry.AttackHit("도깨비창병", telegraphDuration, TELEMETRY_STAGE);
+            }
+            else
+            {
+                Telemetry.AttackDodged("도깨비창병", telegraphDuration, Telemetry.ComputeDodgeDirectionFromPositions(dodgeCheckStartPos, _lockTarget.transform.position), TELEMETRY_STAGE);
             }
         }
 
@@ -86,12 +96,28 @@ public class GoblinSpearController : BaseMonsterController
         _stat.add_MoveSpeed = 0;
         State = Define.State.Moving;
         _animator.SetBool("IsMoving", true);
+        int hpBeforeCooldown = _stat.Hp; // 후딜(쿨타임) 구간 중 반격당했는지 확인용
         yield return new WaitForSeconds(2.0f);
+        if (_stat.Hp < hpBeforeCooldown) Telemetry.PlayerPunish("도깨비창병", TELEMETRY_STAGE);
 
         // 다음 공격 준비
         AttackCount = 0f;
         _isAttacking = false;
         _attackCoroutine = null;
+    }
+
+    // 계측 전용: 교전 중 0.5초마다 플레이어와의 거리 샘플링 (기존 로직과 무관, 순수 추가)
+    private float _telemetrySampleTimer = 0f;
+    private void LateUpdate()
+    {
+        if (_lockTarget == null || detection == null || !detection.playerDetected) return;
+
+        _telemetrySampleTimer += Time.deltaTime;
+        if (_telemetrySampleTimer < 0.5f) return;
+        _telemetrySampleTimer = 0f;
+
+        float distance = Vector2.Distance(transform.position, _lockTarget.transform.position);
+        Telemetry.PlayerPositionSample("도깨비창병", distance, distance < _attackRange, TELEMETRY_STAGE);
     }
 
     void FollowPlayerSlowly()

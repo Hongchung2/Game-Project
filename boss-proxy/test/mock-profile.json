@@ -1,0 +1,9 @@
+{
+  "reaction": { "tier": "low", "sample": 12 },
+  "range": { "melee_ratio": 0.22, "tier": "ranged", "sample": 18 },
+  "punish": { "rate": 0.55, "tier": "mid", "sample": 10 },
+  "dodge_bias": { "left_ratio": 0.68, "tier": "left", "sample": 9 },
+  "death_history": {
+    "recent": [{ "attempt": 1, "died_by": "mountain_mark" }]
+  }
+}

@@ -182,23 +182,17 @@ public class Grandfather : MonoBehaviour, IInteractable
         Debug.Log("할아버지: 정화수는 나눴으니, 서쪽과 동쪽 호수의 몬스터를 처치하고 정화하고 오게나.");
     }
 
+    // 작업지시서 #09: 여기서 곧장 엔딩으로 가지 않음 - 겨울 족자까지 다 모으면
+    // 중앙 기둥 시퀀스로 이어지고, 진짜 엔딩은 보스 격파 시점(GameEndingTrigger)으로 옮겨감.
     private IEnumerator GiveScrollSequence()
     {
         ScrollCollection.Collect("winter");
         Debug.Log("겨울 동(冬) 족자를 받았다!");
 
-        if (ScrollCollection.AllCollected())
-            yield return StartCoroutine(EndingSequence());
-    }
+        if (ScrollCollection.AllCollected() && CenterMessageUI.Instance != null)
+            CenterMessageUI.Instance.Show(
+                "왼쪽부터 봄, 여름, 가을, 겨울 순서대로 족자를 끼워 넣어야 될 것 같다.", 4f);
 
-    private IEnumerator EndingSequence()
-    {
-        if (ScreenFader.Instance != null)
-            yield return ScreenFader.Instance.FadeOut(Color.black, 1f);
-
-        if (CenterMessageUI.Instance != null)
-            CenterMessageUI.Instance.Show("탈출에 성공했습니다", 9999f);
-
-        Debug.Log("게임 클리어! 탈출에 성공했습니다.");
+        yield break;
     }
 }

@@ -1,0 +1,20 @@
+{
+  "name": "token-check",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "산수원의 주인(묵운산군) 전투 판단 프롬프트가 Claude Haiku 4.5의 프롬프트 캐싱 최소 토큰 임계값(4096)을 넘는지 실측하는 스크립트",
+  "scripts": {
+    "count": "tsx count.ts",
+    "verify": "tsx verify-real.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.115.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}

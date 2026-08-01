@@ -6,6 +6,8 @@ using UnityEngine;
 // 애니메이션은 실제 아트(스프라이트시트를 잘라 배열로 연결)로 재생한다.
 public class FallBossPlaceholder : BaseController
 {
+    private const int TELEMETRY_STAGE = 2; // 명세서 4.4 가중치 태깅용 (묵령=스테이지2로 분류)
+
     [Header("점프 + 내려찍기 패턴")]
     public float attackInterval = 3f;      // 공격 시도 주기
     public float jumpUpDuration = 0.4f;    // 뛰어오르는 시간
@@ -99,8 +101,17 @@ public class FallBossPlaceholder : BaseController
 
         // 1) 뛰어오름 + 공중 이동 - 시작지점→목표지점으로 서서히 이동하며 포물선(위로 떴다 내려옴)을 그린다
         float totalRise = jumpUpDuration + airborneHold;
+        Telemetry.AttackTelegraphStart("묵령", totalRise, TELEMETRY_STAGE); // 공중에 떠서 낙하지점 조준하는 시간 전체 = 플레이어가 피할 틈
         int frameCount = (jumpFrames != null) ? jumpFrames.Length : 0;
         float elapsed = 0f;
+
+        // 계측 전용: 착지 순간에만 체크하면 플레이어가 이미 멈춰서 있어서 "none"이 되기 쉽다.
+        // 그래서 위험반경(slamRadius)을 "막 벗어나는" 그 프레임의 이동 방향을 미리 캡처해서 나중에 쓴다.
+        // (Rigidbody2D.linearVelocity는 플레이어가 MovePosition으로 움직여서 항상 0이라 못 씀 —
+        //  직전 프레임 대비 위치 변화량으로 판정한다)
+        bool wasInDanger = _player != null && Vector2.Distance(targetPos, _player.position) <= slamRadius;
+        Vector2 lastPlayerPos = _player != null ? (Vector2)_player.position : Vector2.zero;
+        string capturedDodgeDirection = "none";
 
         while (elapsed < totalRise)
         {
@@ -116,6 +127,18 @@ public class FallBossPlaceholder : BaseController
                 int frameIdx = Mathf.Clamp(Mathf.FloorToInt(p * frameCount), 0, frameCount - 1);
                 _sr.sprite = jumpFrames[frameIdx];
             }
+
+            if (_player != null)
+            {
+                bool isInDangerNow = Vector2.Distance(targetPos, _player.position) <= slamRadius;
+                if (wasInDanger && !isInDangerNow)
+                {
+                    capturedDodgeDirection = Telemetry.ComputeDodgeDirectionFromPositions(lastPlayerPos, _player.position);
+                }
+                wasInDanger = isInDangerNow;
+                lastPlayerPos = _player.position;
+            }
+
             yield return null;
         }
 
@@ -131,12 +154,36 @@ public class FallBossPlaceholder : BaseController
         {
             float dist = Vector2.Distance(targetPos, _player.position);
             if (dist <= slamRadius)
+            {
                 _playerStat.OnAttacked(_stat);
+                Telemetry.AttackHit("묵령", totalRise, TELEMETRY_STAGE);
+            }
+            else
+            {
+                Telemetry.AttackDodged("묵령", totalRise, capturedDodgeDirection, TELEMETRY_STAGE);
+            }
         }
 
+        int hpBeforeRecovery = _stat != null ? _stat.Hp : 0; // 착지 후 정지(복귀) 구간 중 반격당했는지 확인용
         yield return new WaitForSeconds(0.2f); // 착지 후 잠깐 정지
+        if (_stat != null && _stat.Hp < hpBeforeRecovery) Telemetry.PlayerPunish("묵령", TELEMETRY_STAGE);
 
         _isAttacking = false;
+    }
+
+    // 계측 전용: 교전 중 0.5초마다 플레이어와의 거리 샘플링 (기존 로직과 무관, 순수 추가)
+    private float _telemetrySampleTimer = 0f;
+    private void LateUpdate()
+    {
+        if (_player == null) return;
+
+        float dist = Vector2.Distance(transform.position, _player.position);
+
+        _telemetrySampleTimer += Time.deltaTime;
+        if (_telemetrySampleTimer < 0.5f) return;
+        _telemetrySampleTimer = 0f;
+
+        Telemetry.PlayerPositionSample("묵령", dist, dist <= slamRadius, TELEMETRY_STAGE);
     }
 
     protected override void OnDie()

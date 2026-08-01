@@ -86,13 +86,15 @@ public class ScrollCollectionUI : MonoBehaviour
 
         for (int i = 0; i < _slots.Length; i++)
         {
-            bool has = ScrollCollection.IsCollected(ScrollCollection.Seasons[i]);
+            string season = ScrollCollection.Seasons[i];
+            // 작업지시서 #09: 기둥에 끼워 넣어서 "사용됨" 처리되면 다시 흐리게(모은 적 없는 것과 같은 표시).
+            bool has = ScrollCollection.IsCollected(season) && !ScrollCollection.IsUsed(season);
             Color baseColor = _seasonColors[i];
 
             if (has)
                 _slots[i].color = baseColor;                                   // 모음: 밝게
             else
-                _slots[i].color = new Color(baseColor.r, baseColor.g, baseColor.b, 0.25f); // 안 모음: 흐리게
+                _slots[i].color = new Color(baseColor.r, baseColor.g, baseColor.b, 0.25f); // 안 모음/사용함: 흐리게
         }
     }
 }

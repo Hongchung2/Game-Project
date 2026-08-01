@@ -5,6 +5,8 @@ using UnityEngine;
 // 방패를 든 채로 다가가고(피해 감소+반사 적용), 사거리 안이면 집게 찍기(부채꼴 범위)를 한다.
 public class ByeorugeController : BaseController
 {
+    private const int TELEMETRY_STAGE = 2; // 명세서 4.4 가중치 태깅용
+
     [Header("이동 (배회 + 추적)")]
     public float moveSpeed = 1.5f;
     public float sightRange = 6f;      // 이 범위 안에 플레이어가 들어오면 발견(추적 시작)
@@ -31,6 +33,7 @@ public class ByeorugeController : BaseController
 
     private Transform _player;
     private Stat _playerStat;
+    private Stat _selfStat; // 계측 전용: 후딜 중 반격당했는지 HP 비교로 확인하기 위함
     private bool _isDead = false;
     private Vector3 _spawnPos;
     private Vector3 _initialScale;
@@ -41,6 +44,7 @@ public class ByeorugeController : BaseController
 
         _spawnPos = transform.position;
         _initialScale = transform.localScale;
+        _selfStat = GetComponent<Stat>();
 
         GameObject p = GameObject.FindGameObjectWithTag("Player");
         if (p != null)
@@ -78,8 +82,26 @@ public class ByeorugeController : BaseController
 
             FacingDir = ((Vector2)_player.position - (Vector2)transform.position).normalized;
             yield return StartCoroutine(PincerAttack());
+            int hpBeforeCooldown = _selfStat != null ? _selfStat.Hp : 0; // 후딜(쿨다운) 구간 중 반격당했는지 확인용
             yield return new WaitForSeconds(attackInterval);
+            if (_selfStat != null && _selfStat.Hp < hpBeforeCooldown) Telemetry.PlayerPunish("벼루게", TELEMETRY_STAGE);
         }
+    }
+
+    // 계측 전용: 교전 중 0.5초마다 플레이어와의 거리 샘플링 (기존 로직과 무관, 순수 추가)
+    private float _telemetrySampleTimer = 0f;
+    private void LateUpdate()
+    {
+        if (_player == null) return;
+
+        float dist = Vector2.Distance(transform.position, _player.position);
+        if (dist > sightRange) return;
+
+        _telemetrySampleTimer += Time.deltaTime;
+        if (_telemetrySampleTimer < 0.5f) return;
+        _telemetrySampleTimer = 0f;
+
+        Telemetry.PlayerPositionSample("벼루게", dist, dist <= pincerRange, TELEMETRY_STAGE);
     }
 
     // 사거리 밖 ~ 발견 범위 안: 방패를 든 채로 다가간다
@@ -146,6 +168,8 @@ public class ByeorugeController : BaseController
 
     private IEnumerator PincerAttack()
     {
+        Telemetry.AttackTelegraphStart("벼루게", pincerTelegraph, TELEMETRY_STAGE);
+        Vector2 dodgeCheckStartPos = _player != null ? (Vector2)_player.position : Vector2.zero; // 계측 전용: 예고 시작 시점 위치(회피 방향 판정용)
         yield return new WaitForSeconds(pincerTelegraph);
         if (_isDead || _player == null || _playerStat == null) yield break;
 
@@ -157,6 +181,11 @@ public class ByeorugeController : BaseController
         {
             int dmg = Mathf.RoundToInt(_playerStat.MaxHp * pincerDamageFraction);
             _playerStat.Hp = Mathf.Max(0, _playerStat.Hp - dmg);
+            Telemetry.AttackHit("벼루게", pincerTelegraph, TELEMETRY_STAGE);
+        }
+        else
+        {
+            Telemetry.AttackDodged("벼루게", pincerTelegraph, Telemetry.ComputeDodgeDirectionFromPositions(dodgeCheckStartPos, _player.position), TELEMETRY_STAGE);
         }
     }
 
