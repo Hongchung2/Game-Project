@@ -27,6 +27,8 @@ public class UI_PlayerHPBar : UI_Scene
     {
         Bind<GameObject>(typeof(GameObjects));
         
+        if (_stat != null) return; // 이미 스탯이 할당되어 있으면 스킵
+        
         if (transform.parent != null)
         {
             _stat = transform.parent.GetComponent<Stat>();

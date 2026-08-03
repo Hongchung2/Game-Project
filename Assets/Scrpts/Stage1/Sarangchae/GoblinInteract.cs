@@ -3,15 +3,17 @@ using UnityEngine;
 
 public class GoblinInteract : MonoBehaviour
 {
-    public GameObject goblin;
+    public GameObject goblin; // 도깨비
     public GameObject speechBubble; // 말풍선 오브젝트
     public GameObject Canvas; // UI
+    public GameObject obstacle; // 도깨비가 변신한 물건들
     public float displayTime = 3f; // 표시 시간
 
     private bool hasTriggered = false;
     void Start()
     {
         speechBubble.SetActive(false);  // 말풍선 처음에는 숨김 처리
+        obstacle.SetActive(false); // 도깨비 트리거 시작하기 전에는 장애물들 숨김
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -45,10 +47,10 @@ public class GoblinInteract : MonoBehaviour
         // 도깨비 분열
         yield return new WaitForSeconds(goblinDisappear.disappearTime + 0.3f);
 
-        Debug.Log("분열 대기 끝");
+        // 도깨비가 숨은 물건들 활성화
+        obstacle.SetActive(true);
         // UI 숨김 해제
         Canvas.SetActive(true);
-        Debug.Log("Canvas 활성화");
         // 플레이어 이동 재개
         player.GetComponent<PlayerController>().enabled = true;
         Debug.Log("플레이어 이동 재개");

@@ -13,6 +13,7 @@ public class HiddenObjectManager : MonoBehaviour
 
     public void OnObjectDestroyed()
     {
+        Debug.Log($"현재 남은 장애물: {objectCount}");
         objectCount--;
         if (objectCount <= 0)
         {

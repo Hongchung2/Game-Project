@@ -121,7 +121,7 @@ public class CrowController : BaseMonsterController
             // 공격
             State = Define.State.Skill;
             _animator.SetTrigger("Attack");
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(1.45f);
             Shoot(); // playerDetected 조건 없이 발사
 
             // 1초 경직
