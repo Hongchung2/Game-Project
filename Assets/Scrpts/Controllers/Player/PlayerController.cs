@@ -68,6 +68,7 @@ public class PlayerController : BaseController
 
     protected override void UpdateIdle()
     {
+        MonsterLockTarget();
         if (_lockTarget != null)
         {
             float distance = Vector2.Distance(transform.position, _lockTarget.transform.position);
@@ -110,6 +111,7 @@ public class PlayerController : BaseController
 
     protected override void UpdateMoving()
     {
+        MonsterLockTarget();
         if (_lockTarget != null)
         {
             float distance = Vector2.Distance(transform.position, _lockTarget.transform.position);
@@ -339,19 +341,6 @@ public class PlayerController : BaseController
         if (_currentWeapon is SwordWeapon && _lockTarget != null)
         {
             _currentWeapon.Attack(_lockTarget, _stat);
-
-            // 물건이면 OnHitEvent 호출
-            HiddenObjectController hiddenObject = _lockTarget.GetComponent<HiddenObjectController>();
-            if (hiddenObject != null)
-            {
-                hiddenObject.OnHitEvent();
-            }
-
-            DisguisedGoblin disguisedGoblin = _lockTarget.GetComponent<DisguisedGoblin>();
-            if (disguisedGoblin != null)
-            {
-                disguisedGoblin.OnHitEvent();
-            }
         }
     }
 

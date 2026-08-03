@@ -32,7 +32,10 @@ public class MazeTileInteract : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            interactButton.SetActive(false);
+            if (interactButton != null)
+            {
+                interactButton.SetActive(false);
+            }
         }
     }
 
@@ -47,7 +50,7 @@ public class MazeTileInteract : MonoBehaviour
     IEnumerator ZoomOutView()
     {
         _isViewing = true;
-        
+        GameCanvas.SetActive(false);
 
         // 줌아웃
         _virtualCamera.m_Lens.OrthographicSize = zoomOutSize;
@@ -57,7 +60,9 @@ public class MazeTileInteract : MonoBehaviour
         // 원래 크기로 복귀
         _virtualCamera.m_Lens.OrthographicSize = _originalSize;
 
+        GameCanvas.SetActive(true);
         _isViewing = false;
+        
 
     }
 }
