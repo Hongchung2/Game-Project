@@ -3293,20 +3293,40 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1374109285552113492, guid: 24df2ae62a5bcbf4bb5a7ac8e5eb1732,
+        type: 3}
+      propertyPath: _moveRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374109285552113492, guid: 24df2ae62a5bcbf4bb5a7ac8e5eb1732,
+        type: 3}
+      propertyPath: _scanRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6043659326367182486, guid: 24df2ae62a5bcbf4bb5a7ac8e5eb1732,
         type: 3}
       propertyPath: m_Name
       value: Monster_GoblinSpear
       objectReference: {fileID: 0}
+    - target: {fileID: 6043659326367182486, guid: 24df2ae62a5bcbf4bb5a7ac8e5eb1732,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607007753032571199, guid: 24df2ae62a5bcbf4bb5a7ac8e5eb1732,
+        type: 3}
+      propertyPath: detectWidth
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7250490297044861439, guid: 24df2ae62a5bcbf4bb5a7ac8e5eb1732,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.6
+      value: -17.84
       objectReference: {fileID: 0}
     - target: {fileID: 7250490297044861439, guid: 24df2ae62a5bcbf4bb5a7ac8e5eb1732,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.9
+      value: 3.17
       objectReference: {fileID: 0}
     - target: {fileID: 7250490297044861439, guid: 24df2ae62a5bcbf4bb5a7ac8e5eb1732,
         type: 3}
@@ -3375,7 +3395,7 @@ PrefabInstance:
     - target: {fileID: 4615326307620638550, guid: 81207522abc5eb341aa034e5414d032c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5064417090442110285, guid: 81207522abc5eb341aa034e5414d032c,
         type: 3}

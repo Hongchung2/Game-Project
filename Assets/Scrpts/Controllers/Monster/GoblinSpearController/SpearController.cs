@@ -10,6 +10,12 @@ public class SpearController : MonoBehaviour
     bool _isThrusting = false;
 
     // 타겟 방향으로 창 끝 향하게
+    public void LookAtTarget(Vector3 targetPos)
+    {
+        Vector2 dir = (targetPos - transform.position).normalized;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
 
     // 찌르기 모션
     public IEnumerator Thrust()
