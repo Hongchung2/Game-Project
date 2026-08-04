@@ -33,10 +33,19 @@ public class SwordController : MonoBehaviour
     // 타겟 방향으로 칼 끝 향하게
     public void LookAtTarget(Vector3 targetPos)
     {
-        /*Vector3 dir = (targetPos - transform.position).normalized;
+        Vector3 dir = (targetPos - transform.position).normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        angle -= 60f;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);*/
+        
+        // 부모 스케일이 -1이면 (왼쪽 볼 때) 각도 반전
+        if (transform.parent.localScale.x < 0)
+        {
+            angle -= 120f;
+        }
+        else
+        {
+            angle -= 60f; // 오른 쪽 볼 때 보정
+        }
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     // 이동 방향으로 칼 끝 향하게

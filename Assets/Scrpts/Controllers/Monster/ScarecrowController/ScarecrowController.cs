@@ -7,7 +7,6 @@ public class ScarecrowController : BaseMonsterController
     {   
         if (_lockTarget == null) return;
 
-        
             Stat targetStat = _lockTarget.GetComponent<Stat>();
             float distToPlayer = (_lockTarget.transform.position - transform.position).sqrMagnitude;
             if (targetStat != null && distToPlayer < _attackRange * _attackRange)
