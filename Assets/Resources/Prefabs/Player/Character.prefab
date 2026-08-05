@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98120f0738e69b14eac87669896fe58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwordController
-  swordSprite: {fileID: 0}
+  swordSprite: {fileID: 5697416052275049366}
   swingSpeed: 3
   swingAngle: 180
 --- !u!212 &216311095860937982
@@ -126,6 +126,8 @@ GameObject:
   - component: {fileID: 5229857810546257682}
   - component: {fileID: 6753158766541387476}
   - component: {fileID: 6721864018294631423}
+  - component: {fileID: 7119608397318712732}
+  - component: {fileID: 748776379095381715}
   m_Layer: 7
   m_Name: Character
   m_TagString: Player
@@ -369,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c2e4caa1904804ca7d5ca8113d42a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwordWeapon
-  _attackrange: 1
+  _attackrange: 1.5
 --- !u!114 &6753158766541387476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +404,36 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &7119608397318712732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625002927830544215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298d1949b42d5854ca1f99636a175b30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GlowTileChecker
+  respawnPoint: {fileID: 0}
+  checkRadius: 0.3
+  IsGoblinFire: 0
+--- !u!114 &748776379095381715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625002927830544215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298d1949b42d5854ca1f99636a175b30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GlowTileChecker
+  respawnPoint: {fileID: 0}
+  checkRadius: 0.3
+  IsGoblinFire: 0
 --- !u!1 &5719020688919975200
 GameObject:
   m_ObjectHideFlags: 0
