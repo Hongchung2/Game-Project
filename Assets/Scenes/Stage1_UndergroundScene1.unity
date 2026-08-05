@@ -526,7 +526,7 @@ TilemapRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.020833313, y: 0.020833313, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -2084,10 +2084,10 @@ Tilemap:
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 154
-    m_Data: {fileID: 11400000, guid: aa9a216300d38b04b92b4a0081360f5f, type: 2}
+    m_Data: {fileID: 11400000, guid: 2731e8468c03c3c449f334446223dfa3, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 154
-    m_Data: {fileID: -1275196252799122124, guid: 6e2a1e4aa42bd7c4684711a9c3e0f0f4,
+    m_Data: {fileID: 1493565071483692852, guid: f0f8f6b28c032fb4c9d43ec36dab84b3,
       type: 3}
   m_TileMatrixArray:
   - m_RefCount: 154
@@ -22468,7 +22468,7 @@ Transform:
   m_GameObject: {fileID: 1254475968}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -70.750244, y: -0.19161463, z: -10}
+  m_LocalPosition: {x: -70.74846, y: -0.19158888, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
