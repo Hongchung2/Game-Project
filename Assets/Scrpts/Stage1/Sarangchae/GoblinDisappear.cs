@@ -33,6 +33,7 @@ public class GoblinDisappear : MonoBehaviour
         {
             GameObject clone = new GameObject("GoblinClone");
             clone.transform.position = transform.position;
+            clone.transform.localScale = transform.localScale; // 스케일 복사
             SpriteRenderer sr = clone.AddComponent<SpriteRenderer>();
             Debug.Log("clone 생성: " + i);
             if (originalSr != null)
