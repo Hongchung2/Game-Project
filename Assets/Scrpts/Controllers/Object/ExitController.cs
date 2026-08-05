@@ -39,6 +39,8 @@ public class ExitController : MonoBehaviour, IInteractable
         StartCoroutine(OpenGate()); // 길 막던 벽 사라짐
         StartCoroutine(ZoomAfterDelay()); // 족자 줌인 연출과 겹치지 않게 살짝 늦게 줌인
         Debug.Log("출구가 열렸습니다!");
+        if (CenterMessageUI.Instance != null)
+            CenterMessageUI.Instance.Show("출구가 열렸다.", 1.5f);
     }
 
     // 족자 습득 줌인이 끝날 때쯤 통로 개방 줌인이 터지도록 텀을 둠
@@ -139,6 +141,7 @@ public class ExitController : MonoBehaviour, IInteractable
         if (ScreenFader.Instance != null)
             yield return ScreenFader.Instance.FadeOut(Color.black, 0.5f);
 
+        GameProgress.SetCheckpoint("Stage2_SummerScene");
         SceneManager.LoadScene("Stage2_SummerScene");
     }
 }

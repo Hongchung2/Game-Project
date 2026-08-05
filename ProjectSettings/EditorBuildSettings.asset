@@ -35,6 +35,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage4_WinterScene.unity
     guid: 93423f3e628e2144f8f2b592e2aa6270
+  - enabled: 1
+    path: Assets/Scenes/Stage2_IntermissionScene.unity
+    guid: a7ec760897ebca24d8bb6c4c3eba5ecc
+  - enabled: 1
+    path: Assets/Scenes/Stage5_BossScene.unity
+    guid: 4c181234e597f664d808a509c7f01726
+  - enabled: 1
+    path: Assets/Scenes/Stage2_IntermissionScene.unity
+    guid: df864717eb9c0e943aef9a5971cee627
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100,
       type: 3}

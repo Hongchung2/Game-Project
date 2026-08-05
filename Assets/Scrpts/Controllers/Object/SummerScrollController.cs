@@ -46,6 +46,7 @@ public class SummerScrollController : MonoBehaviour, IInteractable
         // 가을방으로 전환 (씬이 준비돼 있을 때만)
         if (!string.IsNullOrEmpty(nextSceneName))
         {
+            GameProgress.SetCheckpoint(nextSceneName);
             SceneManager.LoadScene(nextSceneName);
         }
         else

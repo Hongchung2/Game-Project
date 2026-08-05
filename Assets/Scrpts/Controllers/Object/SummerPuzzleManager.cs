@@ -95,6 +95,15 @@ public class SummerPuzzleManager : MonoBehaviour
         // 3) 1초에 걸쳐 다시 원래 화면으로 (족자가 드러남)
         if (ScreenFader.Instance != null)
             yield return ScreenFader.Instance.FadeIn(1f);
+
+        // 아트팀 신규 에셋(펑 효과) - 하얀 화면이 걷히고 족자가 눈에 보이는 시점에 재생
+        // (SetActive 시점엔 화면이 하얗게 덮여있어서 안 보이므로 여기서 재생).
+        if (summerScroll != null)
+        {
+            PoofEffect.Spawn(summerScroll.transform.position);
+            if (CenterMessageUI.Instance != null)
+                CenterMessageUI.Instance.Show("여름 하(夏) 족자가 나타났다.", 2f);
+        }
     }
 
     // 초기화 종 호출 시 전체 리셋

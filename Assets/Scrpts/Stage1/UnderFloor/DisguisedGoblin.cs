@@ -16,8 +16,10 @@ public class DisguisedGoblin : MonoBehaviour
         // 흰 연기 연출
         yield return StartCoroutine(SmokeEffect());
 
-        // 열쇠 획득 연출 (텍스트 or 이펙트)
+        // 열쇠 획득 연출
         Debug.Log("열쇠 획득!");
+        if (CenterMessageUI.Instance != null)
+            CenterMessageUI.Instance.Show("열쇠를 획득했다.", 1.5f);
 
         // 문 열기
         door.SetDoorLocked(false);

@@ -31,11 +31,15 @@ public class PuzzleManager : MonoBehaviour
             if (slots[i].GetCurrentPictureName() != answers[i])
             {
                 Debug.Log("오답");
+                if (CenterMessageUI.Instance != null)
+                    CenterMessageUI.Instance.Show("오답이다.", 1.5f);
                 return;
             }
         }
 
         Debug.Log("정답");
+        if (CenterMessageUI.Instance != null)
+            CenterMessageUI.Instance.Show("정답이다!", 1.5f);
         puzzleCanvas.SetActive(false);
         gameCanvas.SetActive(true);
         Time.timeScale = 1f; // 게임 재개
