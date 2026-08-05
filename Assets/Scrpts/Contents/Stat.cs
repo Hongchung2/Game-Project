@@ -24,6 +24,9 @@ public class Stat : MonoBehaviour
 
     public ObjectData data;
 
+    // 마지막으로 나를 때린 대상의 이름 - 사망 원인 기록(보스 死史 등)에 사용.
+    public string LastAttackerName { get; private set; } = "";
+
     private BaseController bc;
     bool _IsDeath = false;
 
@@ -106,6 +109,7 @@ public class Stat : MonoBehaviour
         if (_IsDeath || attacker == null) return;
         if (_hp <= 0) return;
 
+        LastAttackerName = attacker.name;
         int damage = attacker.Attack;
         
 

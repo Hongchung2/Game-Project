@@ -3,6 +3,8 @@ using System.Collections;
 
 public class GoblinSpearController : BaseMonsterController
 {
+    private const int TELEMETRY_STAGE = 1; // 명세서 4.4 가중치 태깅용
+
     float AttackCount = 0f;
     private float lastdistance;
     private bool _isWaiting = false;

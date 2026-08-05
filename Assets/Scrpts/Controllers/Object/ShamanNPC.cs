@@ -50,12 +50,15 @@ public class ShamanNPC : MonoBehaviour, IInteractable
 
         ScrollCollection.Collect("fall");
         Debug.Log("청동 방울을 돌려주고 가을 추(秋) 족자를 받았다!");
+        if (CenterMessageUI.Instance != null)
+            CenterMessageUI.Instance.Show("가을 추(秋) 족자를 얻었다.", 2f);
 
         if (ScreenFader.Instance != null)
             yield return ScreenFader.Instance.FadeOut(Color.black, fadeDuration);
 
         if (!string.IsNullOrEmpty(nextSceneName))
         {
+            GameProgress.SetCheckpoint(nextSceneName);
             SceneManager.LoadScene(nextSceneName);
             yield break;
         }

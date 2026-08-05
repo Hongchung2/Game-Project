@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : BaseController
@@ -377,7 +378,15 @@ public class PlayerController : BaseController
         yield return new WaitForSeconds(3.0f);
 
         _isDying = false;
-        Managers.Load.StartFadeAndLoad("GameScene", "YOU DIED");
+
+        // 보스방에서 죽은 거면 사망 기록을 남김 - 재도전 시 클로드 API에 death_history로 반영됨
+        // (지금까지는 F12 디버그 도구로만 채워지고 실제 플레이 사망은 한 번도 기록된 적이 없었음).
+        if (SceneManager.GetActiveScene().name == "Stage5_BossScene")
+        {
+            DeathHistoryTracker.RecordDeath(_stat.LastAttackerName, transform.position, "none");
+        }
+
+        GameOverUI.CreateInstance().Show();
         gameObject.SetActive(false);
     }
 }

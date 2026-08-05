@@ -8,3 +8,12 @@
 *.csproj
 *.unitypackage
 *.sln
+
+# token-check (Node 측정 스크립트)
+token-check/node_modules/
+token-check/.env
+
+# boss-proxy (Cloudflare Workers 프록시)
+boss-proxy/node_modules/
+boss-proxy/.dev.vars
+boss-proxy/.wrangler/
