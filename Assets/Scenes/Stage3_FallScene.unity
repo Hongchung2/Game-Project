@@ -635,7 +635,7 @@ MonoBehaviour:
   spacing: 10
   margin: 20
   scrollSprites:
-  - {fileID: -5966570374561776987, guid: 59c460d2861db3242bf31d4e2d1e0275, type: 3}
+  - {fileID: 3193066058868566176, guid: 7152d904a872e2846818c3ca89585d42, type: 3}
   - {fileID: 438749655373659130, guid: e2ec828cb1f28574cb61e1619ca4c657, type: 3}
   - {fileID: -2859907260266189208, guid: 236445c90571e164c870a23e5cb32620, type: 3}
   - {fileID: 2892899682885894961, guid: 4bc96c24432eabe44a36ef00bc4261a3, type: 3}
@@ -16074,7 +16074,7 @@ MonoBehaviour:
   add_Hp: 0
   base_MaxHp: 50
   add_MaxHp: 0
-  base_Attack: 5
+  base_Attack: 1
   add_Attack: 0
   base_AttackSpeed: 0
   add_AttackSpeed: 0

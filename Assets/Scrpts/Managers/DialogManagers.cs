@@ -88,6 +88,7 @@ public class DialogManagers : MonoBehaviour
             fadeCanvas.alpha = t;
             yield return null;
         }
+        GameProgress.SetCheckpoint("GameScene");
         SceneManager.LoadScene("GameScene");
     }
 

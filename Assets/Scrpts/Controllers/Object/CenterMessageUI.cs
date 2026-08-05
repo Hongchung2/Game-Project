@@ -63,7 +63,10 @@ public class CenterMessageUI : MonoBehaviour
     private IEnumerator ShowRoutine(string message, float duration)
     {
         _text.text = message;
-        yield return new WaitForSeconds(duration);
+        // 스탯 밸런싱/대사 통합 작업에서 발견: Time.timeScale=0으로 멈춘 화면(사당 퍼즐 등)에서
+        // 호출되면 WaitForSeconds는 절대 안 끝나서 메시지가 영원히 안 사라지는 문제가 있었음 -
+        // 시간 배속과 무관하게 실제 시간으로 세도록 변경.
+        yield return new WaitForSecondsRealtime(duration);
         _text.text = "";
         _current = null;
     }

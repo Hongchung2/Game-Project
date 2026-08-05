@@ -8,6 +8,7 @@ public class ToUnder2 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            GameProgress.SetCheckpoint(sceneName);
             Managers.Load.StartFadeAndLoad(sceneName, "Stage1_UndergroundScene2");
         }
     }

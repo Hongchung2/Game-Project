@@ -65,5 +65,8 @@ public class WitheredTreePortalReveal : MonoBehaviour
             yield return null;
         }
         transform.localScale = Vector3.zero;
+
+        // 아트팀 신규 에셋(펑 효과) - 나무가 다 쭈그러든 순간 재생.
+        PoofEffect.Spawn(transform.position);
     }
 }

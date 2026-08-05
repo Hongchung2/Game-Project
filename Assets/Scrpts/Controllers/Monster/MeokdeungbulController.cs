@@ -161,7 +161,7 @@ public class MeokdeungbulController : BaseController
         {
             GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             DokkaebiFireProjectile p = proj.GetComponent<DokkaebiFireProjectile>();
-            if (p != null) p.Init(dir);
+            if (p != null) p.Init(dir, _selfStat);
             TelemetryDokkaebiFireObserver.Attach(proj, "먹등불", ATTACK_TELEGRAPH_DURATION, _player.gameObject, TELEMETRY_STAGE);
 
             yield return new WaitForSeconds(burstGap);

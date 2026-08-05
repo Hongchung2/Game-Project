@@ -210,6 +210,8 @@ public class FallMazeManager : MonoBehaviour
         if (!HasAnyLegalMove())
         {
             Debug.Log("[먹그림자 미로] 더 이상 갈 곳이 없습니다 (규칙 위반 없이는 진행 불가). 입구로 리셋.");
+            if (CenterMessageUI.Instance != null)
+                CenterMessageUI.Instance.Show("더 이상 갈 곳이 없다... 다시 처음부터.", 2f);
             FailAndReset();
         }
     }
@@ -218,6 +220,8 @@ public class FallMazeManager : MonoBehaviour
     public void OnWrongExit(string exitId)
     {
         Debug.Log($"[먹그림자 미로] 오답 출구 '{exitId}'. 입구로 리셋.");
+        if (CenterMessageUI.Instance != null)
+            CenterMessageUI.Instance.Show("틀린 출구다... 다시 처음부터.", 2f);
         FailAndReset();
     }
 
@@ -225,6 +229,8 @@ public class FallMazeManager : MonoBehaviour
     public void OnCorrectExit()
     {
         Debug.Log("[먹그림자 미로] 정답 출구 도달! 몬스터방으로 이동.");
+        if (CenterMessageUI.Instance != null)
+            CenterMessageUI.Instance.Show("정답이다!", 1.5f);
         StartCoroutine(SuccessSequence());
     }
 

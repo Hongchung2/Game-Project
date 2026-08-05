@@ -8,6 +8,7 @@ public class StairController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            GameProgress.SetCheckpoint(sceneName);
             Managers.Load.StartFadeAndLoad(sceneName, "Stage1_UndergroundScene1");
         }
     }

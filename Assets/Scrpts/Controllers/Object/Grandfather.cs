@@ -163,6 +163,8 @@ public class Grandfather : MonoBehaviour, IInteractable
         if (ScrollCollection.IsCollected("winter"))
         {
             Debug.Log("할아버지: 고맙네, 자네 덕분에 나무가 다시 건강해졌어.");
+            if (QuestPopupUI.Instance != null)
+                QuestPopupUI.Instance.Show("할아버지: 고맙네, 자네 덕분에 나무가 다시 건강해졌어.");
             return;
         }
 
@@ -180,6 +182,8 @@ public class Grandfather : MonoBehaviour, IInteractable
         }
 
         Debug.Log("할아버지: 정화수는 나눴으니, 서쪽과 동쪽 호수의 몬스터를 처치하고 정화하고 오게나.");
+        if (QuestPopupUI.Instance != null)
+            QuestPopupUI.Instance.Show("할아버지: 정화수는 나눴으니, 서쪽과 동쪽 호수의 몬스터를 처치하고 정화하고 오게나.");
     }
 
     // 작업지시서 #09: 여기서 곧장 엔딩으로 가지 않음 - 겨울 족자까지 다 모으면

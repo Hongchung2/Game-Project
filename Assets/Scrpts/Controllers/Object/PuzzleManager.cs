@@ -104,6 +104,8 @@ public class SpringPuzzleManager : MonoBehaviour
         if (weighCount >= MAX_WEIGH_COUNT)
         {
             Debug.Log("더 이상 저울을 사용할 수 없습니다! 횃불이 모두 꺼졌습니다. 정답을 제출하세요.");
+            if (CenterMessageUI.Instance != null)
+                CenterMessageUI.Instance.Show("횃불이 모두 꺼졌다. 이제 정답을 제출해야 한다.", 2.5f);
             return;
         }
 
@@ -114,6 +116,8 @@ public class SpringPuzzleManager : MonoBehaviour
         if (leftCount == 0 && rightCount == 0)
         {
             Debug.Log("최소 한쪽 접시에는 항아리를 올려야 작동합니다!");
+            if (CenterMessageUI.Instance != null)
+                CenterMessageUI.Instance.Show("최소 한쪽 접시에는 항아리를 올려야 한다.", 2f);
             return;
         }
 
@@ -191,11 +195,19 @@ public class SpringPuzzleManager : MonoBehaviour
         {
             Debug.Log("🎉 정답입니다! '春' 족자를 획득했습니다!");
             isCleared = true;
-            if (rewardScroll != null) rewardScroll.SetActive(true);
+            if (CenterMessageUI.Instance != null)
+                CenterMessageUI.Instance.Show("정답이다! 봄 춘(春) 족자를 얻었다.", 2f);
+            if (rewardScroll != null)
+            {
+                rewardScroll.SetActive(true);
+                PoofEffect.Spawn(rewardScroll.transform.position); // 아트팀 신규 에셋(펑 효과)
+            }
         }
         else
         {
             Debug.Log("❌ 오답입니다!");
+            if (CenterMessageUI.Instance != null)
+                CenterMessageUI.Instance.Show("오답이다... 처음부터 다시.", 2f);
             HardReset();
         }
     }

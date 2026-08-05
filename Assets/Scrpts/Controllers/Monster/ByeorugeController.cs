@@ -21,12 +21,11 @@ public class ByeorugeController : BaseController
     public float pincerTelegraph = 0.6f;   // 예고 동작
     public float pincerRange = 1.5f;
     public float pincerAngle = 90f;        // 전방 부채꼴 각도
-    public float pincerDamageFraction = 1f / 5f;
+    public const int PINCER_DAMAGE = 2;    // 명세서 1/5 × MaxHp(10) = 2 (스탯 밸런싱: 고정값으로 통일)
 
     [Header("먹물 방패")]
-    public float shieldBurnTotalFraction = 1f / 7f; // 방패 중 피격 시 공격자에게 튀는 도트 총합
-    public float shieldBurnDuration = 3f;
-    public int shieldBurnTicks = 6;
+    public const int SHIELD_BURN_DAMAGE = 1; // 명세서 1/7 × MaxHp(10) ≈ 1 (도트 총합, 한 번에 적용)
+    public float shieldBurnDelay = 1f;       // 방패 피격 후 이 시간 뒤에 도트 적용(잔류 연출용 대기)
 
     public bool IsShielding { get; private set; }
     public Vector2 FacingDir { get; private set; } = Vector2.down;
@@ -179,8 +178,11 @@ public class ByeorugeController : BaseController
 
         if (dist <= pincerRange && angle <= pincerAngle * 0.5f)
         {
-            int dmg = Mathf.RoundToInt(_playerStat.MaxHp * pincerDamageFraction);
-            _playerStat.Hp = Mathf.Max(0, _playerStat.Hp - dmg);
+            if (_selfStat != null)
+            {
+                _selfStat.Attack = PINCER_DAMAGE;
+                _playerStat.OnAttacked(_selfStat);
+            }
             Telemetry.AttackHit("벼루게", pincerTelegraph, TELEMETRY_STAGE);
         }
         else
@@ -197,16 +199,11 @@ public class ByeorugeController : BaseController
 
     private IEnumerator SplashDot(Stat attacker)
     {
-        int totalBurn = Mathf.RoundToInt(attacker.MaxHp * shieldBurnTotalFraction);
-        int perTick = Mathf.Max(1, totalBurn / shieldBurnTicks);
-        float tickInterval = shieldBurnDuration / shieldBurnTicks;
+        yield return new WaitForSeconds(shieldBurnDelay);
+        if (attacker == null || _selfStat == null) yield break;
 
-        for (int i = 0; i < shieldBurnTicks; i++)
-        {
-            yield return new WaitForSeconds(tickInterval);
-            if (attacker == null) yield break;
-            attacker.Hp = Mathf.Max(0, attacker.Hp - perTick);
-        }
+        _selfStat.Attack = SHIELD_BURN_DAMAGE;
+        attacker.OnAttacked(_selfStat);
     }
 
     protected override void OnDie()
