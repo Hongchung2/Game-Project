@@ -23,6 +23,8 @@ public class SummerSwitchController : MonoBehaviour, IInteractable
         if (blackPillar != null) blackPillar.Deactivate();
 
         Debug.Log("스위치 작동! 흰 기둥과 검은 기둥이 사라졌습니다.");
+        if (CenterMessageUI.Instance != null)
+            CenterMessageUI.Instance.Show("스위치가 작동해 기둥이 사라졌다.", 1.5f);
     }
 
     public void ResetSwitch()

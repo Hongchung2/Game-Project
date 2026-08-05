@@ -3,6 +3,8 @@ using System.Collections;
 
 public class GoblinSpearController : BaseMonsterController
 {
+    private const int TELEMETRY_STAGE = 1; // 명세서 4.4 가중치 태깅용
+
     float AttackCount = 0f;
     private float lastdistance;
     private bool _isWaiting = false;
@@ -10,6 +12,7 @@ public class GoblinSpearController : BaseMonsterController
 
     protected override void UpdateMoving()
     {
+        Debug.Log($"isAttacking: {_isAttacking} lockTarget: {_lockTarget}");
         if (_lockTarget == null)
         {
             State = Define.State.Idle;
@@ -74,16 +77,14 @@ public class GoblinSpearController : BaseMonsterController
     }
 
     protected override IEnumerator AttackRoutine()
-    {
+    {Debug.Log("AttackRoutine 시작");
         _isAttacking = true;
-
-        while (true) // 무한 루프로 공격 반복
-        {
             AttackCount = 0f;
 
             // 1초 누적 (나갔다 와도 유지)
             while (AttackCount < 1.0f)
             {
+                
                 if (_lockTarget == null)
                 {
                     _stat.add_MoveSpeed = 0;
@@ -92,16 +93,21 @@ public class GoblinSpearController : BaseMonsterController
                     yield break;
                 }
 
-                if (detection.playerDetected)
-                {
-                    FollowPlayerSlowly();
-                    AttackCount += Time.deltaTime;
-                }
-                else
+                // detection 밖으로 나가면 공격 루틴 종료하고 추적으로
+
+                if (!detection.playerDetected)
                 {
                     _animator.SetBool("IsMoving", false);
                     _rb.linearVelocity = Vector2.zero;
                 }
+                else
+                {
+                    //FollowPlayerSlowly();
+                    _rb.linearVelocity = Vector2.zero;
+                    _animator.SetBool("IsMoving", false);
+                    AttackCount += Time.deltaTime;
+                }
+                
 
                 lastdistance = Vector2.Distance(transform.position, _lockTarget.transform.position);
                 yield return null;
@@ -111,6 +117,7 @@ public class GoblinSpearController : BaseMonsterController
             _stat.add_MoveSpeed = 0;
             _rb.linearVelocity = Vector2.zero;
             _animator.SetBool("IsMoving", false);
+            yield return new WaitForSeconds(1f);
             State = Define.State.Skill;
 
             Vector3 attackTargetPos = _lockTarget != null ? _lockTarget.transform.position : transform.position;
@@ -133,15 +140,14 @@ public class GoblinSpearController : BaseMonsterController
                         targetStat.OnAttacked(_stat);
                     }
                 }
-
-                // 2초 쿨타임 (이 동안 AttackCount 누적 안 됨)
-                State = Define.State.Moving;
-                _animator.SetBool("IsMoving", true);
-                yield return new WaitForSeconds(2.0f);
-
-                // 쿨타임 끝나면 다시 1초 누적부터
             }
-        }
+            // 2초 쿨타임 (이 동안 AttackCount 누적 안 됨)
+            State = Define.State.Moving;
+            _animator.SetBool("IsMoving", true);
+            yield return new WaitForSeconds(2.0f);
+
+            _isAttacking = false;
+            _attackCoroutine = null;    
     }
 
     void FollowPlayerSlowly()
@@ -152,33 +158,22 @@ public class GoblinSpearController : BaseMonsterController
 
         float currentdistance = Vector2.Distance(transform.position, _lockTarget.transform.position);
         Vector3 dirToPlayer = (_lockTarget.transform.position - transform.position).normalized;
-        
-        if (detection.playerDetected)
+
+        _animator.SetBool("IsMoving", true);
+
+        float xTargetScale = (_lockTarget.transform.position.x < transform.position.x) ? 1f : -1f;
+        transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);
+
+
+        if (currentdistance < detection.detectWidth / 2f)
         {
-            _animator.SetBool("IsMoving", true);
-
-            float xTargetScale = (_lockTarget.transform.position.x < transform.position.x) ? 1f : -1f;
-            transform.localScale = new Vector3(xTargetScale * _initialScale.x, _initialScale.y, _initialScale.z);
-           
-            if (currentdistance > lastdistance + 0.05f)
-            {
-                _rb.linearVelocity = dirToPlayer * _stat.Total_MoveSpeed;
-            }
-
-           else if (currentdistance <= lastdistance - 0.05f)
-            {
-                _rb.linearVelocity = -dirToPlayer * _stat.Total_MoveSpeed;
-            }
-            
-            else
-            {
-                _rb.linearVelocity = Vector2.zero;
-            }
+            _rb.linearVelocity = -dirToPlayer * _stat.Total_MoveSpeed;
         }
         else
         {
-             _rb.linearVelocity = Vector2.zero;
+            _rb.linearVelocity = dirToPlayer * _stat.Total_MoveSpeed;
         }
+
     }
 }
 

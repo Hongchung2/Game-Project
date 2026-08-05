@@ -1,0 +1,56 @@
+[
+  {
+    "name": "generate_boss_decision",
+    "description": "산수원 주인이 이번 전투에서 사용할 패턴 가중치와 대사를 결정한다.",
+    "strict": true,
+    "input_schema": {
+      "type": "object",
+      "required": ["mark_weight", "mountain_target", "phase2_pattern_weight", "phase2_recovery_exposed", "boss_line_p1", "boss_line_transition", "confidence"],
+      "additionalProperties": false,
+      "properties": {
+        "mark_weight": {
+          "type": "object",
+          "required": ["mountain", "cloud"],
+          "additionalProperties": false,
+          "properties": {
+            "mountain": { "type": "number", "description": "산 표식(파편 낙하) 사용 확률. 반드시 0.3~0.7 사이 값." },
+            "cloud": { "type": "number", "description": "구름 표식(감속+도트) 사용 확률. 반드시 0.3~0.7 사이 값." }
+          }
+        },
+        "mountain_target": {
+          "type": "string",
+          "enum": ["habitual_position", "current_position"],
+          "description": "산 표식 파편 낙하 지점. 회피 편향 데이터가 충분하면 habitual_position 권장."
+        },
+        "phase2_pattern_weight": {
+          "type": "object",
+          "required": ["punch", "slam"],
+          "additionalProperties": false,
+          "properties": {
+            "punch": { "type": "number", "description": "돌주먹 내려찍기 비중. 반드시 0.3~0.7 사이 값." },
+            "slam": { "type": "number", "description": "양손 지면강타 비중. 반드시 0.3~0.7 사이 값." }
+          }
+        },
+        "phase2_recovery_exposed": {
+          "type": "boolean",
+          "description": "2페이즈 후딜을 정직하게 노출할지 여부. 플레이어의 반격 능력이 낮으면 true."
+        },
+        "boss_line_p1": {
+          "type": "string",
+          "maxLength": 40,
+          "description": "1페이즈 중 대사. 심드렁하고 절제된 톤."
+        },
+        "boss_line_transition": {
+          "type": "string",
+          "maxLength": 40,
+          "description": "운무강림(페이즈 전환) 시 대사."
+        },
+        "confidence": {
+          "type": "string",
+          "enum": ["low", "mid", "high"],
+          "description": "표본 수가 부족하면 low."
+        }
+      }
+    }
+  }
+]

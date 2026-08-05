@@ -1,0 +1,25 @@
+{
+  "reaction": {
+    "raw": { "short": 0.35, "mid": 0.61, "long": 0.80 },
+    "tier": "low",
+    "sample": 12
+  },
+  "range": {
+    "melee_ratio": 0.22,
+    "tier": "ranged",
+    "sample": 18
+  },
+  "tanker_comparison": {
+    "허수아비": { "rate": 0.28, "sample": 4, "stage": 1 },
+    "벼루게": { "rate": 0.15, "sample": 6, "stage": 2 },
+    "weighted_favor": "허수아비"
+  },
+  "punish": { "rate": 0.55, "tier": "mid", "sample": 10 },
+  "dodge_bias": { "left_ratio": 0.68, "tier": "left", "sample": 9 },
+  "death_history": {
+    "recent": [
+      { "attempt": 1, "died_by": "mountain_mark", "position": { "x": 12, "y": 8 } }
+    ],
+    "summary_older": null
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "boss-proxy",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "산수원 주인(묵운산군) 보스 판단 요청을 게임 클라이언트 대신 대행하는 Cloudflare Workers 프록시 (뼈대)",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "tsx test/local-test.ts",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p test/tsconfig.json"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.115.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241127.0",
+    "@types/node": "^22.9.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "wrangler": "^3.90.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "esbuild@0.17.19": true,
+    "sharp@0.33.5": true,
+    "workerd@1.20250718.0": true
+  }
+}
