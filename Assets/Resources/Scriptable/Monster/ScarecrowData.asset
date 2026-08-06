@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ScarecrowData
   m_EditorClassIdentifier: Assembly-CSharp::MonsterData
   monsterName: Scarecrow
-  baseMaxHp: 9
-  baseAttack: 2
+  baseMaxHp: 108
+  baseAttack: 25
   baseDefense: 0
   attackSpeed: 1
   moveSpeed: 1.5

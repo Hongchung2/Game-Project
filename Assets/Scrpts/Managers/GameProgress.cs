@@ -15,6 +15,10 @@ public class GameProgressData
     public bool eastLakePurified;
     public bool waterPuzzleSolved;
     public bool hasBronzeBell;
+    public bool introDialogueShown;
+    public bool springArrivalGuideShown;
+    public bool springPuzzleGuideShown;
+    public bool summerPuzzleGuideShown;
 }
 
 // 게임 전체 진행상황(현재 체크포인트 씬, 모은 족자, 호수 정화, 정화수 퍼즐, 청동방울 소지)을
@@ -33,6 +37,11 @@ public static class GameProgress
     public static int CurrentSlot = DEFAULT_SLOT;
 
     public static string CheckpointScene { get; private set; } = "";
+    public static bool IntroDialogueShown { get; private set; } = false;
+    // 봄방 도착 인사/사계절 방 소개, 봄방 퍼즐 힌트, 여름방 퍼즐 힌트 - 각각 딱 한 번만.
+    public static bool SpringArrivalGuideShown { get; private set; } = false;
+    public static bool SpringPuzzleGuideShown { get; private set; } = false;
+    public static bool SummerPuzzleGuideShown { get; private set; } = false;
 
     private static bool _quitHookRegistered = false;
 
@@ -62,6 +71,31 @@ public static class GameProgress
         Save(CurrentSlot);
     }
 
+    // 인트로에서 딱 한 번만 보여줄 돗가비 대사(IntroDokkaebiLine)를 다시 안 보여주려고 체크하는 용도.
+    public static void MarkIntroDialogueShown()
+    {
+        IntroDialogueShown = true;
+        Save(CurrentSlot);
+    }
+
+    public static void MarkSpringArrivalGuideShown()
+    {
+        SpringArrivalGuideShown = true;
+        Save(CurrentSlot);
+    }
+
+    public static void MarkSpringPuzzleGuideShown()
+    {
+        SpringPuzzleGuideShown = true;
+        Save(CurrentSlot);
+    }
+
+    public static void MarkSummerPuzzleGuideShown()
+    {
+        SummerPuzzleGuideShown = true;
+        Save(CurrentSlot);
+    }
+
     public static void Save(int slot = DEFAULT_SLOT)
     {
         try
@@ -74,6 +108,10 @@ public static class GameProgress
                 eastLakePurified = LakePurifyState.EastPurified,
                 waterPuzzleSolved = WaterPuzzleState.WaterSplit,
                 hasBronzeBell = BronzeBellState.HasBell,
+                introDialogueShown = IntroDialogueShown,
+                springArrivalGuideShown = SpringArrivalGuideShown,
+                springPuzzleGuideShown = SpringPuzzleGuideShown,
+                summerPuzzleGuideShown = SummerPuzzleGuideShown,
             };
 
             string json = JsonUtility.ToJson(data, true);
@@ -134,6 +172,10 @@ public static class GameProgress
         LakePurifyState.EastPurified = data.eastLakePurified;
         WaterPuzzleState.WaterSplit = data.waterPuzzleSolved;
         BronzeBellState.HasBell = data.hasBronzeBell;
+        IntroDialogueShown = data.introDialogueShown;
+        SpringArrivalGuideShown = data.springArrivalGuideShown;
+        SpringPuzzleGuideShown = data.springPuzzleGuideShown;
+        SummerPuzzleGuideShown = data.summerPuzzleGuideShown;
     }
 
     public static void ResetToBlank()
@@ -144,6 +186,10 @@ public static class GameProgress
         LakePurifyState.EastPurified = false;
         WaterPuzzleState.WaterSplit = false;
         BronzeBellState.HasBell = false;
+        IntroDialogueShown = false;
+        SpringArrivalGuideShown = false;
+        SpringPuzzleGuideShown = false;
+        SummerPuzzleGuideShown = false;
     }
 
     // 새 게임 시작 시 호출 - 백지로 되돌리고 그 상태를 바로 슬롯에 덮어쓴다(이전 세이브와 안 섞이게).

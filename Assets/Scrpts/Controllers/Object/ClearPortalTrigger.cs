@@ -27,6 +27,7 @@ public class ClearPortalTrigger : MonoBehaviour
         if (ScreenFader.Instance != null)
             yield return ScreenFader.Instance.FadeOut(Color.black, fadeDuration);
 
+        GameProgress.SetCheckpoint(nextSceneName);
         SceneManager.LoadScene(nextSceneName);
     }
 }

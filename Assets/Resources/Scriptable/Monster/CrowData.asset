@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CrowData
   m_EditorClassIdentifier: Assembly-CSharp::MonsterData
   monsterName: Crow
-  baseMaxHp: 2
-  baseAttack: 1
+  baseMaxHp: 24
+  baseAttack: 10
   baseDefense: 0
   attackSpeed: 1
   moveSpeed: 1.5

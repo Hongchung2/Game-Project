@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GoblinSpearData
   m_EditorClassIdentifier: Assembly-CSharp::MonsterData
   monsterName: GoblinSpear
-  baseMaxHp: 5
-  baseAttack: 1
+  baseMaxHp: 60
+  baseAttack: 20
   baseDefense: 0
   attackSpeed: 1
   moveSpeed: 2

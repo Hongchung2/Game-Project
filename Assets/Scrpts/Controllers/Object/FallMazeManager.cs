@@ -263,6 +263,7 @@ public class FallMazeManager : MonoBehaviour
 
         if (!string.IsNullOrEmpty(monsterRoomSceneName))
         {
+            GameProgress.SetCheckpoint(monsterRoomSceneName);
             SceneManager.LoadScene(monsterRoomSceneName);
             yield break;
         }

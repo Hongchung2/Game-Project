@@ -4,34 +4,30 @@ using UnityEngine;
 // 겨울방 할아버지 NPC. 대화 → 정화수 퍼즐 → 호수 정화 확인 → 겨울 족자 지급 → (전부 모았으면) 엔딩까지 담당.
 public class Grandfather : MonoBehaviour, IInteractable
 {
-    private const string QuestText =
-        "이 방 가운데에서 시들시들한 나무를 돌보던 할아버지가 말했다.\n\n" +
-        "\"몬스터들이 서쪽과 동쪽 호수를 오염시켰다네.\n" +
-        "정화하려면 내가 가진 정화수를 정확히 반으로 나눠서\n" +
-        "양쪽 호수에 균일하게 부어야 해. 호수는 예민해서\n" +
-        "비율이 맞지 않으면 아무 일도 일어나지 않는다네.\n\n" +
-        "도와준다면 탈출에 필요한 겨울 동(冬) 족자를 주겠네.\"\n\n" +
-        "문제문\n" +
-        "정화수가 가득 찬 14리터 양동이와 비어 있는 9리터, 5리터 양동이가 있다.\n" +
-        "세 양동이에는 눈금이 없다.\n" +
-        "다른 도구를 사용하지 않고, 정화수를 버리지 않은 채\n" +
-        "양동이 사이에만 정화수를 옮겨야 한다.\n" +
-        "정화수를 옮길 때는 반드시 한 양동이가 비거나,\n" +
-        "다른 양동이가 가득 찰 때까지 부어야 한다.\n\n" +
-        "14리터 양동이와 9리터 양동이에 각각 7리터씩 나누어 담아라.";
+    // BossDialogueBox(초상화+타이핑 연출)로 통일 - 할아버지 초상화는 아직 없어서 null로 넘김
+    // (이미지 나오면 여기에 스프라이트만 연결하면 됨).
+    private static readonly string[] QuestLines =
+    {
+        "이 방 가운데에서 시들시들한 나무를 돌보던 할아버지가 말했다.",
+        "몬스터들이 서쪽과 동쪽 호수를 오염시켰다네.",
+        "정화하려면 내가 가진 정화수를 정확히 반으로 나눠서 양쪽 호수에 균일하게 부어야 해. 호수는 예민해서 비율이 맞지 않으면 아무 일도 일어나지 않는다네.",
+        "도와준다면 탈출에 필요한 겨울 동(冬) 족자를 주겠네.",
+        "정화수가 가득 찬 14리터 양동이와 비어 있는 9리터, 5리터 양동이가 있다네. 세 양동이에는 눈금이 없어.",
+        "다른 도구는 쓰지 않고, 정화수를 버리지도 않은 채 양동이 사이에만 옮겨야 하네. 한 양동이가 비거나 다른 양동이가 가득 찰 때까지 부어야 하고.",
+        "14리터 양동이와 9리터 양동이에 각각 7리터씩 나누어 담아보게.",
+    };
 
-    private const string EscortText =
-        "할아버지가 자네의 손을 잡고 성큼성큼 걸어\n" +
-        "서쪽 호수로 가는 길목까지 데려다주었다.\n\n" +
-        "\"이 문을 지나면 서쪽 호수로 갈 수 있다네.\n" +
-        "그곳을 지키는 몬스터들을 전부 물리치고 나서\n" +
-        "정화수를 호수에 뿌려주게.\"";
+    private static readonly string[] EscortLines =
+    {
+        "할아버지가 자네의 손을 잡고 성큼성큼 걸어 서쪽 호수로 가는 길목까지 데려다주었다.",
+        "이 문을 지나면 서쪽 호수로 갈 수 있다네. 그곳을 지키는 몬스터들을 전부 물리치고 나서 정화수를 호수에 뿌려주게.",
+    };
 
-    private const string EastPortalText =
-        "할아버지가 흐뭇한 표정으로 말했다.\n\n" +
-        "\"서쪽 호수가 다시 맑아졌구먼!\n" +
-        "이제 동쪽 호수도 같은 방법으로 정화해주게.\n" +
-        "동쪽으로 가는 문도 열어두었다네.\"";
+    private static readonly string[] EastPortalLines =
+    {
+        "서쪽 호수가 다시 맑아졌구먼! 이제 동쪽 호수도 같은 방법으로 정화해주게.",
+        "동쪽으로 가는 문도 열어두었다네.",
+    };
 
     [Header("퍼즐 완료 후 포탈로 데려가기")]
     public GameObject westPortal;   // 평소엔 비활성화 상태로 두고, 퍼즐 풀면 여기서 활성화함
@@ -63,10 +59,7 @@ public class Grandfather : MonoBehaviour, IInteractable
         eastPortal.SetActive(true);
 
         bool closed = false;
-        if (QuestPopupUI.Instance != null)
-            QuestPopupUI.Instance.Show(EastPortalText, () => closed = true);
-        else
-            closed = true;
+        BossDialogueBox.Show(EastPortalLines, null, () => closed = true);
 
         yield return new WaitUntil(() => closed);
     }
@@ -139,10 +132,7 @@ public class Grandfather : MonoBehaviour, IInteractable
         transform.position = grandfatherStop;
 
         bool closed = false;
-        if (QuestPopupUI.Instance != null)
-            QuestPopupUI.Instance.Show(EscortText, () => closed = true);
-        else
-            closed = true;
+        BossDialogueBox.Show(EscortLines, null, () => closed = true);
 
         yield return new WaitUntil(() => closed);
 
@@ -162,9 +152,7 @@ public class Grandfather : MonoBehaviour, IInteractable
     {
         if (ScrollCollection.IsCollected("winter"))
         {
-            Debug.Log("할아버지: 고맙네, 자네 덕분에 나무가 다시 건강해졌어.");
-            if (QuestPopupUI.Instance != null)
-                QuestPopupUI.Instance.Show("할아버지: 고맙네, 자네 덕분에 나무가 다시 건강해졌어.");
+            BossDialogueBox.Show(new[] { "고맙네, 자네 덕분에 나무가 다시 건강해졌어." }, null);
             return;
         }
 
@@ -176,14 +164,11 @@ public class Grandfather : MonoBehaviour, IInteractable
 
         if (!WaterPuzzleState.WaterSplit)
         {
-            if (QuestPopupUI.Instance != null)
-                QuestPopupUI.Instance.Show(QuestText, () => WaterPuzzleUI.Instance.Open());
+            BossDialogueBox.Show(QuestLines, null, () => WaterPuzzleUI.Instance.Open());
             return;
         }
 
-        Debug.Log("할아버지: 정화수는 나눴으니, 서쪽과 동쪽 호수의 몬스터를 처치하고 정화하고 오게나.");
-        if (QuestPopupUI.Instance != null)
-            QuestPopupUI.Instance.Show("할아버지: 정화수는 나눴으니, 서쪽과 동쪽 호수의 몬스터를 처치하고 정화하고 오게나.");
+        BossDialogueBox.Show(new[] { "정화수는 나눴으니, 서쪽과 동쪽 호수의 몬스터를 처치하고 정화하고 오게나." }, null);
     }
 
     // 작업지시서 #09: 여기서 곧장 엔딩으로 가지 않음 - 겨울 족자까지 다 모으면

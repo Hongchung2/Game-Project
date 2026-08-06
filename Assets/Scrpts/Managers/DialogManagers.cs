@@ -9,11 +9,14 @@ public class DialogManagers : MonoBehaviour
     [SerializeField] CanvasGroup _arrowCanvasGroup;
     public CanvasGroup fadeCanvas;
 
+    // 인트로 기획서의 "조정의 명" 명령문. 조정의 명씬.png를 배경으로 한 자씩 출력된다.
     string[] _dialoge =
     {
-        "때는 조선시대...",
-        "국재환이라는 못생긴 놈이 살고 있었다.",
-        "이 아이는 정말 끔찍하게 생겨 모든 여자한테 맞고 살았다."
+        "흥덕현에 있는 오래된 저택에서 정체를 알 수 없는 이변이 이어지고 있다.\n" +
+        "사람들은 도깨비가 머물며 온갖 사물을 빌려 모습을 감춘다고 전한다.\n" +
+        "이에 조정은 그대를 수색관으로 임명하니, 즉시 저택으로 향하여\n" +
+        "사건의 진상을 밝히고 백성의 근심을 거둘지어다.\n" +
+        "명을 받들어 즉시 출발하라."
     };
 
     int _index = 0;
@@ -88,8 +91,8 @@ public class DialogManagers : MonoBehaviour
             fadeCanvas.alpha = t;
             yield return null;
         }
-        GameProgress.SetCheckpoint("GameScene");
-        SceneManager.LoadScene("GameScene");
+        GameProgress.SetCheckpoint("Stage1_Scene");
+        SceneManager.LoadScene("Stage1_Scene");
     }
 
     IEnumerator ShowArrow()

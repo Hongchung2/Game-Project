@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -9046110435673543026
     second: KakaoTalk_20260515_162448299_01_0
+  - first:
+      213: 4821759036622938011
+    second: Portrait
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -131,7 +134,29 @@ TextureImporter:
       spriteID: e8e69b2bc72c57280800000000000000
       internalID: -9046110435673543026
       vertices: []
-      indices: 
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portrait
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 417
+        width: 506
+        height: 328
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2a7c1d94e6b58370800000000000000
+      internalID: 4821759036622938011
+      vertices: []
+      indices:
       edges: []
       weights: []
     outline: []
@@ -149,6 +174,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       KakaoTalk_20260515_162448299_01_0: -9046110435673543026
+      Portrait: 4821759036622938011
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
