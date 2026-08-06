@@ -17,8 +17,8 @@ public static class SeasonRoomGuideLoader
     {
         if (scene.name == "Stage2_SpringScene")
         {
-            // 도착 인사도, 퍼즐 설명도 매번 다시 해준다 - 안내가 길어서 한 번 듣고 잊으면
-            // 다시 들을 방법이 없다는 피드백 반영(한 번만 보여주던 진행도 플래그 제거).
+            // 씬에 들어올 때마다 도착 인사 1회, 퍼즐에 처음 다가갈 때 설명 1회.
+            // (세이브 플래그로 영구히 막지 않으므로 방을 다시 찾아오면 그때 다시 들을 수 있다)
             SeasonRoomGuide.PlaySpringArrival();
             SeasonRoomGuide.ArmSpringPuzzleHint();
         }
@@ -91,14 +91,12 @@ public static class SeasonRoomGuide
     }
 }
 
-// 플레이어가 퍼즐 근처에 다가오면 설명을 띄우는 트리거.
-// 한 번 띄우고 사라지는 게 아니라 그대로 남아서, 멀어졌다가 다시 오면 또 설명해준다
-// (퍼즐 규칙이 길어서 한 번 듣고 잊으면 다시 들을 방법이 없다는 피드백 반영).
+// 플레이어가 퍼즐 근처에 처음 다가올 때 설명을 한 번 띄우고 스스로 사라지는 트리거.
+// "씬 입장 -> 설명 -> 퍼즐 풀이" 흐름이라 한 씬 안에서는 딱 한 번만 나온다(존을 드나들
+// 때마다 반복되면 안 됨). 씬에 다시 들어오면 새로 심기므로 그때 다시 들을 수 있다.
 public class SeasonPuzzleHintZone : MonoBehaviour
 {
     private string[] _lines;
-    // 범위 안에 서 있는 동안 계속 다시 뜨지 않도록 - 한 번 나가야 다음 설명이 열린다.
-    private bool _playedForThisVisit;
 
     public static void Arm(Vector3 position, float radius, string[] lines)
     {
@@ -113,16 +111,9 @@ public class SeasonPuzzleHintZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (_playedForThisVisit) return;
         if (!other.CompareTag("Player")) return;
 
-        _playedForThisVisit = true;
         BossDialogueBox.Show(_lines, SeasonRoomGuide.LoadPortrait());
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (!other.CompareTag("Player")) return;
-        _playedForThisVisit = false;
+        Destroy(gameObject);
     }
 }

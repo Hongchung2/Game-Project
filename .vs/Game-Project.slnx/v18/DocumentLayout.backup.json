@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Monster\\GoblinGeneralBoss\\GoblinGeneralBossDirector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scrpts\\Controllers\\Monster\\GoblinGeneralBoss\\GoblinGeneralBossDirector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\\uC0AC\uC6A9\uC790\\documents\\github\\game-project\\assets\\scrpts\\controllers\\object\\answerpedestal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\controllers\\object\\answerpedestal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,12 +31,12 @@
       "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\controllers\\object\\pedestalbuttoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Library\\PackageCache\\com.unity.2d.tilemap@2428aeee2f73\\Editor\\TileDragAndDrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.2d.tilemap@2428aeee2f73\\Editor\\TileDragAndDrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\\uC0AC\uC6A9\uC790\\documents\\github\\game-project\\assets\\scrpts\\scenes\\gamescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scrpts\\scenes\\gamescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F92DC329-BB8F-0CCB-C6D3-AFB95988EA17}|Unity.2D.Tilemap.Editor.csproj|c:\\users\\\uC0AC\uC6A9\uC790\\documents\\github\\game-project\\library\\packagecache\\com.unity.2d.tilemap@2428aeee2f73\\editor\\tiledraganddrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F92DC329-BB8F-0CCB-C6D3-AFB95988EA17}|Unity.2D.Tilemap.Editor.csproj|solutionrelative:library\\packagecache\\com.unity.2d.tilemap@2428aeee2f73\\editor\\tiledraganddrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,11 +46,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AnswerPedestal.cs",
               "DocumentMoniker": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\AnswerPedestal.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\Object\\AnswerPedestal.cs",
@@ -54,35 +58,12 @@
               "RelativeToolTip": "Assets\\Scrpts\\Controllers\\Object\\AnswerPedestal.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-23T14:25:41.763Z"
+              "WhenOpened": "2026-06-23T14:25:41.763Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "JarController.cs",
-              "DocumentMoniker": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\JarController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\Object\\JarController.cs",
-              "ToolTip": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\JarController.cs",
-              "RelativeToolTip": "Assets\\Scrpts\\Controllers\\Object\\JarController.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAUwE0AAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-23T14:13:54.909Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PuzzleManager.cs",
-              "DocumentMoniker": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\PuzzleManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\Object\\PuzzleManager.cs",
-              "ToolTip": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\PuzzleManager.cs",
-              "RelativeToolTip": "Assets\\Scrpts\\Controllers\\Object\\PuzzleManager.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAxwDYAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-23T14:12:43.257Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "PedestalButtonController.cs",
               "DocumentMoniker": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\PedestalButtonController.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\Object\\PedestalButtonController.cs",
@@ -106,7 +87,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "TileDragAndDrop.cs",
               "DocumentMoniker": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Library\\PackageCache\\com.unity.2d.tilemap@2428aeee2f73\\Editor\\TileDragAndDrop.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.2d.tilemap@2428aeee2f73\\Editor\\TileDragAndDrop.cs",
@@ -114,12 +95,48 @@
               "RelativeToolTip": "Library\\PackageCache\\com.unity.2d.tilemap@2428aeee2f73\\Editor\\TileDragAndDrop.cs",
               "ViewState": "AgIAAMMAAAAAAAAAAAAqwN0AAABgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T02:29:14.647Z",
+              "WhenOpened": "2026-07-02T02:29:14.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GoblinGeneralBossDirector.cs",
+              "DocumentMoniker": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Monster\\GoblinGeneralBoss\\GoblinGeneralBossDirector.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\Monster\\GoblinGeneralBoss\\GoblinGeneralBossDirector.cs",
+              "ToolTip": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Monster\\GoblinGeneralBoss\\GoblinGeneralBossDirector.cs",
+              "RelativeToolTip": "Assets\\Scrpts\\Controllers\\Monster\\GoblinGeneralBoss\\GoblinGeneralBossDirector.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T08:54:30.101Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
+              "Title": "PuzzleManager.cs",
+              "DocumentMoniker": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\PuzzleManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\Object\\PuzzleManager.cs",
+              "ToolTip": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\PuzzleManager.cs",
+              "RelativeToolTip": "Assets\\Scrpts\\Controllers\\Object\\PuzzleManager.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAxwDYAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-23T14:12:43.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "JarController.cs",
+              "DocumentMoniker": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\JarController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\Object\\JarController.cs",
+              "ToolTip": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\JarController.cs",
+              "RelativeToolTip": "Assets\\Scrpts\\Controllers\\Object\\JarController.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAUwE0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-23T14:13:54.909Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ScrollController.cs",
               "DocumentMoniker": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\ScrollController.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\Object\\ScrollController.cs",
@@ -131,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ExitController.cs",
               "DocumentMoniker": "C:\\Users\\\uC0AC\uC6A9\uC790\\Documents\\GitHub\\Game-Project\\Assets\\Scrpts\\Controllers\\Object\\ExitController.cs",
               "RelativeDocumentMoniker": "Assets\\Scrpts\\Controllers\\Object\\ExitController.cs",
