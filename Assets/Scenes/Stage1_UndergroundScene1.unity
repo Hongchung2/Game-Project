@@ -14060,6 +14060,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 7807566848064171172, guid: 6a339169d9bdc3243920de996900b213,
+        type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 495179215}
     - target: {fileID: 8823765275763999953, guid: 6a339169d9bdc3243920de996900b213,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14113,11 +14118,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4625002927830544215, guid: 6a339169d9bdc3243920de996900b213,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 468140061}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a339169d9bdc3243920de996900b213, type: 3}
 --- !u!1 &468140060 stripped
 GameObject:
@@ -14125,21 +14126,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 468140059}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &468140061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468140060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 298d1949b42d5854ca1f99636a175b30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GlowTileChecker
-  respawnPoint: {fileID: 495179215}
-  checkRadius: 0.3
-  IsGoblinFire: 0
 --- !u!114 &468140062 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8965076729388796843, guid: 6a339169d9bdc3243920de996900b213,
@@ -22668,7 +22654,7 @@ Transform:
   m_GameObject: {fileID: 1254475968}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -70.74846, y: -0.19158888, z: -10}
+  m_LocalPosition: {x: -70.750244, y: -0.19161463, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

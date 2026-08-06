@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 5229857810546257682}
   - component: {fileID: 6753158766541387476}
   - component: {fileID: 6721864018294631423}
+  - component: {fileID: 7807566848064171172}
   m_Layer: 7
   m_Name: Character
   m_TagString: Player
@@ -402,6 +403,21 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &7807566848064171172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625002927830544215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298d1949b42d5854ca1f99636a175b30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GlowTileChecker
+  respawnPoint: {fileID: 0}
+  checkRadius: 0.3
+  IsGoblinFire: 0
 --- !u!1 &5719020688919975200
 GameObject:
   m_ObjectHideFlags: 0
