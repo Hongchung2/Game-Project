@@ -14050,6 +14050,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 748776379095381715, guid: 6a339169d9bdc3243920de996900b213,
+        type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 495179215}
     - target: {fileID: 3475179332930799331, guid: 6a339169d9bdc3243920de996900b213,
         type: 3}
       propertyPath: _joystick
@@ -14115,7 +14120,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7119608397318712732, guid: 6a339169d9bdc3243920de996900b213, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

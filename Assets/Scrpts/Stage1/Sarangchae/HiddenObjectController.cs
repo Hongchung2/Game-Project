@@ -4,8 +4,15 @@ using System.Collections;
 public class HiddenObjectController : MonoBehaviour
 {
     public HiddenObjectManager hiddenObjectManager;
+    protected Animator _animator;
+
+    void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
     public void OnHitEvent()
     {
+        _animator.SetTrigger("Hit");
         hiddenObjectManager?.OnObjectDestroyed();
         StartCoroutine(DisappearEffect());
     }

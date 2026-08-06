@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98120f0738e69b14eac87669896fe58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwordController
-  swordSprite: {fileID: 0}
+  swordSprite: {fileID: 5697416052275049366}
   swingSpeed: 3
   swingAngle: 180
 --- !u!212 &216311095860937982
@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c2e4caa1904804ca7d5ca8113d42a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwordWeapon
-  _attackrange: 1
+  _attackrange: 1.5
 --- !u!114 &6753158766541387476
 MonoBehaviour:
   m_ObjectHideFlags: 0
