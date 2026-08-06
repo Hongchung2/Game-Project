@@ -285,7 +285,9 @@ public class GoblinGeneralCharger : BaseMonsterController
         // 페이즈2를 영영 못 보는 버그였음. 아직 페이즈2 전이면 죽지 않고 대신 페이즈2를 강제로 연다.
         if (isRealBoss && director != null && !director.Phase2Triggered)
         {
-            _stat.Hp = 1;
+            // Hp를 1로 두면 페이즈2가 시작되자마자 한 대에 죽어버려서, 정상적으로 문턱을 밟고
+            // 넘어온 경우와 난이도가 완전히 달라짐 - 어느 경로로 오든 같은 체력에서 시작하게 맞춘다.
+            _stat.Hp = Mathf.Max(1, _stat.Total_MaxHp / 3);
             State = Define.State.Idle;
             director.CheckPhase2Trigger();
             return;

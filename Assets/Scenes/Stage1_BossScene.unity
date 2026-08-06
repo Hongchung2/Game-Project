@@ -36769,12 +36769,12 @@ PrefabInstance:
     - target: {fileID: 3732606043983836560, guid: 3fd8b81914be4294e8d577ba4bf4e4fc,
         type: 3}
       propertyPath: _hp
-      value: 30
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3732606043983836560, guid: 3fd8b81914be4294e8d577ba4bf4e4fc,
         type: 3}
       propertyPath: _maxhp
-      value: 30
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3732606043983836560, guid: 3fd8b81914be4294e8d577ba4bf4e4fc,
         type: 3}

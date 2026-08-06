@@ -36,7 +36,9 @@ public class UI_PlayerHPBar : UI_Scene
 
         if (_stat == null)
         {
-            GameObject player = GameObject.FindWithTag("Player");
+            // FindWithTag는 Stat이 없는 자식 "WallCollider"를 돌려줄 수 있어서(같은 Player 태그)
+            // 그대로 쓰면 _stat이 null로 남아 HP/방어력 숫자가 조용히 안 뜬다.
+            GameObject player = PlayerLocator.Find();
             if (player != null)
             {
                 _stat = player.GetComponent<Stat>();

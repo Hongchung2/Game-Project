@@ -11,9 +11,11 @@ public class GameManager
     {
         if (_player == null)
         {
-            _player = GameObject.FindWithTag("Player");
+            // FindWithTag는 프리팹 자식 "WallCollider"(같은 Player 태그)를 돌려줄 수 있어서
+            // 본체를 보장하는 PlayerLocator를 쓴다 - 자세한 이유는 PlayerLocator 주석 참고.
+            _player = PlayerLocator.Find();
         }
-        return _player; 
+        return _player;
     }
 
     public GameObject Spawn(Define.WorldObject type, string path, Transform parent = null)

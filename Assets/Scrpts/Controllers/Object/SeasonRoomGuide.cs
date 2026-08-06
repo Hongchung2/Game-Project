@@ -17,12 +17,14 @@ public static class SeasonRoomGuideLoader
     {
         if (scene.name == "Stage2_SpringScene")
         {
-            if (!GameProgress.SpringArrivalGuideShown) SeasonRoomGuide.PlaySpringArrival();
-            if (!GameProgress.SpringPuzzleGuideShown) SeasonRoomGuide.ArmSpringPuzzleHint();
+            // 도착 인사도, 퍼즐 설명도 매번 다시 해준다 - 안내가 길어서 한 번 듣고 잊으면
+            // 다시 들을 방법이 없다는 피드백 반영(한 번만 보여주던 진행도 플래그 제거).
+            SeasonRoomGuide.PlaySpringArrival();
+            SeasonRoomGuide.ArmSpringPuzzleHint();
         }
         else if (scene.name == "Stage2_SummerScene")
         {
-            if (!GameProgress.SummerPuzzleGuideShown) SeasonRoomGuide.ArmSummerPuzzleHint();
+            SeasonRoomGuide.ArmSummerPuzzleHint();
         }
     }
 }
@@ -60,25 +62,26 @@ public static class SeasonRoomGuide
 
     public static void PlaySpringArrival()
     {
-        BossDialogueBox.Show(SpringArrivalLines, LoadPortrait(), GameProgress.MarkSpringArrivalGuideShown);
+        BossDialogueBox.Show(SpringArrivalLines, LoadPortrait());
     }
 
     // 실제 퍼즐 오브젝트 근처(Puzzle_Objects)에 트리거를 심어뒀다가, 플레이어가 다가가면 그때 보여줌.
+    // 씬에 들어올 때마다 새로 심으므로, 방을 다시 찾아오면 설명을 다시 들을 수 있다.
     public static void ArmSpringPuzzleHint()
     {
-        ArmHintZone("Puzzle_Objects", SpringPuzzleLines, GameProgress.MarkSpringPuzzleGuideShown);
+        ArmHintZone("Puzzle_Objects", SpringPuzzleLines);
     }
 
     public static void ArmSummerPuzzleHint()
     {
-        ArmHintZone("Puzzle_Objects", SummerPuzzleLines, GameProgress.MarkSummerPuzzleGuideShown);
+        ArmHintZone("Puzzle_Objects", SummerPuzzleLines);
     }
 
-    private static void ArmHintZone(string anchorObjectName, string[] lines, System.Action onShown)
+    private static void ArmHintZone(string anchorObjectName, string[] lines)
     {
         GameObject anchor = GameObject.Find(anchorObjectName);
         Vector3 pos = anchor != null ? anchor.transform.position : Vector3.zero;
-        SeasonPuzzleHintZone.Arm(pos, 4f, lines, onShown);
+        SeasonPuzzleHintZone.Arm(pos, 4f, lines);
     }
 
     public static Sprite LoadPortrait()
@@ -88,13 +91,16 @@ public static class SeasonRoomGuide
     }
 }
 
-// 플레이어가 퍼즐 근처에 다가오면 한 번 대사를 띄우고 스스로 사라지는 트리거.
+// 플레이어가 퍼즐 근처에 다가오면 설명을 띄우는 트리거.
+// 한 번 띄우고 사라지는 게 아니라 그대로 남아서, 멀어졌다가 다시 오면 또 설명해준다
+// (퍼즐 규칙이 길어서 한 번 듣고 잊으면 다시 들을 방법이 없다는 피드백 반영).
 public class SeasonPuzzleHintZone : MonoBehaviour
 {
     private string[] _lines;
-    private System.Action _onShown;
+    // 범위 안에 서 있는 동안 계속 다시 뜨지 않도록 - 한 번 나가야 다음 설명이 열린다.
+    private bool _playedForThisVisit;
 
-    public static void Arm(Vector3 position, float radius, string[] lines, System.Action onShown)
+    public static void Arm(Vector3 position, float radius, string[] lines)
     {
         GameObject go = new GameObject("SeasonPuzzleHintZone");
         go.transform.position = position;
@@ -103,13 +109,20 @@ public class SeasonPuzzleHintZone : MonoBehaviour
         col.radius = radius;
         var zone = go.AddComponent<SeasonPuzzleHintZone>();
         zone._lines = lines;
-        zone._onShown = onShown;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (_playedForThisVisit) return;
         if (!other.CompareTag("Player")) return;
-        BossDialogueBox.Show(_lines, SeasonRoomGuide.LoadPortrait(), () => _onShown?.Invoke());
-        Destroy(gameObject);
+
+        _playedForThisVisit = true;
+        BossDialogueBox.Show(_lines, SeasonRoomGuide.LoadPortrait());
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
+        _playedForThisVisit = false;
     }
 }

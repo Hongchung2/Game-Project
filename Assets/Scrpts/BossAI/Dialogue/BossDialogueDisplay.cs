@@ -57,7 +57,7 @@ public class BossDialogueDisplay : MonoBehaviour
         GameObject textGO = new GameObject("BossLineText");
         textGO.transform.SetParent(canvasGO.transform, false);
         var text = textGO.AddComponent<Text>();
-        // QuestPopupUI와 동일한 폰트 사용 - TextMeshPro 기본 폰트(LiberationSans SDF)는
+        // 프로젝트의 다른 한글 UI와 동일한 레거시 폰트 사용 - TextMeshPro 기본 폰트(LiberationSans SDF)는
         // 한글 글리프가 없어서 한글 대사가 그대로 안 보이는 문제가 있었음(플레이테스트에서 발견).
         text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         text.alignment = TextAnchor.MiddleCenter;

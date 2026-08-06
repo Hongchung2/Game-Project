@@ -149,6 +149,9 @@ public class TitleManager : MonoBehaviour
     private void StartNewGame()
     {
         GameProgress.NewGame();
+        // 묵운산군 학습 데이터(플레이어 프로필/사망 이력)도 같이 백지로 - 안 하면 새 게임인데
+        // 이전 판에서 배운 내용으로 최종 보스가 대응해온다.
+        MukunSangunWakeUp.ResetForNewGame();
         StartCoroutine(FadeAndLoad("DialogScene"));
     }
 

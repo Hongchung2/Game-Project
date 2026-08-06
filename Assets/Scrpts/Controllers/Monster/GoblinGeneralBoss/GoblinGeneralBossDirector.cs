@@ -54,6 +54,8 @@ public class GoblinGeneralBossDirector : MonoBehaviour
     private bool _escaped;
     public bool Phase2Triggered => _phase2Triggered;
     private readonly List<ZombieChaser> _zombies = new List<ZombieChaser>();
+    // 아직 좀비로 변하지 않은(=한 번도 안 맞은) 분신들 - 본체가 쓰러지면 같이 사라져야 한다.
+    private readonly List<GoblinGeneralCharger> _clones = new List<GoblinGeneralCharger>();
 
     private void Awake()
     {
@@ -127,7 +129,8 @@ public class GoblinGeneralBossDirector : MonoBehaviour
         if (camControlled) yield return new WaitForSeconds(FOCUS_HOLD_TIME);
 
         // 2) 분신 7체 - 카메라가 하나씩 포커싱하며 순서대로 소환.
-        var clones = new List<GoblinGeneralCharger>();
+        var clones = _clones;
+        clones.Clear();
         for (int i = 1; i < 8; i++)
         {
             Vector3 pos = phase2SpawnPoints[i].position;
@@ -276,6 +279,17 @@ public class GoblinGeneralBossDirector : MonoBehaviour
             if (zombie != null) zombie.Die();
         }
 
+        // 아직 한 번도 안 맞아서 좀비가 되지 않은 분신들도 본체와 함께 사라진다 - 안 그러면 본체가
+        // 죽은 뒤 탈출로를 찾는 내내 분신 7체가 계속 돌진해와서 사실상 탈출이 불가능해짐.
+        foreach (var clone in _clones)
+        {
+            if (clone == null) continue;
+            clone.StopCharging();
+            StartCoroutine(SpawnSmokePoof(clone.transform.position));
+            Destroy(clone.gameObject);
+        }
+        _clones.Clear();
+
         bool dialogueDone = false;
         BossDialogueBox.Show(DeathLines, bossPortraitSprite, () => dialogueDone = true);
         while (!dialogueDone) yield return null;
@@ -312,7 +326,7 @@ public class GoblinGeneralBossDirector : MonoBehaviour
         if (CenterMessageUI.Instance != null)
             CenterMessageUI.Instance.Show("결국 공간에 삼켜지고 말았다...", 3f);
 
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        GameObject playerObj = PlayerLocator.Find();
         Stat playerStat = playerObj != null ? playerObj.GetComponent<Stat>() : null;
         if (playerStat != null) playerStat.Hp = 0;
     }
@@ -350,7 +364,7 @@ public class GoblinGeneralBossDirector : MonoBehaviour
     private Vector3 FindEscapePortalPosition()
     {
         Vector3 playerPos = bossCharger != null ? bossCharger.transform.position : transform.position;
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        GameObject playerObj = PlayerLocator.Find();
         if (playerObj != null) playerPos = playerObj.transform.position;
 
         for (int i = 0; i < ESCAPE_POSITION_ATTEMPTS; i++)

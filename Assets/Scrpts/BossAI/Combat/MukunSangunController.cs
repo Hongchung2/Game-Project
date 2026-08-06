@@ -111,7 +111,7 @@ public class MukunSangunController : BaseController
         if (selfSr != null && selfSr.sprite == null)
             selfSr.sprite = GetOrCreateCircleSprite();
 
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        GameObject playerObj = PlayerLocator.Find();
         if (playerObj != null)
         {
             _player = playerObj.transform;

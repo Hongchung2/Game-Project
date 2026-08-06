@@ -15242,12 +15242,12 @@ PrefabInstance:
     - target: {fileID: 5891040861264915327, guid: 7d6924da3af005e4bb778a9ed3286e39,
         type: 3}
       propertyPath: add_MoveSpeed
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5891040861264915327, guid: 7d6924da3af005e4bb778a9ed3286e39,
         type: 3}
       propertyPath: base_MoveSpeed
-      value: 100
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7457333081426990822, guid: 7d6924da3af005e4bb778a9ed3286e39,
         type: 3}

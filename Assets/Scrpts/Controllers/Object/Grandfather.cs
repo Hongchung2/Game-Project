@@ -43,7 +43,7 @@ public class Grandfather : MonoBehaviour, IInteractable
         if (_eastAnnounced || eastPortal == null) return;
         if (!LakePurifyState.WestPurified) return;
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject player = PlayerLocator.Find();
         if (player == null) return;
 
         // 서쪽 호수 정화 후 포탈을 타고 중앙으로 돌아오면(x가 확 커짐) 동쪽 포탈을 안내
@@ -83,7 +83,7 @@ public class Grandfather : MonoBehaviour, IInteractable
     {
         yield return new WaitForSeconds(escortStartDelay);
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject player = PlayerLocator.Find();
         if (player == null || westPortal == null) yield break;
 
         PlayerController playerController = player.GetComponent<PlayerController>();

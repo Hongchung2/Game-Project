@@ -46,7 +46,7 @@ public class FallBossPlaceholder : BaseController
         _sr = GetComponent<SpriteRenderer>();
         if (_sr != null) _originalColor = _sr.color;
 
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        GameObject playerObj = PlayerLocator.Find();
         if (playerObj != null)
         {
             _player = playerObj.transform;

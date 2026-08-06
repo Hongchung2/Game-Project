@@ -141276,16 +141276,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 6721864018294631423, guid: 6a339169d9bdc3243920de996900b213,
-        type: 3}
-      propertyPath: interactableLayer.m_Bits
-      value: 2560
-      objectReference: {fileID: 0}
-    - target: {fileID: 8823765275763999953, guid: 6a339169d9bdc3243920de996900b213,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.17
-      objectReference: {fileID: 0}
     - target: {fileID: 8823765275763999953, guid: 6a339169d9bdc3243920de996900b213,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -141334,11 +141324,6 @@ PrefabInstance:
     - target: {fileID: 8823765275763999953, guid: 6a339169d9bdc3243920de996900b213,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965076729388796843, guid: 6a339169d9bdc3243920de996900b213,
-        type: 3}
-      propertyPath: add_MoveSpeed
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -141708,7 +141693,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 053f3dce2eb112743a694dd3a5f05807, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatueController
   statueId: dragon
   contactRange: 1
@@ -142200,7 +142185,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.2
 --- !u!212 &979802759
 SpriteRenderer:
   serializedVersion: 2
@@ -142305,7 +142290,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6dd4fc3ab8f00704cb15b741b893d7b9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SummerPedestal
   pedestalId: tiger
 --- !u!61 &1132391230
@@ -142488,7 +142473,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!212 &1226504586
 SpriteRenderer:
@@ -142609,7 +142594,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6dd4fc3ab8f00704cb15b741b893d7b9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SummerPedestal
   pedestalId: dragon
 --- !u!61 &1274472677
@@ -143261,7 +143246,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.41, y: 0.21}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -143801,8 +143786,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: -0.0021765137, y: 0}
+  m_Radius: 0.3
 --- !u!212 &1711453824
 SpriteRenderer:
   serializedVersion: 2
@@ -144228,7 +144213,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!212 &1813975261
 SpriteRenderer:
