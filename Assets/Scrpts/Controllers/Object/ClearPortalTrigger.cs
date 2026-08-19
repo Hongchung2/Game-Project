@@ -12,6 +12,7 @@ public class ClearPortalTrigger : MonoBehaviour
     public float fadeDuration = 0.5f;
 
     private bool _triggered = false;
+    public AudioClip moveSound;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,6 +25,7 @@ public class ClearPortalTrigger : MonoBehaviour
 
     private IEnumerator EnterSequence()
     {
+        Managers.Sound.PlaySFX(moveSound);
         if (ScreenFader.Instance != null)
             yield return ScreenFader.Instance.FadeOut(Color.black, fadeDuration);
 

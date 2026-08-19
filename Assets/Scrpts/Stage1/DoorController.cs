@@ -20,6 +20,7 @@ public class DoorController : MonoBehaviour
     [Header("잠금 설정")]
     public bool startLocked = false;
     private bool isLocked;
+    public AudioClip moveSound;
 
     void Start()
     {
@@ -56,6 +57,7 @@ public class DoorController : MonoBehaviour
 
     IEnumerator Fade(float from, float to)
     {
+        Managers.Sound.PlaySFX(moveSound);
         float elapsed = 0f;
         fadeCanvasGroup.alpha = from;
         while (elapsed < fadeDuration)

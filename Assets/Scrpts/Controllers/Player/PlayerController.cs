@@ -20,6 +20,7 @@ public class PlayerController : BaseController
     private bool _isReversed = false;
     private Coroutine _reverseCoroutine;
     private Vector3 _originalScale;
+    public AudioClip attackSound;
     [SerializeField] IWeapon _currentWeapon;
     [SerializeField] TextMeshProUGUI _swapButtonText;
 
@@ -198,6 +199,7 @@ public class PlayerController : BaseController
 
     public void OnAttack()
     {
+        
         if (Time.time - _lastAttackTime < _attackCooltime) return; // 쿨타임 체크
         _lastAttackTime = Time.time;
         
@@ -205,6 +207,7 @@ public class PlayerController : BaseController
         {
             MonsterLockTarget();
 
+            Managers.Sound.PlaySFX(attackSound);
             State = Define.State.Skill;
             _animator.SetTrigger("Attack");
 

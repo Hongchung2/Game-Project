@@ -16,6 +16,7 @@ public class TitleManager : MonoBehaviour
     private GameObject _menuRoot;
     private bool _isTransitioning = false;
     private bool _menuShown = false;
+    public AudioClip buttonClickSound;
 
     private void Start()
     {
@@ -51,8 +52,10 @@ public class TitleManager : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
             {
-                _openingVideo.Stop();
-                ShowMenu();
+                // 영상 마지막 프레임으로 이동 후 멈춤
+                //_openingVideo.time = _openingVideo.length;
+                _openingVideo.Pause(); 
+                ShowMenu(); // 버튼만 바로 표시
             }
         }
     }
@@ -110,6 +113,7 @@ public class TitleManager : MonoBehaviour
         rt.sizeDelta = new Vector2(240f, 60f);
 
         var btn = btnGO.AddComponent<Button>();
+        btn.onClick.AddListener(() => Managers.Sound.PlaySFX(buttonClickSound));
         btn.onClick.AddListener(onClick);
 
         GameObject textGO = new GameObject("Text");

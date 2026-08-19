@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using Cinemachine;
 
 public class MazeTileInteract : MonoBehaviour
 {
@@ -9,14 +8,13 @@ public class MazeTileInteract : MonoBehaviour
     public float zoomOutSize = 15f;
     public float viewDuration = 5f;
 
-    CinemachineVirtualCamera _virtualCamera;
+    public Camera PlayerCamera;
     float _originalSize;
     bool _isViewing = false;
 
     void Start()
     {
-        _virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
-        _originalSize = _virtualCamera.m_Lens.OrthographicSize;
+        _originalSize = PlayerCamera.orthographicSize;
         interactButton.SetActive(false);    
     }
 
@@ -52,17 +50,22 @@ public class MazeTileInteract : MonoBehaviour
         _isViewing = true;
         GameCanvas.SetActive(false);
 
-        // 줌아웃
-        _virtualCamera.m_Lens.OrthographicSize = zoomOutSize;
+        // 현재 카메라 위치 저장
+        Vector3 originalPos = PlayerCamera.transform.position;
+
+        // 카메라를 도깨비불 중심으로 이동
+        Vector3 mazeCenter = transform.position;
+        PlayerCamera.transform.position = new Vector3(mazeCenter.x, mazeCenter.y, originalPos.z);
+        PlayerCamera.orthographicSize = zoomOutSize;
+
 
         yield return new WaitForSeconds(viewDuration);
 
         // 원래 크기로 복귀
-        _virtualCamera.m_Lens.OrthographicSize = _originalSize;
+        PlayerCamera.transform.position = originalPos;
+        PlayerCamera.orthographicSize = _originalSize;
 
         GameCanvas.SetActive(true);
         _isViewing = false;
-        
-
     }
 }
