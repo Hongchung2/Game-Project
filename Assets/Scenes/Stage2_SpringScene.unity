@@ -82199,7 +82199,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &603366409
 GameObject:
@@ -82762,6 +82762,7 @@ MonoBehaviour:
   speed: 5
   bounceSpeed: 10
   bounceHeight: 0.2
+  attackSound: {fileID: 0}
   _swapButtonText: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   _joystick: {fileID: 0}
@@ -82804,6 +82805,7 @@ MonoBehaviour:
   speed: 5
   bounceSpeed: 10
   bounceHeight: 0.2
+  attackSound: {fileID: 0}
   _swapButtonText: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   _joystick: {fileID: 0}
@@ -84241,6 +84243,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e11361d968af79448d27efed484fcea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScrollController
+--- !u!1 &1102944153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1102944155}
+  - component: {fileID: 1102944154}
+  m_Layer: 0
+  m_Name: BGMController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1102944154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102944153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfe2ebe2a90b9944c9139b5452c244f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BGM
+  bgmClip: {fileID: 8300000, guid: cb73ddf61f416e54b82de32ebb31bfa7, type: 3}
+  volume: 0.2
+--- !u!4 &1102944155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102944153}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -22.28154, y: 1.15896, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1112192172
 GameObject:
   m_ObjectHideFlags: 0
@@ -85873,53 +85921,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 163758417}
     m_Modifications:
-    - target: {fileID: 596751022468666797, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 596751022468666797, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 596751022468666797, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276299961673780733, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276299961673780733, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 4c858420976891f46bc0aad371ac1332,
-        type: 2}
-    - target: {fileID: 2276299961673780733, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276299961673780733, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -2545665625250635493, guid: 4c858420976891f46bc0aad371ac1332,
-        type: 2}
-    - target: {fileID: 2276299961673780733, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
-        type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276299961673780733, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3339603473411794834, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
         type: 3}
       propertyPath: m_Pivot.x
@@ -86020,40 +86021,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3622689611232663023, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
-        type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5271976117873396127, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
         type: 3}
       propertyPath: m_Name
       value: UI_PlayerHPBar
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375876874557311158, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375876874557311158, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375876874557311158, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.0000038146973
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375876874557311158, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5556572662448798746, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
-        type: 3}
-      propertyPath: m_Name
-      value: HpAndDefenseText
       objectReference: {fileID: 0}
     - target: {fileID: 6409913783387925548, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
         type: 3}
@@ -86702,6 +86673,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponSwiching
       objectReference: {fileID: 0}
+    - target: {fileID: 8785395398779546396, guid: de451c288ccab0c4189ea533b1b07cd7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -87230,6 +87206,11 @@ PrefabInstance:
       objectReference: {fileID: 788691999}
     - target: {fileID: 3475179332930799331, guid: 6a339169d9bdc3243920de996900b213,
         type: 3}
+      propertyPath: attackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c9369ed9c6dfc604882ea3a3177e76da, type: 3}
+    - target: {fileID: 3475179332930799331, guid: 6a339169d9bdc3243920de996900b213,
+        type: 3}
       propertyPath: _swapButtonText
       value: 
       objectReference: {fileID: 683784637}
@@ -87345,3 +87326,4 @@ SceneRoots:
   - {fileID: 1072850307}
   - {fileID: 409858864}
   - {fileID: 293484844}
+  - {fileID: 1102944155}

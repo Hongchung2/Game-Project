@@ -30907,6 +30907,11 @@ PrefabInstance:
       propertyPath: _joystick
       value: 
       objectReference: {fileID: 742514034}
+    - target: {fileID: 3475179332930799331, guid: 6a339169d9bdc3243920de996900b213,
+        type: 3}
+      propertyPath: attackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c9369ed9c6dfc604882ea3a3177e76da, type: 3}
     - target: {fileID: 4625002927830544215, guid: 6a339169d9bdc3243920de996900b213,
         type: 3}
       propertyPath: m_Name
@@ -32535,7 +32540,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.08, y: 0.03, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1285275357}
@@ -32589,7 +32594,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 3757151fd001a864bb1f65f8f52f10e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec3f5c9d06947e7458e9626551938feb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -39939,7 +39944,7 @@ Transform:
   m_GameObject: {fileID: 1383523497}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.59, y: 0.09, z: 0}
+  m_LocalPosition: {x: 9.51, y: 0.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40868,9 +40873,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36de3a2361aa6cd459b156a4f7596bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GlowTileManager
-  stayTime: 2
-  blinkTime: 0.5
-  blinkInterval: 0.15
+  stayTime: 3
+  blinkTime: 3
+  blinkInterval: 0.2
 --- !u!1 &1643623843
 GameObject:
   m_ObjectHideFlags: 0
@@ -43937,13 +43942,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 260168877586183640, guid: 5aebfe611d7095240b4769225bfd19bd,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 260168877586183640, guid: 5aebfe611d7095240b4769225bfd19bd,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 260168877586183640, guid: 5aebfe611d7095240b4769225bfd19bd,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.38
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 260168877586183640, guid: 5aebfe611d7095240b4769225bfd19bd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.44
+      value: 0.51
       objectReference: {fileID: 0}
     - target: {fileID: 260168877586183640, guid: 5aebfe611d7095240b4769225bfd19bd,
         type: 3}
@@ -43985,6 +44000,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1609489579128167167, guid: 5aebfe611d7095240b4769225bfd19bd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9046110435673543026, guid: 9bc7028f2711a9b4db12d93473280069,
+        type: 3}
     - target: {fileID: 5511302612516040516, guid: 5aebfe611d7095240b4769225bfd19bd,
         type: 3}
       propertyPath: m_Name
