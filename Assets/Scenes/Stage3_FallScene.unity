@@ -939,6 +939,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &689531453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 689531455}
+  - component: {fileID: 689531454}
+  m_Layer: 0
+  m_Name: GBMController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &689531454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689531453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfe2ebe2a90b9944c9139b5452c244f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BGM
+  bgmClip: {fileID: 8300000, guid: aca21e56643113a4181347ddc418bf35, type: 3}
+  volume: 0.2
+--- !u!4 &689531455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689531453}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -22.28154, y: 1.15896, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &734327255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1403,7 +1449,7 @@ PrefabInstance:
     - target: {fileID: 2276299961673780733, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
         type: 3}
       propertyPath: m_fontSize
-      value: 35
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2276299961673780733, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
         type: 3}
@@ -1414,7 +1460,7 @@ PrefabInstance:
     - target: {fileID: 2276299961673780733, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 35
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2276299961673780733, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
         type: 3}
@@ -1545,7 +1591,7 @@ PrefabInstance:
     - target: {fileID: 5375876874557311158, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 5375876874557311158, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
         type: 3}
@@ -1555,7 +1601,7 @@ PrefabInstance:
     - target: {fileID: 5375876874557311158, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.0000038146973
+      value: -66.4
       objectReference: {fileID: 0}
     - target: {fileID: 5375876874557311158, guid: 9ec0a2ca1a4cd1c4ab925e1193e80a59,
         type: 3}
@@ -16568,6 +16614,11 @@ PrefabInstance:
       propertyPath: _joystick
       value: 
       objectReference: {fileID: 1907261191}
+    - target: {fileID: 3475179332930799331, guid: 6a339169d9bdc3243920de996900b213,
+        type: 3}
+      propertyPath: attackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c9369ed9c6dfc604882ea3a3177e76da, type: 3}
     - target: {fileID: 3475179332930799331, guid: 6a339169d9bdc3243920de996900b213,
         type: 3}
       propertyPath: _swapButtonText
@@ -45775,3 +45826,4 @@ SceneRoots:
   - {fileID: 332752086}
   - {fileID: 1078691673}
   - {fileID: 1754875192}
+  - {fileID: 689531455}

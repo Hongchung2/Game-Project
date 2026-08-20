@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterData
   ObjectName: Lina
   baseMaxHp: 100
-  baseAttack: 12
+  baseAttack: 3333
   baseMaxDefense: 100
   attackSpeed: 1
-  moveSpeed: 30
+  moveSpeed: 10

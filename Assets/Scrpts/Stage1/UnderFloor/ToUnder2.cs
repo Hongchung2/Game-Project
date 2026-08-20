@@ -11,7 +11,16 @@ public class ToUnder2 : MonoBehaviour
         {
             Managers.Sound.PlaySFX(moveSound);
             GameProgress.SetCheckpoint(sceneName);
-            Managers.Load.StartFadeAndLoad(sceneName, "Stage1_UndergroundScene2");
+
+            LoadManagers load = FindAnyObjectByType<LoadManagers>();
+            if (load != null)
+            {
+                load.StartFadeAndLoad(sceneName);
+            }
+            else
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+            }
         }
     }
 
