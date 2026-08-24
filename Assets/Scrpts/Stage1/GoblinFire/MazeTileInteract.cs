@@ -7,6 +7,7 @@ public class MazeTileInteract : MonoBehaviour
     public GameObject GameCanvas;
     public float zoomOutSize = 15f;
     public float viewDuration = 5f;
+    public GameObject keyHintUI; // F 텍스트 오브젝트
 
     public Camera PlayerCamera;
     float _originalSize;
@@ -14,6 +15,10 @@ public class MazeTileInteract : MonoBehaviour
 
     void Start()
     {
+        if (keyHintUI != null)
+        {
+            keyHintUI.SetActive(false);
+        }
         _originalSize = PlayerCamera.orthographicSize;
         interactButton.SetActive(false);    
     }
@@ -22,7 +27,15 @@ public class MazeTileInteract : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            interactButton.SetActive(true);
+            if (keyHintUI != null)
+            {
+                keyHintUI.SetActive(true);
+            }
+            PlayerController pc = other.GetComponent<PlayerController>();
+            if (pc != null)
+            {
+                pc._mazeZoomInteract = this;
+            }
         }
     }
 
@@ -30,9 +43,14 @@ public class MazeTileInteract : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (interactButton != null)
+            if (keyHintUI != null)
             {
-                interactButton.SetActive(false);
+                keyHintUI.SetActive(false);
+            }
+            PlayerController pc = other.GetComponent<PlayerController>();
+            if (pc != null)
+            {
+                pc._mazeZoomInteract  = null;
             }
         }
     }
@@ -48,6 +66,7 @@ public class MazeTileInteract : MonoBehaviour
     IEnumerator ZoomOutView()
     {
         _isViewing = true;
+        keyHintUI.SetActive(false);
         GameCanvas.SetActive(false);
 
         // 현재 카메라 위치 저장
@@ -65,6 +84,7 @@ public class MazeTileInteract : MonoBehaviour
         PlayerCamera.transform.position = originalPos;
         PlayerCamera.orthographicSize = _originalSize;
 
+        keyHintUI.SetActive(true);
         GameCanvas.SetActive(true);
         _isViewing = false;
     }

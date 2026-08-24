@@ -20,9 +20,11 @@ public class PlayerController : BaseController
     private bool _isReversed = false;
     private Coroutine _reverseCoroutine;
     private Vector3 _originalScale;
+    public MazeTileInteract _mazeZoomInteract;
     public AudioClip attackSound;
     [SerializeField] IWeapon _currentWeapon;
     [SerializeField] TextMeshProUGUI _swapButtonText;
+    
 
     //나중에 작업 할 예정 (아트분 그림 나오면)
     /*[SerializeField] Image _swapButtonImage; 
@@ -97,6 +99,11 @@ public class PlayerController : BaseController
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             OnAttack();
+        }
+
+        if (_mazeZoomInteract != null && Input.GetKeyDown(KeyCode.Z))
+        {
+            _mazeZoomInteract.OnInteract();
         }
         
         // 이동 좌표 계산
