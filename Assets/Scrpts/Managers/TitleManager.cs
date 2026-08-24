@@ -179,6 +179,10 @@ public class TitleManager : MonoBehaviour
 
     private void OnQuit()
     {
+        if (_openingVideo != null)
+        {
+            
+        }
         Application.Quit();
     }
 
